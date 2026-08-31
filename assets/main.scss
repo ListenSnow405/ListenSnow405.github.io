@@ -96,18 +96,20 @@ img {
 
 .site-frame {
   display: grid;
-  gap: 28px;
-  grid-template-columns: 232px minmax(0, 880px);
+  gap: clamp(24px, 2vw, 44px);
+  grid-template-columns: clamp(220px, 14vw, 280px) minmax(0, 1fr);
   justify-content: center;
   margin: 0 auto;
-  max-width: 1210px;
+  max-width: none;
   min-height: 100vh;
-  padding: 32px 24px 0;
+  padding: 32px 0 0;
+  width: min(94vw, 1640px);
 }
 
 .has-discover .site-frame {
-  grid-template-columns: 218px minmax(0, 720px) 252px;
-  max-width: 1290px;
+  grid-template-columns: clamp(220px, 14vw, 280px) minmax(0, 1fr) clamp(280px, 18vw, 340px);
+  max-width: none;
+  width: min(94vw, 1920px);
 }
 
 .profile-sidebar,
@@ -430,6 +432,7 @@ img {
   letter-spacing: -0.055em;
   line-height: 1.18;
   margin: 0;
+  max-width: 780px;
 }
 
 .home-intro h1 span {
@@ -1228,7 +1231,8 @@ img {
   .has-discover .site-frame,
   .site-frame {
     grid-template-columns: 210px minmax(0, 820px);
-    max-width: 1078px;
+    max-width: none;
+    width: calc(100% - 36px);
   }
 
   .discover-sidebar {
@@ -1241,6 +1245,7 @@ img {
   .has-discover .site-frame {
     display: block;
     padding: 0 18px;
+    width: 100%;
   }
 
   .profile-sidebar {
