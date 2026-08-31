@@ -1,0 +1,34 @@
+---
+layout: default
+title: 标签
+permalink: /tags/
+---
+
+<header class="page-hero">
+  <p class="eyebrow">TAGS</p>
+  <h1>标签</h1>
+  <p>从更细粒度的关键词发现文章之间的联系。</p>
+</header>
+
+{% assign sorted_tags = site.tags | sort %}
+<nav class="tag-overview" aria-label="所有标签">
+  {% for tag in sorted_tags %}
+    <a href="#tag-{{ forloop.index }}"># {{ tag[0] }} <span>{{ tag[1] | size }}</span></a>
+  {% endfor %}
+</nav>
+
+<div class="taxonomy-groups tag-groups">
+  {% for tag in sorted_tags %}
+    <section class="taxonomy-group" id="tag-{{ forloop.index }}">
+      <header><h2># {{ tag[0] }}</h2><span>{{ tag[1] | size }}</span></header>
+      <div>
+        {% for post in tag[1] %}
+          <a class="taxonomy-post" href="{{ post.url | relative_url }}">
+            <span>{{ post.title | escape }}</span>
+            <time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%Y.%m.%d" }}</time>
+          </a>
+        {% endfor %}
+      </div>
+    </section>
+  {% endfor %}
+</div>

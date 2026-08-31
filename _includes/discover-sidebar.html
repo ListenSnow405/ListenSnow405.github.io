@@ -1,0 +1,50 @@
+<aside class="discover-sidebar" aria-label="浏览博客内容">
+  <form class="quick-search" action="{{ '/search/' | relative_url }}" method="get">
+    <label for="sidebar-search">搜索文章</label>
+    <div>
+      <input id="sidebar-search" name="q" type="search" placeholder="输入关键词..." autocomplete="off">
+      <button type="submit" aria-label="开始搜索">⌕</button>
+    </div>
+  </form>
+
+  {% assign posts_by_year = site.posts | group_by_exp: "post", "post.date | date: '%Y'" %}
+  <section class="sidebar-section" aria-labelledby="sidebar-archives-title">
+    <div class="sidebar-heading">
+      <span aria-hidden="true">∞</span>
+      <h2 id="sidebar-archives-title">归档</h2>
+    </div>
+    <div class="year-list">
+      {% for year in posts_by_year %}
+        <a href="{{ '/archives/' | relative_url }}#year-{{ year.name }}">
+          <span>{{ year.name }}</span><small>{{ year.items | size }}</small>
+        </a>
+      {% endfor %}
+    </div>
+  </section>
+
+  {% assign sorted_categories = site.categories | sort %}
+  <section class="sidebar-section" aria-labelledby="sidebar-categories-title">
+    <div class="sidebar-heading">
+      <span aria-hidden="true">#</span>
+      <h2 id="sidebar-categories-title">分类</h2>
+    </div>
+    <div class="chip-cloud">
+      {% for category in sorted_categories %}
+        <a href="{{ '/categories/' | relative_url }}#category-{{ forloop.index }}">{{ category[0] }}</a>
+      {% endfor %}
+    </div>
+  </section>
+
+  {% assign sorted_tags = site.tags | sort %}
+  <section class="sidebar-section" aria-labelledby="sidebar-tags-title">
+    <div class="sidebar-heading">
+      <span aria-hidden="true">◇</span>
+      <h2 id="sidebar-tags-title">标签云</h2>
+    </div>
+    <div class="chip-cloud tag-cloud">
+      {% for tag in sorted_tags %}
+        <a href="{{ '/tags/' | relative_url }}#tag-{{ forloop.index }}">{{ tag[0] }}</a>
+      {% endfor %}
+    </div>
+  </section>
+</aside>

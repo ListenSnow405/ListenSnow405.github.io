@@ -1,0 +1,38 @@
+---
+layout: default
+title: 归档
+permalink: /archives/
+---
+
+<header class="page-hero">
+  <p class="eyebrow">ARCHIVES</p>
+  <h1>归档</h1>
+  <p>沿着时间线，回看写过的内容。</p>
+</header>
+
+{% assign posts_by_year = site.posts | group_by_exp: "post", "post.date | date: '%Y'" %}
+<nav class="year-jump" aria-label="按年份浏览">
+  {% for year in posts_by_year %}
+    <a href="#year-{{ year.name }}"><strong>{{ year.name }}</strong><span>{{ year.items | size }} 篇</span></a>
+  {% endfor %}
+</nav>
+
+<div class="archive-timeline">
+  {% for year in posts_by_year %}
+    <section class="archive-year" id="year-{{ year.name }}" aria-labelledby="year-title-{{ year.name }}">
+      <h2 id="year-title-{{ year.name }}">{{ year.name }}</h2>
+      <div class="archive-list">
+        {% for post in year.items %}
+          <article>
+            <time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%m.%d" }}</time>
+            <div>
+              <h3><a href="{{ post.url | relative_url }}">{{ post.title | escape }}</a></h3>
+              <p>{% for category in post.categories %}{{ category }}{% unless forloop.last %} · {% endunless %}{% endfor %}</p>
+            </div>
+            <a href="{{ post.url | relative_url }}" aria-label="阅读《{{ post.title | escape }}》">↗</a>
+          </article>
+        {% endfor %}
+      </div>
+    </section>
+  {% endfor %}
+</div>

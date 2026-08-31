@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="{{ page.lang | default: site.lang | default: 'zh-CN' }}">
+  {%- include head.html -%}
+  <body class="page-{{ page.layout | default: 'default' }}{% if page.sidebar %} has-discover{% endif %}">
+    <a class="skip-link" href="#main-content">跳到主要内容</a>
+
+    <div class="site-frame">
+      {%- include profile-sidebar.html -%}
+
+      <main class="site-main" id="main-content" tabindex="-1">
+        {{ content }}
+
+        <footer class="compact-footer">
+          <span>© {{ site.time | date: '%Y' }} {{ site.author }}</span>
+          <span>Powered by Jekyll &amp; GitHub Pages</span>
+        </footer>
+      </main>
+
+      {% if page.sidebar %}
+        {%- include discover-sidebar.html -%}
+      {% endif %}
+    </div>
+  </body>
+</html>

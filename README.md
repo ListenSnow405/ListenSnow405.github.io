@@ -22,5 +22,9 @@ GitHub Pages 构建完成后，文章会自动上线。
 - `_posts/`：已发布文章
 - `_drafts/`：文章草稿和模板
 - `index.html`：首页
+- `archives.html`：按年份归档
+- `categories.html`：分类索引
+- `tags.html`：标签索引
+- `search.html` 与 `search.json`：站内搜索
 - `about.md`：关于页面
 - `404.html`：未找到页面

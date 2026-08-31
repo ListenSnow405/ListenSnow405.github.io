@@ -1,0 +1,38 @@
+<aside class="profile-sidebar" aria-label="博客导航">
+  <div class="profile-card">
+    <a class="profile-avatar" href="{{ '/' | relative_url }}" aria-label="返回首页">
+      <img src="{{ site.avatar }}" alt="ListenSnow 的 GitHub 头像" width="112" height="112">
+      <span aria-hidden="true"></span>
+    </a>
+    <div class="profile-copy">
+      <a class="profile-title" href="{{ '/' | relative_url }}">{{ site.title }}</a>
+      <p>{{ site.description }}</p>
+    </div>
+  </div>
+
+  <nav class="primary-nav" aria-label="主要导航">
+    <a href="{{ '/' | relative_url }}"{% if page.url == '/' %} aria-current="page"{% endif %}>
+      <span aria-hidden="true">⌂</span>首页
+    </a>
+    <a href="{{ '/archives/' | relative_url }}"{% if page.url == '/archives/' %} aria-current="page"{% endif %}>
+      <span aria-hidden="true">▣</span>归档
+    </a>
+    <a href="{{ '/categories/' | relative_url }}"{% if page.url == '/categories/' %} aria-current="page"{% endif %}>
+      <span aria-hidden="true">#</span>分类
+    </a>
+    <a href="{{ '/tags/' | relative_url }}"{% if page.url == '/tags/' %} aria-current="page"{% endif %}>
+      <span aria-hidden="true">◇</span>标签
+    </a>
+    <a href="{{ '/search/' | relative_url }}"{% if page.url == '/search/' %} aria-current="page"{% endif %}>
+      <span aria-hidden="true">⌕</span>搜索
+    </a>
+    <a href="{{ '/about/' | relative_url }}"{% if page.url == '/about/' %} aria-current="page"{% endif %}>
+      <span aria-hidden="true">○</span>关于
+    </a>
+  </nav>
+
+  <div class="profile-links">
+    <a href="https://github.com/{{ site.github_username }}" target="_blank" rel="noopener noreferrer">GitHub ↗</a>
+    <a href="mailto:{{ site.email }}">Email</a>
+  </div>
+</aside>

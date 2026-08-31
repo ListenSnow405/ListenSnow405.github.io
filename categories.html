@@ -1,0 +1,37 @@
+---
+layout: default
+title: 分类
+permalink: /categories/
+---
+
+<header class="page-hero">
+  <p class="eyebrow">CATEGORIES</p>
+  <h1>分类</h1>
+  <p>按主题浏览文章，快速进入感兴趣的方向。</p>
+</header>
+
+{% assign sorted_categories = site.categories | sort %}
+<nav class="taxonomy-overview" aria-label="所有分类">
+  {% for category in sorted_categories %}
+    <a href="#category-{{ forloop.index }}">
+      <span>{{ category[0] }}</span>
+      <small>{{ category[1] | size }} 篇文章</small>
+    </a>
+  {% endfor %}
+</nav>
+
+<div class="taxonomy-groups">
+  {% for category in sorted_categories %}
+    <section class="taxonomy-group" id="category-{{ forloop.index }}">
+      <header><h2>{{ category[0] }}</h2><span>{{ category[1] | size }}</span></header>
+      <div>
+        {% for post in category[1] %}
+          <a class="taxonomy-post" href="{{ post.url | relative_url }}">
+            <span>{{ post.title | escape }}</span>
+            <time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%Y.%m.%d" }}</time>
+          </a>
+        {% endfor %}
+      </div>
+    </section>
+  {% endfor %}
+</div>
