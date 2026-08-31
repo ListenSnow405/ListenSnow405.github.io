@@ -1331,7 +1331,7 @@ img {
   }
 }
 
-@media (min-width: 1500px) {
+@media (min-width: 1200px) {
   .ambient-edge {
     display: flex;
   }
@@ -1347,7 +1347,7 @@ img {
 
   .profile-sidebar {
     backdrop-filter: blur(18px);
-    background: rgba(9, 14, 24, 0.9);
+    background: rgba(16, 26, 43, 0.92);
     border-bottom: 1px solid var(--line);
     display: block;
     margin: 0 -18px 30px;

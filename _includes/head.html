@@ -1,0 +1,17 @@
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  {%- seo -%}
+
+  {%- capture cache_version -%}
+    {%- if site.github.build_revision -%}
+      {{- site.github.build_revision -}}
+    {%- else -%}
+      {{- site.time | date: '%s' -}}
+    {%- endif -%}
+  {%- endcapture -%}
+  <link rel="stylesheet" href="{{ '/assets/main.css' | relative_url }}?v={{ cache_version }}">
+  {%- feed_meta -%}
+</head>
