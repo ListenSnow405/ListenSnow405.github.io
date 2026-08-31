@@ -4,16 +4,16 @@
 @import "minima";
 
 :root {
-  --bg: #090e18;
-  --bg-raised: #0e1624;
-  --surface: rgba(18, 29, 47, 0.82);
-  --surface-solid: #121d2f;
-  --surface-hover: #17253b;
-  --line: rgba(157, 188, 225, 0.15);
-  --line-strong: rgba(157, 188, 225, 0.28);
+  --bg: #101a2b;
+  --bg-raised: #17243a;
+  --surface: rgba(26, 42, 67, 0.84);
+  --surface-solid: #1a2a44;
+  --surface-hover: #213653;
+  --line: rgba(178, 207, 241, 0.18);
+  --line-strong: rgba(178, 207, 241, 0.32);
   --text: #edf5ff;
-  --text-soft: #a9b9ce;
-  --text-faint: #708198;
+  --text-soft: #b8c7da;
+  --text-faint: #8294ad;
   --accent: #7dd3fc;
   --accent-strong: #38bdf8;
   --accent-violet: #a5b4fc;
@@ -34,15 +34,30 @@ html {
 
 body {
   background:
-    radial-gradient(circle at 16% 4%, rgba(56, 189, 248, 0.075), transparent 26rem),
-    radial-gradient(circle at 82% 28%, rgba(129, 140, 248, 0.055), transparent 32rem),
-    var(--bg);
+    radial-gradient(circle at 12% 5%, rgba(56, 189, 248, 0.15), transparent 30rem),
+    radial-gradient(circle at 88% 24%, rgba(129, 140, 248, 0.11), transparent 35rem),
+    radial-gradient(circle at 52% 110%, rgba(56, 189, 248, 0.07), transparent 38rem),
+    linear-gradient(155deg, #0f1929 0%, #142139 52%, #101a2b 100%);
+  background-attachment: fixed;
   color: var(--text-soft);
   font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif;
   font-size: 16px;
   line-height: 1.75;
   margin: 0;
   min-height: 100vh;
+  position: relative;
+}
+
+body::before {
+  background-image:
+    linear-gradient(rgba(157, 201, 238, 0.025) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(157, 201, 238, 0.025) 1px, transparent 1px);
+  background-size: 72px 72px;
+  content: "";
+  inset: 0;
+  mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.75), transparent 78%);
+  pointer-events: none;
+  position: fixed;
 }
 
 ::selection {
@@ -94,6 +109,80 @@ img {
   top: 16px;
 }
 
+.ambient-edge {
+  align-items: center;
+  color: rgba(170, 205, 238, 0.28);
+  display: none;
+  flex-direction: column;
+  gap: 16px;
+  pointer-events: none;
+  position: fixed;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 0;
+}
+
+.ambient-edge-left {
+  left: clamp(10px, 1.4vw, 32px);
+}
+
+.ambient-edge-right {
+  right: clamp(10px, 1.4vw, 32px);
+}
+
+.ambient-edge::before {
+  border: 1px solid rgba(125, 211, 252, 0.07);
+  border-radius: 50%;
+  content: "";
+  height: 150px;
+  pointer-events: none;
+  position: absolute;
+  width: 150px;
+}
+
+.ambient-edge-left::before {
+  left: -104px;
+  top: -118px;
+}
+
+.ambient-edge-right::before {
+  bottom: -118px;
+  right: -104px;
+}
+
+.ambient-symbol {
+  color: rgba(125, 211, 252, 0.5);
+  filter: drop-shadow(0 0 9px rgba(125, 211, 252, 0.4));
+  font-size: 13px;
+}
+
+.ambient-rule {
+  background: linear-gradient(to bottom, transparent, rgba(157, 201, 238, 0.35), transparent);
+  display: block;
+  height: 96px;
+  width: 1px;
+}
+
+.ambient-copy {
+  font: 650 8px/1 ui-monospace, SFMono-Regular, Consolas, monospace;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  writing-mode: vertical-rl;
+}
+
+.ambient-dots {
+  display: grid;
+  gap: 5px;
+}
+
+.ambient-dots i {
+  background: rgba(125, 211, 252, 0.42);
+  border-radius: 50%;
+  display: block;
+  height: 3px;
+  width: 3px;
+}
+
 .site-frame {
   display: grid;
   gap: clamp(24px, 2vw, 44px);
@@ -103,7 +192,9 @@ img {
   max-width: none;
   min-height: 100vh;
   padding: 32px 0 0;
+  position: relative;
   width: min(94vw, 1900px);
+  z-index: 1;
 }
 
 .has-discover .site-frame {
@@ -1237,6 +1328,12 @@ img {
 
   .discover-sidebar {
     display: none;
+  }
+}
+
+@media (min-width: 1500px) {
+  .ambient-edge {
+    display: flex;
   }
 }
 

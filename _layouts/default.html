@@ -4,6 +4,17 @@
   <body class="page-{{ page.layout | default: 'default' }}{% if page.sidebar %} has-discover{% endif %}">
     <a class="skip-link" href="#main-content">跳到主要内容</a>
 
+    <div class="ambient-edge ambient-edge-left" aria-hidden="true">
+      <span class="ambient-symbol">✦</span>
+      <span class="ambient-rule"></span>
+      <span class="ambient-copy">LISTEN / SNOW · CS 2024</span>
+    </div>
+    <div class="ambient-edge ambient-edge-right" aria-hidden="true">
+      <span class="ambient-copy">THINK · BUILD · WRITE</span>
+      <span class="ambient-rule"></span>
+      <span class="ambient-dots"><i></i><i></i><i></i></span>
+    </div>
+
     <div class="site-frame">
       {%- include profile-sidebar.html -%}
 
