@@ -1,7 +1,10 @@
 # Site identity
-title: "ListenSnow405 的博客"
-author: "ListenSnow405"
-description: "记录技术、学习与生活中的思考。"
+title: "ListenSnow's Blog"
+author: "ListenSnow"
+description: "北京理工大学2024级计算机科学与技术本科生在读，退役OIer。"
+email: "1733493005@qq.com"
+avatar: "https://github.com/ListenSnow405.png?size=320"
+logo: "https://github.com/ListenSnow405.png?size=320"
 lang: "zh-CN"
 timezone: "Asia/Shanghai"
 
@@ -23,6 +26,10 @@ plugins:
 
 # Public profile
 github_username: ListenSnow405
+social:
+  name: ListenSnow
+  links:
+    - "https://github.com/ListenSnow405"
 
 # Files that should not become site pages
 exclude:

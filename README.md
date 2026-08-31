@@ -1,4 +1,4 @@
-# ListenSnow405 的博客
+# ListenSnow's Blog
 
 这是 [https://listensnow405.github.io](https://listensnow405.github.io) 的源代码仓库，使用 GitHub Pages、Jekyll 和 Minima 主题构建。
 
@@ -21,6 +21,6 @@ GitHub Pages 构建完成后，文章会自动上线。
 - `_config.yml`：全站基础配置
 - `_posts/`：已发布文章
 - `_drafts/`：文章草稿和模板
-- `index.md`：首页
+- `index.html`：首页
 - `about.md`：关于页面
 - `404.html`：未找到页面
