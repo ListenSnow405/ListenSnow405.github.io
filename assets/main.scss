@@ -103,13 +103,13 @@ img {
   max-width: none;
   min-height: 100vh;
   padding: 32px 0 0;
-  width: min(94vw, 1640px);
+  width: min(94vw, 1900px);
 }
 
 .has-discover .site-frame {
   grid-template-columns: clamp(220px, 14vw, 280px) minmax(0, 1fr) clamp(280px, 18vw, 340px);
   max-width: none;
-  width: min(94vw, 1920px);
+  width: min(94vw, 2100px);
 }
 
 .profile-sidebar,
