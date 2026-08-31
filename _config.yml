@@ -1,0 +1,31 @@
+# Site identity
+title: "ListenSnow405 的博客"
+author: "ListenSnow405"
+description: "记录技术、学习与生活中的思考。"
+lang: "zh-CN"
+timezone: "Asia/Shanghai"
+
+# GitHub Pages URL
+url: "https://listensnow405.github.io"
+baseurl: ""
+
+# Navigation and posts
+header_pages:
+  - about.md
+show_excerpts: true
+permalink: /posts/:title/
+
+# GitHub Pages' built-in Jekyll theme
+theme: minima
+plugins:
+  - jekyll-feed
+  - jekyll-seo-tag
+
+# Public profile
+github_username: ListenSnow405
+
+# Files that should not become site pages
+exclude:
+  - README.md
+  - Gemfile
+  - Gemfile.lock
