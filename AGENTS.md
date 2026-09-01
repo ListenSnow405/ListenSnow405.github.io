@@ -15,6 +15,38 @@
 
 不要把项目迁移到 React、Vue、Next.js 等框架，也不要引入需要额外构建服务的依赖，除非用户明确要求更换技术栈。
 
+## 本地 Jekyll 环境
+
+当前 Windows 开发环境已经配置完成：
+
+- RubyInstaller + Devkit：`3.1.7-1`，安装目录为 `C:\Ruby31-x64`。
+- Ruby：`3.1.7p261`，平台为 `x64-mingw-ucrt`。
+- RubyGems：`3.3.27`。
+- Bundler：`2.3.27`。
+- `github-pages`：`232`。
+- Jekyll：`3.10.0`。
+- Minima：`2.5.1`。
+- Ruby 版本同时记录在 `.ruby-version` 中；不要在未完成完整构建验证时随意升级 Ruby 主版本或次版本。
+
+项目依赖由根目录的 `Gemfile` 管理。当前机器通过 `.bundle/config` 将 Gem 安装到 `vendor/bundle`；`.bundle/`、`vendor/`、`Gemfile.lock` 和 Jekyll 生成目录均已忽略，不应提交。新环境首次安装时执行：
+
+```powershell
+bundle config set --local path vendor/bundle
+bundle install
+```
+
+常用本地命令：
+
+```powershell
+# 执行一次完整构建
+bundle exec jekyll build
+
+# 在本机启动预览，浏览器访问 http://127.0.0.1:4000/
+bundle exec jekyll serve --host 127.0.0.1 --port 4000
+```
+
+安装或升级 Ruby 后应重新打开终端，使用户级 `PATH` 生效。构建时出现 `To use retry middleware with Faraday v2.0+` 是当前 GitHub Pages 依赖组合产生的非致命提示；只要命令退出码为 `0` 且输出包含 `done`，不应将它误判为构建失败。
+
 ## 核心视觉方向
 
 当前风格定义为“雾蓝夜色中的冰蓝技术博客”。整体应当冷静、清晰、轻盈，体现计算机、算法和持续探索的气质。

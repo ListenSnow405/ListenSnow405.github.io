@@ -37,7 +37,10 @@ social:
 
 # Files that should not become site pages
 exclude:
+  - .bundle
+  - .ruby-version
   - AGENTS.md
   - README.md
   - Gemfile
   - Gemfile.lock
+  - vendor
