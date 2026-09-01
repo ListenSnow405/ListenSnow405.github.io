@@ -37,6 +37,7 @@ social:
 
 # Files that should not become site pages
 exclude:
+  - AGENTS.md
   - README.md
   - Gemfile
   - Gemfile.lock
