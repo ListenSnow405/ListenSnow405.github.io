@@ -1259,6 +1259,34 @@ img {
   padding: 18px;
 }
 
+.post-content table,
+.page-content table {
+  background: rgba(11, 20, 34, 0.58);
+  border-color: var(--line);
+  color: var(--text-soft);
+  display: block;
+  max-width: 100%;
+  overflow-x: auto;
+  scrollbar-color: #334862 transparent;
+}
+
+.post-content table tr:nth-child(even),
+.page-content table tr:nth-child(even) {
+  background: rgba(125, 211, 252, 0.035);
+}
+
+.post-content table th,
+.page-content table th {
+  background: rgba(125, 211, 252, 0.08);
+  border-color: var(--line-strong);
+  color: var(--text);
+}
+
+.post-content table td,
+.page-content table td {
+  border-color: var(--line);
+}
+
 .post-content blockquote {
   border-left-color: var(--accent);
   color: var(--text-soft);
