@@ -198,10 +198,15 @@ img {
   z-index: 1;
 }
 
-.has-discover .site-frame {
+.has-discover .site-frame,
+.page-post .site-frame {
   grid-template-columns: clamp(220px, 14vw, 280px) minmax(0, 1fr) clamp(280px, 18vw, 340px);
   max-width: none;
   width: min(94vw, 2100px);
+}
+
+.page-post .site-main {
+  grid-column: 2 / 4;
 }
 
 .profile-sidebar,
@@ -1164,16 +1169,16 @@ img {
 
 .post {
   align-items: start;
-  column-gap: clamp(32px, 3vw, 52px);
+  column-gap: clamp(24px, 2vw, 44px);
   display: grid;
   grid-template-areas:
     "header toc"
     "content toc"
     "pagination toc"
     "footer toc";
-  grid-template-columns: minmax(0, var(--reading-measure)) minmax(220px, 250px);
-  margin-inline: auto;
-  max-width: 1320px;
+  grid-template-columns: minmax(0, 1fr) clamp(280px, 18vw, 340px);
+  margin-inline: 0;
+  max-width: none;
 }
 
 .page-content {
@@ -1189,6 +1194,7 @@ img {
 .post-header {
   grid-area: header;
   max-width: var(--reading-measure);
+  width: 100%;
 }
 
 .post-title,
@@ -1267,7 +1273,9 @@ img {
   font-size: 16px;
   grid-area: content;
   line-height: 1.85;
+  max-width: var(--reading-measure);
   min-width: 0;
+  width: 100%;
 }
 
 .post-toc {
@@ -1695,7 +1703,8 @@ img {
 }
 
 @media (min-width: 1101px) and (max-width: 1300px) {
-  .has-discover .site-frame {
+  .has-discover .site-frame,
+  .page-post .site-frame {
     gap: clamp(16px, 1.6vw, 24px);
     width: calc(100% - 24px);
   }
@@ -1712,10 +1721,15 @@ img {
 
 @media (max-width: 1100px) {
   .has-discover .site-frame,
+  .page-post .site-frame,
   .site-frame {
     grid-template-columns: 210px minmax(0, 820px);
     max-width: none;
     width: calc(100% - 36px);
+  }
+
+  .page-post .site-main {
+    grid-column: auto;
   }
 
   .discover-sidebar {
@@ -1739,7 +1753,8 @@ img {
   }
 
   .site-frame,
-  .has-discover .site-frame {
+  .has-discover .site-frame,
+  .page-post .site-frame {
     display: block;
     padding: 0 18px;
     width: 100%;
