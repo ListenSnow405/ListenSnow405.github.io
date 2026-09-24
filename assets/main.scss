@@ -248,6 +248,7 @@ img {
   border-radius: 30%;
   box-shadow: 0 16px 40px rgba(0, 0, 0, 0.32);
   display: block;
+  height: auto;
   object-fit: cover;
   width: 96px;
 }
@@ -487,36 +488,11 @@ img {
 
 .home-intro {
   background:
-    linear-gradient(120deg, rgba(125, 211, 252, 0.105), rgba(165, 180, 252, 0.035)),
+    linear-gradient(120deg, rgba(125, 211, 252, 0.055), transparent),
     var(--surface);
-  border: 1px solid var(--line-strong);
+  border: 1px solid var(--line);
   border-radius: var(--radius-lg);
-  box-shadow: var(--shadow);
-  display: grid;
-  gap: 30px;
-  grid-template-columns: minmax(0, 1fr) 150px;
-  min-height: 350px;
-  overflow: hidden;
-  padding: 42px;
-  position: relative;
-}
-
-.home-intro::before {
-  background-image:
-    linear-gradient(rgba(125, 211, 252, 0.035) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(125, 211, 252, 0.035) 1px, transparent 1px);
-  background-size: 30px 30px;
-  content: "";
-  inset: 0;
-  mask-image: linear-gradient(to left, #000, transparent 72%);
-  pointer-events: none;
-  position: absolute;
-}
-
-.home-intro-copy,
-.home-code {
-  position: relative;
-  z-index: 1;
+  padding: 48px 42px;
 }
 
 .eyebrow {
@@ -529,34 +505,44 @@ img {
 
 .home-intro h1 {
   color: var(--text);
-  font-size: clamp(36px, 4.2vw, 52px);
-  font-weight: 780;
-  letter-spacing: -0.055em;
-  line-height: 1.18;
+  font-size: clamp(30px, 2.8vw, 44px);
+  font-weight: 700;
+  letter-spacing: -0.035em;
+  line-height: 1.4;
   margin: 0;
-  max-width: 780px;
 }
 
 .home-intro h1 span {
-  background: linear-gradient(100deg, var(--accent), var(--accent-violet));
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
-}
-
-.home-intro-copy > p:not(.eyebrow) {
-  color: var(--text-soft);
-  font-size: 14px;
-  line-height: 1.9;
-  margin: 22px 0 0;
-  max-width: 520px;
+  color: var(--accent);
+  display: inline-block;
 }
 
 .home-actions {
+  align-items: center;
   display: flex;
   flex-wrap: wrap;
-  gap: 10px;
-  margin-top: 28px;
+  gap: 12px 24px;
+  margin-top: 24px;
+}
+
+.home-actions .button-primary {
+  box-shadow: none;
+}
+
+.home-about-link,
+.home-about-link:visited {
+  align-items: center;
+  color: var(--text-soft);
+  display: inline-flex;
+  font-size: 13px;
+  gap: 8px;
+  min-height: 44px;
+}
+
+.home-about-link:hover {
+  color: var(--accent);
+  text-decoration: underline;
+  text-underline-offset: 4px;
 }
 
 .button,
@@ -601,32 +587,8 @@ img {
   border-color: rgba(125, 211, 252, 0.35);
 }
 
-.home-code {
-  align-items: flex-end;
-  border-left: 1px solid var(--line);
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  padding-left: 28px;
-}
-
-.home-code > span,
-.home-code p {
-  color: var(--text-faint);
-  font: 600 9px/1.65 ui-monospace, SFMono-Regular, Consolas, monospace;
-  letter-spacing: 0.08em;
-  margin: 0;
-  text-align: right;
-}
-
-.home-code strong {
-  color: rgba(125, 211, 252, 0.24);
-  font: 700 72px/1 ui-monospace, SFMono-Regular, Consolas, monospace;
-  letter-spacing: -0.08em;
-}
-
 .post-feed {
-  padding-top: 72px;
+  padding-top: 48px;
   scroll-margin-top: 30px;
 }
 
@@ -1733,12 +1695,7 @@ img {
   }
 
   .has-discover .home-intro {
-    grid-template-columns: minmax(0, 1fr);
     padding: 34px;
-  }
-
-  .has-discover .home-code {
-    display: none;
   }
 }
 
@@ -1894,31 +1851,11 @@ img {
   }
 
   .home-intro {
-    grid-template-columns: 1fr;
-    min-height: 0;
     padding: 30px;
   }
 
-  .home-code {
-    border-left: 0;
-    border-top: 1px solid var(--line);
-    display: grid;
-    gap: 16px;
-    grid-template-columns: 1fr auto;
-    padding: 18px 0 0;
-  }
-
-  .home-code strong {
-    display: none;
-  }
-
-  .home-code > span,
-  .home-code p {
-    text-align: left;
-  }
-
-  .home-code p {
-    text-align: right;
+  .post-feed {
+    scroll-margin-top: 144px;
   }
 
   .feed-card {
@@ -1980,11 +1917,7 @@ img {
   }
 
   .home-intro h1 {
-    font-size: 36px;
-  }
-
-  .home-actions .button {
-    width: 100%;
+    font-size: 30px;
   }
 
   .content-heading h2 {
