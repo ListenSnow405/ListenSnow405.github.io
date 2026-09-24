@@ -22,6 +22,7 @@
   --radius-lg: 24px;
   --radius-md: 16px;
   --reading-measure: 86ch;
+  --code-font: "Cascadia Code", "Cascadia Mono", ui-monospace, SFMono-Regular, Consolas, "Liberation Mono", monospace;
 }
 
 * {
@@ -1193,7 +1194,6 @@ img {
 
 .post-header {
   grid-area: header;
-  max-width: var(--reading-measure);
   width: 100%;
 }
 
@@ -1273,7 +1273,6 @@ img {
   font-size: 16px;
   grid-area: content;
   line-height: 1.85;
-  max-width: var(--reading-measure);
   min-width: 0;
   width: 100%;
 }
@@ -1447,6 +1446,31 @@ img {
   scroll-margin-top: 32px;
 }
 
+.post-content h2,
+.post-content h3 {
+  padding-left: 0.72em;
+  position: relative;
+}
+
+.post-content h2::before,
+.post-content h3::before {
+  background: linear-gradient(to bottom, var(--accent), var(--accent-violet));
+  border-radius: 999px;
+  bottom: 0.16em;
+  content: "";
+  left: 0;
+  position: absolute;
+  top: 0.16em;
+  width: 4px;
+}
+
+.post-content h3::before {
+  bottom: 0.22em;
+  opacity: 0.82;
+  top: 0.22em;
+  width: 3px;
+}
+
 .post-content h2 {
   font-size: 28px;
   line-height: 1.38;
@@ -1477,12 +1501,14 @@ img {
   background: #0b1422;
   border-color: var(--line);
   color: #cce7f4;
+  font-family: var(--code-font);
+  font-variant-ligatures: contextual;
 }
 
 .post-content pre {
   border-radius: 12px;
-  font-size: 13px;
-  line-height: 1.68;
+  font-size: 14px;
+  line-height: 1.72;
   padding: 18px;
 }
 
@@ -1526,12 +1552,12 @@ img {
   background: rgba(11, 20, 34, 0.58);
   border-color: var(--line);
   color: var(--text-soft);
-  display: block;
+  display: table;
+  margin-inline: auto;
   max-width: 100%;
   min-width: min(100%, 40rem);
-  overflow-x: auto;
-  scrollbar-color: #334862 transparent;
-  width: fit-content;
+  table-layout: auto;
+  width: auto;
 }
 
 .post-content table {
@@ -1571,7 +1597,6 @@ img {
   grid-area: footer;
   justify-content: space-between;
   margin-top: 56px;
-  max-width: var(--reading-measure);
   padding-top: 22px;
 }
 
@@ -1590,7 +1615,6 @@ img {
   grid-area: pagination;
   grid-template-columns: repeat(2, minmax(0, 1fr));
   margin-top: 64px;
-  max-width: var(--reading-measure);
 }
 
 .post-pagination-item,
@@ -1687,7 +1711,6 @@ img {
 @media (max-width: 1280px) {
   .post {
     display: block;
-    max-width: var(--reading-measure);
   }
 
   .post-toc {
