@@ -3,17 +3,21 @@
 
   const key = "listensnow-theme";
   const root = document.documentElement;
-  const system = window.matchMedia("(prefers-color-scheme: dark)");
-  let preference = "system";
+  const modes = ["dark", "light", "paper"];
+  const labels = { dark: "暗色模式", light: "浅色模式", paper: "暖纸模式" };
+  let preference = "dark";
 
   function normalize(value) {
-    return value === "light" || value === "dark" || value === "paper" ? value : "system";
+    return modes.includes(value) ? value : "dark";
   }
 
   function apply() {
-    root.dataset.theme = preference === "system" ? (system.matches ? "dark" : "light") : preference;
-    document.querySelectorAll("[data-theme-select]").forEach(function (select) {
-      select.value = preference;
+    root.dataset.theme = preference;
+    const next = modes[(modes.indexOf(preference) + 1) % modes.length];
+    document.querySelectorAll("[data-theme-toggle]").forEach(function (button) {
+      button.querySelector("[data-theme-label]").textContent = labels[preference];
+      button.setAttribute("aria-label", "当前" + labels[preference] + "，切换为" + labels[next]);
+      button.title = "切换为" + labels[next];
     });
   }
 
@@ -22,9 +26,6 @@
   } catch (_) { /* Storage can be disabled; switching still works for this page. */ }
   apply();
 
-  system.addEventListener("change", function () {
-    if (preference === "system") apply();
-  });
   window.addEventListener("storage", function (event) {
     if (event.key === key || event.key === null) {
       preference = normalize(event.newValue);
@@ -33,17 +34,13 @@
   });
   document.addEventListener("DOMContentLoaded", function () {
     apply();
-    document.querySelectorAll("[data-theme-select]").forEach(function (select) {
-      select.addEventListener("change", function () {
-        preference = normalize(select.value);
-        try {
-          if (preference === "system") localStorage.removeItem(key);
-          else localStorage.setItem(key, preference);
-        } catch (_) { /* Keep the current choice even without persistent storage. */ }
+    document.querySelectorAll("[data-theme-toggle]").forEach(function (button) {
+      button.addEventListener("click", function () {
+        preference = modes[(modes.indexOf(preference) + 1) % modes.length];
+        try { localStorage.setItem(key, preference); } catch (_) { /* Page-local choice. */ }
         apply();
       });
+      button.hidden = false;
     });
-    const control = document.querySelector(".theme-control");
-    if (control) control.hidden = false;
   });
 })();

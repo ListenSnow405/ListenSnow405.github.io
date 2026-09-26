@@ -1,4 +1,4 @@
-// Semantic colors shared by every page. Without JavaScript, follow the OS.
+// Semantic colors shared by every page. Default to dark, including without JavaScript.
 @mixin frost-theme {
   color-scheme: light;
   --bg: #edf3f8;
@@ -54,9 +54,6 @@
   --syntax-name: #8ed7f8;
 }
 
-@media (prefers-color-scheme: light) {
-  :root:not([data-theme]) { @include frost-theme; }
-}
 :root[data-theme="light"] { @include frost-theme; }
 
 :root[data-theme="paper"] {
@@ -94,30 +91,37 @@
 :root[data-theme="paper"] body::before { opacity: 0.2; }
 :root[data-theme="paper"] .ambient-edge { opacity: 0.45; }
 
-.theme-control {
+.theme-control { margin: 20px 0; }
+.theme-toggle,
+.reading-tools .theme-toggle {
   display: flex;
   align-items: center;
-  gap: 10px;
-  margin: 20px 0;
-  color: var(--text-faint);
-  font-size: 12px;
-}
-.theme-control[hidden] { display: none; }
-.theme-control select {
-  background: var(--surface-solid);
-  border: 1px solid var(--line-strong);
-  border-radius: 9px;
+  gap: 24px;
+  width: 100%;
+  background: transparent;
+  border: 1px solid transparent;
+  border-radius: 10px;
   color: var(--text-soft);
   cursor: pointer;
-  font: inherit;
-  min-height: 36px;
-  padding: 6px 8px;
-  max-width: 100%;
+  font-family: inherit;
+  font-size: 13px;
+  font-weight: 650;
+  line-height: 1.5;
+  min-height: 44px;
+  padding: 10px 16px;
+  text-align: left;
 }
-.theme-control select:focus-visible {
-  outline: 2px solid var(--accent);
-  outline-offset: 3px;
+.theme-toggle[hidden] { display: none; }
+.theme-toggle:hover,
+.reading-tools .theme-toggle:hover {
+  color: var(--text);
+  background: rgba(var(--accent-rgb), 0.07);
+  border-color: transparent;
 }
+.theme-toggle-icon { flex: none; }
+:root[data-theme="light"] .theme-toggle-knob { transform: translateX(-8px); }
+:root[data-theme="paper"] .theme-toggle-knob { transform: translateX(-4px); }
+.theme-toggle:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
 
 // Override Minima's light-only Rouge palette in both themes.
 .highlight {
@@ -135,18 +139,6 @@
 
 @media (max-width: 760px) {
   .profile-card { padding-right: 110px; }
-  .theme-control {
-    position: absolute;
-    right: 18px;
-    top: 17px;
-    margin: 0;
-  }
-  .theme-control label {
-    position: absolute;
-    width: 1px;
-    height: 1px;
-    overflow: hidden;
-    clip-path: inset(50%);
-  }
-  .theme-control select { width: 106px; min-height: 36px; }
+  .theme-control { position: absolute; right: 18px; top: 13px; margin: 0; }
+  .theme-control .theme-toggle { width: 106px; gap: 8px; padding: 8px 4px; font-size: 12px; }
 }

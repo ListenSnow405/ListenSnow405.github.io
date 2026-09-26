@@ -33,14 +33,8 @@
     </nav>
   </div>
 
-  <div class="theme-control" hidden>
-    <label for="theme-select">外观</label>
-    <select id="theme-select" data-theme-select>
-      <option value="system">跟随系统</option>
-      <option value="light">浅色 · 霜白</option>
-      <option value="dark">深色 · 雾蓝</option>
-      <option value="paper">暖纸 · 书页</option>
-    </select>
+  <div class="theme-control">
+    {% include theme-button.html %}
   </div>
 
   <div class="profile-links">

@@ -4,13 +4,7 @@
     <summary>阅读设置</summary>
     <div class="reading-settings-panel">
       <p class="reading-settings-title">阅读偏好</p>
-      <label for="reading-theme">外观</label>
-      <select id="reading-theme" data-theme-select>
-        <option value="system">跟随系统</option>
-        <option value="light">浅色 · 霜白</option>
-        <option value="dark">深色 · 雾蓝</option>
-        <option value="paper">暖纸 · 书页</option>
-      </select>
+      {% include theme-button.html %}
       <label for="reading-size">正文字号</label>
       <select id="reading-size">
         <option value="standard">标准</option>
