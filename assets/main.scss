@@ -31,6 +31,7 @@
 
 html {
   scroll-behavior: smooth;
+  scrollbar-gutter: stable;
   scrollbar-color: var(--line-strong) var(--bg);
 }
 
@@ -195,15 +196,13 @@ img {
   min-height: 100vh;
   padding: 32px 0 0;
   position: relative;
-  width: min(94vw, 1900px);
+  width: min(94vw, 2100px);
   z-index: 1;
 }
 
 .has-discover .site-frame,
 .page-post .site-frame {
   grid-template-columns: clamp(220px, 14vw, 280px) minmax(0, 1fr) clamp(280px, 18vw, 340px);
-  max-width: none;
-  width: min(94vw, 2100px);
 }
 
 .page-post .site-main {
@@ -1688,8 +1687,7 @@ img {
 }
 
 @media (min-width: 1101px) and (max-width: 1300px) {
-  .has-discover .site-frame,
-  .page-post .site-frame {
+  .site-frame {
     gap: clamp(16px, 1.6vw, 24px);
     width: calc(100% - 24px);
   }

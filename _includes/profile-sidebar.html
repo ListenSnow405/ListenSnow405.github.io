@@ -10,14 +10,6 @@
     </div>
   </div>
 
-  <form class="quick-search nav-search" action="{{ '/search/' | relative_url }}" method="get" role="search">
-    <label class="visually-hidden" for="nav-search">搜索文章</label>
-    <div>
-      <input id="nav-search" name="q" type="search" placeholder="搜索文章…" autocomplete="off">
-      <button type="submit" aria-label="搜索文章">{% include nav-icon.html name='search' %}</button>
-    </div>
-  </form>
-
   <div class="primary-nav-shell" data-nav-shell>
     <nav class="primary-nav" aria-label="主要导航" data-primary-nav>
       <a href="{{ '/' | relative_url }}"{% if page.url == '/' %} aria-current="page"{% endif %}>

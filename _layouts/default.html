@@ -19,6 +19,9 @@
       {%- include profile-sidebar.html -%}
 
       <main class="site-main" id="main-content" tabindex="-1">
+        {% unless page.url == '/search/' %}
+          <div class="content-search"><a href="{{ '/search/' | relative_url }}">{% include nav-icon.html name='search' %}搜索文章</a></div>
+        {% endunless %}
         {{ content }}
 
         <footer class="compact-footer">

@@ -1,12 +1,45 @@
-<aside class="discover-sidebar" aria-label="系列导读">
-  <section class="sidebar-section">
-    <div class="sidebar-heading">{% include nav-icon.html name='series' %}<h2>系列导读</h2></div>
-    <div class="discover-series">
-      {% for series in site.data.series %}
-        {% assign chapters = site.posts | where: 'series', series.id %}
-        <a href="{{ '/series/' | relative_url }}#{{ series.id }}"><strong>{{ series.title }}</strong><span>{{ series.description }}</span><small>{{ chapters.size }} 篇文章 <span aria-hidden="true">→</span></small></a>
+<aside class="discover-sidebar" aria-label="浏览博客内容">
+  <form class="quick-search discover-search" action="{{ '/search/' | relative_url }}" method="get" role="search">
+    <label for="sidebar-search">搜索</label>
+    <div>
+      <input id="sidebar-search" name="q" type="search" placeholder="输入关键词…" autocomplete="off">
+      <button type="submit" aria-label="搜索文章">{% include nav-icon.html name='search' %}</button>
+    </div>
+  </form>
+
+  {% assign posts_by_year = site.posts | group_by_exp: "post", "post.date | date: '%Y'" %}
+  <section class="sidebar-section" aria-labelledby="sidebar-archives-title">
+    <div class="sidebar-heading">{% include nav-icon.html name='archive' %}<h2 id="sidebar-archives-title">归档</h2></div>
+    <div class="year-list">
+      {% for year in posts_by_year %}
+        <a href="{{ '/archives/' | relative_url }}#year-{{ year.name }}"><span>{{ year.name }}</span><small>{{ year.items | size }}<span class="visually-hidden"> 篇文章</span></small></a>
       {% endfor %}
     </div>
   </section>
-  <a class="discover-all" href="{{ '/archives/' | relative_url }}">浏览全部文章 <span aria-hidden="true">→</span></a>
+
+  {% assign sorted_categories = site.categories | sort %}
+  <section class="sidebar-section" aria-labelledby="sidebar-categories-title">
+    <div class="sidebar-heading">{% include nav-icon.html name='category' %}<h2 id="sidebar-categories-title">分类</h2></div>
+    <div class="chip-cloud">
+      {% for category in sorted_categories %}
+        <a href="{{ '/categories/' | relative_url }}#category-{{ forloop.index }}">{{ category[0] | escape }}</a>
+      {% endfor %}
+    </div>
+  </section>
+
+  {% assign sorted_tags = site.tags | sort %}
+  {% comment %}Rank by frequency using numeric keys and indices, without embedding tag text in delimiters.{% endcomment %}
+  {% capture tag_ranks %}{% for tag in sorted_tags %}{{ tag[1].size | prepend: '0000000000' | slice: -10, 10 }}:{{ forloop.index0 }}{% unless forloop.last %}|{% endunless %}{% endfor %}{% endcapture %}
+  {% assign ranked_tags = tag_ranks | split: '|' | sort | reverse %}
+  <section class="sidebar-section" aria-labelledby="sidebar-tags-title">
+    <div class="sidebar-heading">{% include nav-icon.html name='tag' %}<h2 id="sidebar-tags-title">标签云</h2></div>
+    <div class="chip-cloud tag-cloud">
+      {% for rank in ranked_tags limit:8 %}
+        {% assign tag_index = rank | split: ':' | last | plus: 0 %}
+        {% assign tag = sorted_tags[tag_index] %}
+        <a href="{{ '/tags/' | relative_url }}#tag-{{ tag_index | plus: 1 }}">{{ tag[0] | escape }}</a>
+      {% endfor %}
+    </div>
+    <a class="all-tags" href="{{ '/tags/' | relative_url }}">全部标签 <span aria-hidden="true">→</span></a>
+  </section>
 </aside>
