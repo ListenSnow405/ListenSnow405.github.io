@@ -1,0 +1,152 @@
+// Semantic colors shared by every page. Without JavaScript, follow the OS.
+@mixin frost-theme {
+  color-scheme: light;
+  --bg: #edf3f8;
+  --bg-raised: #e6eef6;
+  --surface: rgba(248, 251, 254, 0.92);
+  --surface-solid: #f8fbfe;
+  --surface-hover: #e0eaf4;
+  --line: rgba(49, 79, 111, 0.18);
+  --line-strong: rgba(49, 79, 111, 0.32);
+  --text: #1d3047;
+  --text-soft: #40556d;
+  --text-faint: #586e85;
+  --accent: #126491;
+  --accent-strong: #0c5983;
+  --accent-violet: #555ba0;
+  --success: #177449;
+  --shadow: 0 16px 40px rgba(49, 79, 111, 0.07);
+  --accent-rgb: 18, 100, 145;
+  --line-rgb: 49, 79, 111;
+  --neutral-rgb: 49, 79, 111;
+  --body-gradient: linear-gradient(155deg, #f3f7fb 0%, #eaf1f8 52%, #edf3f8 100%);
+  --nav-bg: rgba(237, 243, 248, 0.98);
+  --code-bg: #e5edf5;
+  --code-text: #263d54;
+  --link-hover: #094b73;
+  --button-text: #f8fbfe;
+  --button-hover: #0d537b;
+  --error: #ab2936;
+  --syntax-comment: #52687a;
+  --syntax-keyword: #6943a3;
+  --syntax-string: #12653d;
+  --syntax-number: #92501b;
+  --syntax-name: #155f88;
+}
+
+:root {
+  color-scheme: dark;
+  --accent-rgb: 125, 211, 252;
+  --line-rgb: 178, 207, 241;
+  --neutral-rgb: 255, 255, 255;
+  --body-gradient: linear-gradient(155deg, #0f1929 0%, #142139 52%, #101a2b 100%);
+  --nav-bg: rgba(16, 26, 43, 0.98);
+  --code-bg: #0b1422;
+  --code-text: #cce7f4;
+  --link-hover: #dbf5ff;
+  --button-text: #06111e;
+  --button-hover: #b9e9fb;
+  --error: #fca5a5;
+  --syntax-comment: #91a4bc;
+  --syntax-keyword: #c4b5fd;
+  --syntax-string: #8bddb1;
+  --syntax-number: #f4be8b;
+  --syntax-name: #8ed7f8;
+}
+
+@media (prefers-color-scheme: light) {
+  :root:not([data-theme]) { @include frost-theme; }
+}
+:root[data-theme="light"] { @include frost-theme; }
+
+:root[data-theme="paper"] {
+  @include frost-theme;
+  --bg: #f3eee3;
+  --bg-raised: #ebe4d6;
+  --surface: rgba(250, 247, 240, 0.94);
+  --surface-solid: #faf7f0;
+  --surface-hover: #ece5d8;
+  --line: rgba(94, 79, 57, 0.18);
+  --line-strong: rgba(94, 79, 57, 0.32);
+  --text: #342f28;
+  --text-soft: #514a40;
+  --text-faint: #716655;
+  --accent: #356579;
+  --accent-strong: #2c596d;
+  --accent-violet: #776044;
+  --accent-rgb: 53, 101, 121;
+  --line-rgb: 94, 79, 57;
+  --neutral-rgb: 94, 79, 57;
+  --body-gradient: linear-gradient(155deg, #f8f4eb, #f0e9db);
+  --nav-bg: rgba(243, 238, 227, 0.98);
+  --code-bg: #eae4d8;
+  --code-text: #3e443f;
+  --link-hover: #254e60;
+  --button-hover: #294f60;
+  --shadow: 0 16px 40px rgba(94, 79, 57, 0.06);
+  --syntax-comment: #696250;
+  --syntax-keyword: #79518a;
+  --syntax-string: #376444;
+  --syntax-number: #86551f;
+  --syntax-name: #315e75;
+}
+:root[data-theme="paper"] body { background: var(--body-gradient); }
+:root[data-theme="paper"] body::before { opacity: 0.2; }
+:root[data-theme="paper"] .ambient-edge { opacity: 0.45; }
+
+.theme-control {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 20px 0;
+  color: var(--text-faint);
+  font-size: 12px;
+}
+.theme-control[hidden] { display: none; }
+.theme-control select {
+  background: var(--surface-solid);
+  border: 1px solid var(--line-strong);
+  border-radius: 9px;
+  color: var(--text-soft);
+  cursor: pointer;
+  font: inherit;
+  min-height: 36px;
+  padding: 6px 8px;
+  max-width: 100%;
+}
+.theme-control select:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+}
+
+// Override Minima's light-only Rouge palette in both themes.
+.highlight {
+  .c, .c1, .cm, .cp, .cs, .gh, .gu { color: var(--syntax-comment); }
+  .k, .kc, .kd, .kn, .kp, .kr, .kt, .o, .ow { color: var(--syntax-keyword); }
+  .s, .s1, .s2, .sb, .sc, .sd, .se, .sh, .si, .sr, .ss, .sx { color: var(--syntax-string); }
+  .m, .mf, .mh, .mi, .mo, .il { color: var(--syntax-number); }
+  .na, .nb, .nc, .nd, .ne, .nf, .nn, .no, .nt, .nv, .vc, .vg, .vi, .bp { color: var(--syntax-name); }
+  .w { color: inherit; }
+  .err, .gr, .gt { color: var(--error); background: transparent; }
+  .gd, .gd .x { color: var(--error); background: rgba(200, 70, 70, 0.12); }
+  .gi, .gi .x { color: var(--success); background: rgba(40, 160, 95, 0.12); }
+  .go, .gp { color: var(--text-soft); }
+}
+
+@media (max-width: 760px) {
+  .profile-card { padding-right: 110px; }
+  .theme-control {
+    position: absolute;
+    right: 18px;
+    top: 17px;
+    margin: 0;
+  }
+  .theme-control label {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip-path: inset(50%);
+  }
+  .theme-control select { width: 106px; min-height: 36px; }
+}

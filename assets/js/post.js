@@ -82,9 +82,21 @@
     if (count) count.textContent = chapterCount ? chapterCount + " 章" : headings.length + " 节";
 
     const wideLayout = window.matchMedia("(min-width: 1281px)");
-    tocDetails.open = wideLayout.matches;
-    wideLayout.addEventListener("change", function (event) {
-      tocDetails.open = event.matches;
+    let lastFocus = document.documentElement.dataset.readingFocus === "true";
+    function updateDisclosure() {
+      lastFocus = document.documentElement.dataset.readingFocus === "true";
+      tocDetails.open = wideLayout.matches && !lastFocus;
+    }
+    updateDisclosure();
+    wideLayout.addEventListener("change", updateDisclosure);
+    tocList.addEventListener("click", function (event) {
+      if (event.target.closest("a") && (!wideLayout.matches || document.documentElement.dataset.readingFocus === "true")) {
+        tocDetails.open = false;
+        window.requestAnimationFrame(refreshMeasurements);
+      }
+    });
+    window.addEventListener("readingchange", function () {
+      if (lastFocus !== (document.documentElement.dataset.readingFocus === "true")) updateDisclosure();
     });
     toc.hidden = false;
   }
@@ -218,6 +230,7 @@
 
   window.addEventListener("scroll", scheduleScrollUpdate, { passive: true });
   window.addEventListener("resize", refreshMeasurements, { passive: true });
+  window.addEventListener("readingchange", refreshMeasurements);
 
   if ("ResizeObserver" in window) {
     const observer = new ResizeObserver(refreshMeasurements);

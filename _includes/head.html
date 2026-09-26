@@ -12,6 +12,11 @@
       {{- site.time | date: '%s' -}}
     {%- endif -%}
   {%- endcapture -%}
+  <meta name="color-scheme" content="light dark">
+  <script src="{{ '/assets/js/theme.js' | relative_url }}?v={{ cache_version }}"></script>
+  {% if page.layout == 'post' %}
+    <script src="{{ '/assets/js/reading.js' | relative_url }}?v={{ cache_version }}"></script>
+  {% endif %}
   <link rel="stylesheet" href="{{ '/assets/main.css' | relative_url }}?v={{ cache_version }}">
   {%- feed_meta -%}
 </head>

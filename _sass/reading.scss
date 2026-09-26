@@ -1,0 +1,116 @@
+:root {
+  --reader-font-size: 16px;
+  --reader-measure: 54rem;
+}
+:root[data-reading-size="large"] { --reader-font-size: 18px; }
+:root[data-reading-size="larger"] { --reader-font-size: 20px; }
+:root[data-reading-width="compact"] { --reader-measure: 42rem; }
+:root[data-reading-width="wide"] { --reader-measure: 66rem; }
+
+.post { grid-template-columns: minmax(0, var(--reader-measure)) clamp(280px, 18vw, 340px); }
+.post-header, .post-content, .post-pagination, .post-footer-nav { max-width: var(--reader-measure); }
+.post-content { font-size: var(--reader-font-size); }
+.post-content h2 { font-size: 1.75em; }
+.post-content h3 { font-size: 1.375em; }
+.post-content h4 { font-size: 1.0625em; }
+.post-content pre, .post-content table { font-size: 0.875em; }
+.post-content pre code { font-size: inherit; }
+.post-content blockquote { font-size: 1em; }
+
+.reading-tools {
+  position: fixed;
+  right: max(18px, env(safe-area-inset-right));
+  bottom: max(18px, env(safe-area-inset-bottom));
+  z-index: 40;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+  line-height: 1.5;
+}
+.reading-tools[hidden], .reading-tools [hidden] { display: none; }
+.reading-tools button, .reading-tools select, .reading-tools summary {
+  background: var(--surface-solid);
+  border: 1px solid var(--line-strong);
+  border-radius: 10px;
+  color: var(--text-soft);
+  cursor: pointer;
+  font: inherit;
+  min-height: 44px;
+  padding: 10px 14px;
+}
+.reading-tools summary { list-style: none; box-shadow: var(--shadow); }
+.reading-tools summary::-webkit-details-marker { display: none; }
+.reading-tools summary::after { content: " +"; color: var(--accent); }
+.reading-tools details[open] summary::after { content: " −"; }
+.reading-tools :is(button, select, summary):focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+}
+.reading-tools button:hover { border-color: var(--accent); color: var(--accent); }
+.reading-settings-panel {
+  position: absolute;
+  right: 0;
+  bottom: calc(100% + 10px);
+  width: min(290px, calc(100vw - 36px));
+  max-height: calc(100dvh - 100px);
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  background: var(--surface-solid);
+  border: 1px solid var(--line-strong);
+  border-radius: 16px;
+  box-shadow: var(--shadow);
+  padding: 20px;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 8px;
+}
+.reading-settings-title { color: var(--text); font-weight: 700; margin: 0 0 4px; }
+.reading-settings-panel label { color: var(--text-soft); }
+.reading-settings-panel select { width: 100%; margin-bottom: 6px; }
+.reading-settings-panel small { color: var(--text-faint); font-size: 12px; }
+.reading-settings-panel [data-reading-focus] { margin-top: 8px; color: var(--accent); }
+.reading-settings-panel [aria-pressed="true"] { border-color: var(--accent); }
+.reading-settings-panel .reading-reset { margin-top: 6px; background: transparent; }
+.page-post .compact-footer { padding-bottom: 80px; }
+
+// Focus layout retains an inline TOC and the persistent exit control.
+:root[data-reading-focus="true"] .page-post {
+  background: var(--bg);
+}
+:root[data-reading-focus="true"] .page-post::before,
+:root[data-reading-focus="true"] .page-post :is(.profile-sidebar, .ambient-edge, .post-pagination) {
+  display: none;
+}
+:root[data-reading-focus="true"] .page-post .site-frame {
+  display: block;
+  width: min(calc(100% - 48px), var(--reader-measure));
+  padding: 40px 0 0;
+  margin-inline: auto;
+}
+:root[data-reading-focus="true"] .post { display: block; }
+:root[data-reading-focus="true"] .post-toc {
+  position: static;
+  max-height: none;
+  margin-bottom: 30px;
+}
+:root[data-reading-focus="true"] .post-toc details { max-height: min(520px, 64vh); }
+:root[data-reading-focus="true"] .post-toc .post-toc-sublist { display: block; }
+:root[data-reading-focus="true"] .post-content :is(h2, h3, h4) { scroll-margin-top: 32px; }
+
+@media (max-width: 1280px) {
+  .post { max-width: var(--reader-measure); margin-inline: auto; }
+  .post-toc .post-toc-sublist { display: block; }
+}
+@media (max-width: 760px) {
+  :root { --reader-font-size: 15px; }
+  :root[data-reading-size="large"] { --reader-font-size: 17px; }
+  :root[data-reading-size="larger"] { --reader-font-size: 19px; }
+  .post-content h2 { font-size: 1.667em; }
+  .post-content h3 { font-size: 1.333em; }
+  .reading-tools { right: max(12px, env(safe-area-inset-right)); bottom: max(12px, env(safe-area-inset-bottom)); }
+  :root[data-reading-focus="true"] .page-post .site-frame { width: calc(100% - 36px); padding-top: 26px; }
+}
+@media print {
+  .reading-tools { display: none; }
+}
