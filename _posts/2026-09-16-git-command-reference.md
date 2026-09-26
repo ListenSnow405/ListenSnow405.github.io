@@ -5,6 +5,9 @@ date: 2026-09-16 10:10:00 +0800
 categories: [学习]
 tags: [Git, GitHub, 命令速查, 版本控制, Git系列]
 excerpt: "Git 五篇系列的按需查阅入口，保留常用命令、操作边界和原手册章节索引。"
+series: git
+series_order: 5
+series_role: reference
 ---
 
 原《Git 常用命令手册：从日常操作到历史恢复》已按学习与使用场景重构为五篇文章。本页保留命令速查与原章节入口，详细概念、案例、状态对照和实践练习见各专题。

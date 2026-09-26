@@ -4,6 +4,8 @@ title: "Qt 课程项目第 1 章：环境、事件循环与信号槽"
 date: 2026-09-01 10:10:00 +0800
 categories: [学习]
 tags: [Qt, C++, CMake, Qt Creator, 信号与槽]
+series: qt
+series_order: 1
 ---
 
 在[《Qt 课程项目：8 个章节的项目驱动学习路线》]({% post_url 2026-09-01-qt-course-project-eight-week-roadmap %})中，我们把课程项目拆成了八个阶段。第一章不急着设计复杂页面，而是先理解 Qt 程序为什么能够响应操作，并建立“编辑、构建、运行、调试、提交”的最小开发闭环。

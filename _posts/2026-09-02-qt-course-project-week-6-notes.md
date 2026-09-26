@@ -4,6 +4,8 @@ title: "Qt 课程项目第 6 章：功能整合与 MVP"
 date: 2026-09-02 00:30:00 +0800
 categories: [学习]
 tags: [Qt, C++, 课程项目, MVP, 软件工程]
+series: qt
+series_order: 6
 ---
 
 在[第五章]({% post_url 2026-09-02-qt-course-project-week-5-notes %})中，我们为课程项目选择了特色功能。现在停止继续扩张需求，把窗口、模型、数据库、导入导出和统计功能整合成一个可以完整演示的 MVP。

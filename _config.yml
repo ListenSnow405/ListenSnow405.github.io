@@ -15,9 +15,7 @@ baseurl: ""
 # Navigation and posts
 header_pages:
   - archives.html
-  - categories.html
-  - tags.html
-  - search.html
+  - series.html
   - about.md
 show_excerpts: true
 permalink: /posts/:title/

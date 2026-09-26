@@ -4,6 +4,8 @@ title: "Qt 课程项目第 2 章：主窗口、布局与界面原型"
 date: 2026-09-02 00:10:00 +0800
 categories: [学习]
 tags: [Qt, C++, Qt Widgets, Qt Designer, 界面设计]
+series: qt
+series_order: 2
 ---
 
 在[第一章]({% post_url 2026-09-01-qt-course-project-week-1-notes %})中，我们用学习计时器打通了 Qt 项目的构建、运行和信号连接流程。本章开始进入正式课程项目，以“课程与作业管理系统”为例，搭建主窗口、页面导航、输入对话框和统一视觉样式。

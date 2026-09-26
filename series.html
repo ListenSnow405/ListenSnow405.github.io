@@ -1,0 +1,35 @@
+---
+layout: default
+title: 系列
+permalink: /series/
+---
+
+<header class="page-hero">
+  <p class="eyebrow">SERIES</p>
+  <h1>系列</h1>
+  <p>围绕一个完整主题，从导读开始，沿着学习顺序逐步深入。</p>
+</header>
+
+<nav class="series-jump" aria-label="选择系列">
+  {% for series in site.data.series %}<a href="#{{ series.id }}">{{ series.title }}</a>{% endfor %}
+</nav>
+<div class="series-list">
+  {% for series in site.data.series %}
+    {% assign chapters = site.posts | where: 'series', series.id | sort: 'series_order' %}
+    {% assign introduction = chapters | first %}
+    <section class="series-card" id="{{ series.id }}" aria-labelledby="series-title-{{ series.id }}">
+      <header>
+        <p class="series-count">{{ chapters.size }} 篇文章 · 按学习顺序</p>
+        <h2 id="series-title-{{ series.id }}">{{ series.title }}</h2>
+        <p>{{ series.description }}</p>
+        <p class="series-prerequisites"><strong>阅读前提</strong> {{ series.prerequisites }}</p>
+        {% if introduction %}<a class="series-start" href="{{ introduction.url | relative_url }}">从导读开始 <span aria-hidden="true">→</span></a>{% endif %}
+      </header>
+      <ol class="series-chapters">
+        {% for chapter in chapters %}
+          <li><a href="{{ chapter.url | relative_url }}"><span class="chapter-kind">{% if forloop.first %}导读{% elsif chapter.series_role == 'reference' %}速查{% else %}{{ forloop.index | minus: 1 | prepend: '0' }}{% endif %}</span><span>{{ chapter.title | escape }}</span><span class="chapter-arrow" aria-hidden="true">↗</span></a></li>
+        {% endfor %}
+      </ol>
+    </section>
+  {% endfor %}
+</div>

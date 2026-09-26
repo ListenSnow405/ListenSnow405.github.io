@@ -4,6 +4,8 @@ title: "Qt 课程项目第 4 章：文件、设置与 SQLite 数据闭环"
 date: 2026-09-02 00:20:00 +0800
 categories: [学习]
 tags: [Qt, C++, SQLite, Qt SQL, JSON]
+series: qt
+series_order: 4
 ---
 
 在[第三章]({% post_url 2026-09-02-qt-course-project-week-3-notes %})中，我们通过自定义 Model/View 完成了内存中的作业管理流程。本章将把数据保存到 SQLite，同时用 QSettings 保存界面偏好，用 JSON 完成可读的导入导出。

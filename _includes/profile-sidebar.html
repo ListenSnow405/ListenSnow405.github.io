@@ -10,27 +10,30 @@
     </div>
   </div>
 
+  <form class="quick-search nav-search" action="{{ '/search/' | relative_url }}" method="get" role="search">
+    <label class="visually-hidden" for="nav-search">搜索文章</label>
+    <div>
+      <input id="nav-search" name="q" type="search" placeholder="搜索文章…" autocomplete="off">
+      <button type="submit" aria-label="搜索文章">{% include nav-icon.html name='search' %}</button>
+    </div>
+  </form>
+
   <div class="primary-nav-shell" data-nav-shell>
     <nav class="primary-nav" aria-label="主要导航" data-primary-nav>
       <a href="{{ '/' | relative_url }}"{% if page.url == '/' %} aria-current="page"{% endif %}>
-        <span aria-hidden="true">⌂</span>首页
+        {% include nav-icon.html name='home' %}首页
       </a>
-      <a href="{{ '/archives/' | relative_url }}"{% if page.url == '/archives/' %} aria-current="page"{% endif %}>
-        <span aria-hidden="true">▣</span>归档
+      <a href="{{ '/archives/' | relative_url }}"{% if page.url == '/archives/' or page.url == '/categories/' or page.url == '/tags/' or page.layout == 'post' %} aria-current="page"{% endif %}>
+        {% include nav-icon.html name='articles' %}文章
       </a>
-      <a href="{{ '/categories/' | relative_url }}"{% if page.url == '/categories/' %} aria-current="page"{% endif %}>
-        <span aria-hidden="true">#</span>分类
-      </a>
-      <a href="{{ '/tags/' | relative_url }}"{% if page.url == '/tags/' %} aria-current="page"{% endif %}>
-        <span aria-hidden="true">◇</span>标签
-      </a>
-      <a href="{{ '/search/' | relative_url }}"{% if page.url == '/search/' %} aria-current="page"{% endif %}>
-        <span aria-hidden="true">⌕</span>搜索
+      <a href="{{ '/series/' | relative_url }}"{% if page.url == '/series/' %} aria-current="page"{% endif %}>
+        {% include nav-icon.html name='series' %}系列
       </a>
       <a href="{{ '/about/' | relative_url }}"{% if page.url == '/about/' %} aria-current="page"{% endif %}>
-        <span aria-hidden="true">○</span>关于
+        {% include nav-icon.html name='about' %}关于
       </a>
     </nav>
+    <a class="mobile-search" href="{{ '/search/' | relative_url }}" aria-label="搜索文章"{% if page.url == '/search/' %} aria-current="page"{% endif %}>{% include nav-icon.html name='search' %}</a>
   </div>
 
   <div class="theme-control">

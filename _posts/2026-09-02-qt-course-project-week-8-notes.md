@@ -4,6 +4,8 @@ title: "Qt 课程项目第 8 章：Release、部署与课程答辩"
 date: 2026-09-02 00:40:00 +0800
 categories: [学习]
 tags: [Qt, CMake, 软件发布, windeployqt, 课程答辩]
+series: qt
+series_order: 8
 ---
 
 在[第七章]({% post_url 2026-09-02-qt-course-project-week-7-notes %})中，我们通过自动测试、异常矩阵和发布候选标准提高了项目稳定性。最后一章解决交付问题：构建 Release、收集运行依赖、验证干净环境、整理文档，并准备一条清晰的课程答辩叙事。

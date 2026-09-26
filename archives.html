@@ -1,14 +1,27 @@
 ---
 layout: default
-title: 归档
+title: 文章
 permalink: /archives/
 ---
 
 <header class="page-hero">
-  <p class="eyebrow">ARCHIVES</p>
-  <h1>归档</h1>
-  <p>沿着时间线，回看写过的内容。</p>
+  <p class="eyebrow">ARTICLES</p>
+  <h1>文章</h1>
+  <p>按时间浏览全部文章，或从分类与标签中找到感兴趣的内容。</p>
 </header>
+
+<section class="article-browser" data-article-browser aria-label="文章筛选">
+  <form class="article-filters" data-article-filters hidden>
+    <div><label for="article-category">分类</label><select id="article-category" name="category"><option value="">全部分类</option>{% assign sorted_categories = site.categories | sort %}{% for category in sorted_categories %}<option value="{{ category[0] | escape }}">{{ category[0] | escape }}（{{ category[1] | size }}）</option>{% endfor %}</select></div>
+    <div><label for="article-tag">标签</label><select id="article-tag" name="tag"><option value="">全部标签</option>{% assign sorted_tags = site.tags | sort %}{% for tag in sorted_tags %}<option value="{{ tag[0] | escape }}">{{ tag[0] | escape }}（{{ tag[1] | size }}）</option>{% endfor %}</select></div>
+    <button type="reset">清除筛选</button>
+  </form>
+  <div class="article-browser-meta">
+    <p data-article-summary role="status">共 {{ site.posts.size }} 篇文章</p>
+    <div><a href="{{ '/categories/' | relative_url }}">分类索引</a><a href="{{ '/tags/' | relative_url }}">标签索引</a></div>
+  </div>
+  <noscript><p>可通过分类索引和标签索引浏览，以下为全部文章。</p></noscript>
+</section>
 
 {% assign posts_by_year = site.posts | group_by_exp: "post", "post.date | date: '%Y'" %}
 <nav class="year-jump" aria-label="按年份浏览">
@@ -23,7 +36,7 @@ permalink: /archives/
       <h2 id="year-title-{{ year.name }}">{{ year.name }}</h2>
       <div class="archive-list">
         {% for post in year.items %}
-          <article>
+          <article data-article data-categories="{{ post.categories | jsonify | escape }}" data-tags="{{ post.tags | jsonify | escape }}">
             <time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%m.%d" }}</time>
             <div>
               <h3><a href="{{ post.url | relative_url }}">{{ post.title | escape }}</a></h3>
@@ -36,3 +49,5 @@ permalink: /archives/
     </section>
   {% endfor %}
 </div>
+<p class="empty-state" data-article-empty hidden>没有同时符合这些条件的文章，请调整分类或标签。</p>
+<script src="{{ '/assets/js/articles.js' | relative_url }}" defer></script>

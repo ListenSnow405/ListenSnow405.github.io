@@ -4,6 +4,8 @@ title: "Qt 课程项目第 5 章：绘图、网络与多线程的取舍"
 date: 2026-09-02 00:25:00 +0800
 categories: [学习]
 tags: [Qt, C++, QPainter, 网络编程, 多线程]
+series: qt
+series_order: 5
 ---
 
 在[第四章]({% post_url 2026-09-02-qt-course-project-week-4-notes %})中，课程与作业管理系统已经形成 SQLite 数据闭环。本章进入项目专题阶段：从绘图、网络和多线程中选择真正服务于需求的能力，而不是为了展示技术把所有模块堆进项目。

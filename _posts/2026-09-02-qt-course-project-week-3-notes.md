@@ -4,6 +4,8 @@ title: "Qt 课程项目第 3 章：事件、输入校验与 Model/View"
 date: 2026-09-02 00:15:00 +0800
 categories: [学习]
 tags: [Qt, C++, 事件系统, Model-View, 软件架构]
+series: qt
+series_order: 3
 ---
 
 在[第二章]({% post_url 2026-09-02-qt-course-project-week-2-notes %})中，我们完成了课程与作业管理系统的界面原型。本章将处理真实交互：阻止非法输入、响应关闭和键盘事件，并通过 Model/View 将作业数据与表格显示分离。

@@ -4,6 +4,8 @@ title: "Qt 课程项目第 7 章：测试、异常处理与发布候选"
 date: 2026-09-02 00:35:00 +0800
 categories: [学习]
 tags: [Qt, C++, Qt Test, 软件测试, 调试]
+series: qt
+series_order: 7
 ---
 
 在[第六章]({% post_url 2026-09-02-qt-course-project-week-6-notes %})中，课程与作业管理系统已经成为可以完整演示的 MVP。本章停止新增业务功能，通过 Qt Test、模型测试、异常场景和性能检查，把“能够运行”推进为“可以稳定交付”。

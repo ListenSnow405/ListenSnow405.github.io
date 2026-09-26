@@ -1,0 +1,8 @@
+- id: git
+  title: Git 版本控制
+  description: 从提交与分支的基本模型出发，逐步掌握远程协作、历史整理和问题排查。
+  prerequisites: 能使用终端、创建文件并切换目录；无需 Git 使用经验。
+- id: qt
+  title: Qt 课程项目
+  description: 围绕一个可交付的桌面应用，按八个章节完成界面、数据、测试与发布。
+  prerequisites: 具备 C++ 基础，了解类、指针与基本编译流程。

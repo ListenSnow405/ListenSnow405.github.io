@@ -75,8 +75,13 @@ layout: default
     </nav>
   {% endif %}
 
+  {% if page.series %}
+    {% assign current_series = site.data.series | where: 'id', page.series | first %}
+    {% if current_series %}<p class="post-series-link">所属系列：<a href="{{ '/series/' | relative_url }}#{{ page.series }}">{{ current_series.title }} · 查看学习顺序 →</a></p>{% endif %}
+  {% endif %}
+
   <footer class="post-footer-nav">
-    <a href="{{ '/archives/' | relative_url }}">← 返回归档</a>
+    <a href="{{ '/archives/' | relative_url }}">← 全部文章</a>
     <a href="{{ '/' | relative_url }}">返回首页</a>
   </footer>
 
