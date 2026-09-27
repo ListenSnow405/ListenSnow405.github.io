@@ -1,11 +1,12 @@
 :root {
   --reader-font-size: 16px;
-  --reader-measure: 54rem;
+  --reader-measure: 86rem;
+  --focus-reader-measure: 54rem;
 }
 :root[data-reading-size="large"] { --reader-font-size: 18px; }
 :root[data-reading-size="larger"] { --reader-font-size: 20px; }
-:root[data-reading-width="compact"] { --reader-measure: 42rem; }
-:root[data-reading-width="wide"] { --reader-measure: 66rem; }
+:root[data-reading-width="compact"] { --reader-measure: 42rem; --focus-reader-measure: 42rem; }
+:root[data-reading-width="wide"] { --reader-measure: 100%; --focus-reader-measure: 66rem; }
 
 .post-header, .post-content, .post-pagination, .post-footer-nav { max-width: var(--reader-measure); }
 .post-content { font-size: var(--reader-font-size); }
@@ -83,7 +84,7 @@
 }
 :root[data-reading-focus="true"] .page-post .site-frame {
   display: block;
-  width: min(calc(100% - 48px), var(--reader-measure));
+  width: min(calc(100% - 48px), var(--focus-reader-measure));
   padding: 40px 0 0;
   margin-inline: auto;
 }
