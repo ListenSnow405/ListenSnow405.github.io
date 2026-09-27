@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="560" height="338" viewBox="0 0 560 338" role="img" aria-labelledby="title desc">
+  <title id="title">独立像素的数据并行示意</title>
+  <desc id="desc">四个输入像素分别应用相同的阈值规则，得到四个互不依赖的输出。</desc>
+  <rect x="1" y="1" width="558" height="336" rx="18" fill="#11233b" stroke="#456783" stroke-width="2"/>
+  <text x="32" y="48" fill="#f0f7ff" font-family="system-ui, sans-serif" font-size="25" font-weight="700">同一规则，分别处理</text>
+  <text x="32" y="83" fill="#b7d0e5" font-family="system-ui, sans-serif" font-size="18">像素值 ≥ 128 输出 255，否则输出 0</text>
+  <text x="32" y="113" fill="#8fb9d6" font-family="system-ui, sans-serif" font-size="17">输入</text>
+  <g font-family="system-ui, sans-serif" font-size="24" font-weight="700" text-anchor="middle">
+    <rect x="32" y="125" width="112" height="57" rx="11" fill="#213b56" stroke="#6488a5"/>
+    <rect x="159" y="125" width="112" height="57" rx="11" fill="#213b56" stroke="#6488a5"/>
+    <rect x="286" y="125" width="112" height="57" rx="11" fill="#213b56" stroke="#6488a5"/>
+    <rect x="413" y="125" width="112" height="57" rx="11" fill="#213b56" stroke="#6488a5"/>
+    <text x="88" y="162" fill="#f0f7ff">10</text>
+    <text x="215" y="162" fill="#f0f7ff">130</text>
+    <text x="342" y="162" fill="#f0f7ff">128</text>
+    <text x="469" y="162" fill="#f0f7ff">200</text>
+  </g>
+  <g fill="none" stroke="#7ed5f2" stroke-linecap="round" stroke-linejoin="round" stroke-width="3">
+    <path d="M88 191v20m-7-7 7 7 7-7"/>
+    <path d="M215 191v20m-7-7 7 7 7-7"/>
+    <path d="M342 191v20m-7-7 7 7 7-7"/>
+    <path d="M469 191v20m-7-7 7 7 7-7"/>
+  </g>
+  <text x="32" y="235" fill="#8fb9d6" font-family="system-ui, sans-serif" font-size="17">输出</text>
+  <g font-family="system-ui, sans-serif" font-size="24" font-weight="700" text-anchor="middle">
+    <rect x="32" y="246" width="112" height="57" rx="11" fill="#213b56" stroke="#6488a5"/>
+    <rect x="159" y="246" width="112" height="57" rx="11" fill="#24516d" stroke="#7ed5f2"/>
+    <rect x="286" y="246" width="112" height="57" rx="11" fill="#24516d" stroke="#7ed5f2"/>
+    <rect x="413" y="246" width="112" height="57" rx="11" fill="#24516d" stroke="#7ed5f2"/>
+    <text x="88" y="283" fill="#f0f7ff">0</text>
+    <text x="215" y="283" fill="#f0f7ff">255</text>
+    <text x="342" y="283" fill="#f0f7ff">255</text>
+    <text x="469" y="283" fill="#f0f7ff">255</text>
+  </g>
+</svg>

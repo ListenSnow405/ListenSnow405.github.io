@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="560" height="370" viewBox="0 0 560 370" role="img" aria-labelledby="title desc">
+  <title id="title">十个像素与三个线程块的映射</title>
+  <desc id="desc">每个线程块有四个线程。块零负责像素零到三，块一负责四到七，块二只处理八和九，线程十和十一越界跳过。</desc>
+  <rect x="1" y="1" width="558" height="368" rx="18" fill="#11233b" stroke="#456783" stroke-width="2"/>
+  <text x="30" y="47" fill="#f0f7ff" font-family="system-ui, sans-serif" font-size="24" font-weight="700">10 个像素，3 个线程块</text>
+  <text x="30" y="78" fill="#b7d0e5" font-family="system-ui, sans-serif" font-size="18">每块 4 个线程，格内数字是全局下标</text>
+  <g font-family="system-ui, sans-serif">
+    <rect x="24" y="99" width="512" height="70" rx="11" fill="#1b344f" stroke="#4d7290"/>
+    <rect x="24" y="180" width="512" height="70" rx="11" fill="#1b344f" stroke="#4d7290"/>
+    <rect x="24" y="261" width="512" height="70" rx="11" fill="#1b344f" stroke="#4d7290"/>
+    <text x="40" y="142" fill="#d9edfb" font-size="19" font-weight="700">块 0</text>
+    <text x="40" y="223" fill="#d9edfb" font-size="19" font-weight="700">块 1</text>
+    <text x="40" y="304" fill="#d9edfb" font-size="19" font-weight="700">块 2</text>
+  </g>
+  <g fill="#24516d" stroke="#7ed5f2">
+    <rect x="157" y="110" width="76" height="48" rx="8"/><rect x="251" y="110" width="76" height="48" rx="8"/><rect x="345" y="110" width="76" height="48" rx="8"/><rect x="439" y="110" width="76" height="48" rx="8"/>
+    <rect x="157" y="191" width="76" height="48" rx="8"/><rect x="251" y="191" width="76" height="48" rx="8"/><rect x="345" y="191" width="76" height="48" rx="8"/><rect x="439" y="191" width="76" height="48" rx="8"/>
+    <rect x="157" y="272" width="76" height="48" rx="8"/><rect x="251" y="272" width="76" height="48" rx="8"/>
+  </g>
+  <g fill="#273246" stroke="#cf9d9d" stroke-dasharray="5 4">
+    <rect x="345" y="272" width="76" height="48" rx="8"/><rect x="439" y="272" width="76" height="48" rx="8"/>
+  </g>
+  <g font-family="system-ui, sans-serif" font-size="24" font-weight="700" text-anchor="middle">
+    <text x="195" y="142" fill="#f0f7ff">0</text><text x="289" y="142" fill="#f0f7ff">1</text><text x="383" y="142" fill="#f0f7ff">2</text><text x="477" y="142" fill="#f0f7ff">3</text>
+    <text x="195" y="223" fill="#f0f7ff">4</text><text x="289" y="223" fill="#f0f7ff">5</text><text x="383" y="223" fill="#f0f7ff">6</text><text x="477" y="223" fill="#f0f7ff">7</text>
+    <text x="195" y="304" fill="#f0f7ff">8</text><text x="289" y="304" fill="#f0f7ff">9</text><text x="383" y="304" fill="#f3bcbc">10</text><text x="477" y="304" fill="#f3bcbc">11</text>
+  </g>
+  <text x="30" y="354" fill="#b7d0e5" font-family="system-ui, sans-serif" font-size="17">虚线格越界：不读取，也不写入</text>
+</svg>
