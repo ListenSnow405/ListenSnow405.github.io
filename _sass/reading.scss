@@ -7,7 +7,6 @@
 :root[data-reading-width="compact"] { --reader-measure: 42rem; }
 :root[data-reading-width="wide"] { --reader-measure: 66rem; }
 
-.post { grid-template-columns: minmax(0, var(--reader-measure)) clamp(280px, 18vw, 340px); }
 .post-header, .post-content, .post-pagination, .post-footer-nav { max-width: var(--reader-measure); }
 .post-content { font-size: var(--reader-font-size); }
 .post-content h2 { font-size: 1.75em; }
@@ -99,7 +98,6 @@
 :root[data-reading-focus="true"] .post-content :is(h2, h3, h4) { scroll-margin-top: 32px; }
 
 @media (max-width: 1280px) {
-  .post { max-width: var(--reader-measure); margin-inline: auto; }
   .post-toc .post-toc-sublist { display: block; }
 }
 @media (max-width: 760px) {

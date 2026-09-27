@@ -2,6 +2,7 @@
 layout: page
 title: 关于
 permalink: /about/
+sidebar: true
 ---
 
 <div class="about-profile">

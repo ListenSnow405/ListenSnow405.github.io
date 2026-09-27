@@ -1670,6 +1670,10 @@ img {
 }
 
 @media (max-width: 1280px) {
+  .page-post .site-main {
+    grid-column: 2;
+  }
+
   .post {
     display: block;
   }
