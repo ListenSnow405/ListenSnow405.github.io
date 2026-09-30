@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="560" height="290" viewBox="0 0 560 290" role="img" aria-labelledby="title desc">
+  <title id="title">双槽批处理的事件依赖</title>
+  <desc id="desc">槽零依次处理第零帧上传、计算、下载，再上传第二帧；槽一依次处理第一帧上传、计算、下载，再上传第三帧。箭头表示依赖，不能证明不同槽上的操作实际重叠。</desc>
+  <rect x="1" y="1" width="558" height="288" rx="18" fill="#11233b" stroke="#456783" stroke-width="2"/>
+  <text x="24" y="44" fill="#f0f7ff" font-family="system-ui, sans-serif" font-size="24" font-weight="700">双槽流水线的依赖</text>
+  <text x="24" y="72" fill="#b7d0e5" font-family="system-ui, sans-serif" font-size="17">H 上传 · K 计算 · D 下载</text>
+  <g stroke="#8fb4cc" stroke-width="2" fill="none">
+    <path d="M 169 127 H 205 M 275 127 H 311 M 381 127 H 417"/>
+    <path d="M 169 207 H 205 M 275 207 H 311 M 381 207 H 417"/>
+  </g>
+  <g fill="#8fb4cc">
+    <path d="M 205 127 l -7 -5 v 10 z M 311 127 l -7 -5 v 10 z M 417 127 l -7 -5 v 10 z"/>
+    <path d="M 205 207 l -7 -5 v 10 z M 311 207 l -7 -5 v 10 z M 417 207 l -7 -5 v 10 z"/>
+  </g>
+  <g font-family="system-ui, sans-serif" font-size="20" font-weight="700" text-anchor="middle">
+    <text x="52" y="134" fill="#d9edfb">槽 0</text><text x="52" y="214" fill="#d9edfb">槽 1</text>
+    <rect x="99" y="100" width="70" height="54" rx="8" fill="#24516d" stroke="#7ed5f2"/>
+    <rect x="205" y="100" width="70" height="54" rx="8" fill="#294168" stroke="#b7d0e5"/>
+    <rect x="311" y="100" width="70" height="54" rx="8" fill="#354067" stroke="#b7b6ea"/>
+    <rect x="417" y="100" width="70" height="54" rx="8" fill="#24516d" stroke="#7ed5f2"/>
+    <rect x="99" y="180" width="70" height="54" rx="8" fill="#24516d" stroke="#7ed5f2"/>
+    <rect x="205" y="180" width="70" height="54" rx="8" fill="#294168" stroke="#b7d0e5"/>
+    <rect x="311" y="180" width="70" height="54" rx="8" fill="#354067" stroke="#b7b6ea"/>
+    <rect x="417" y="180" width="70" height="54" rx="8" fill="#24516d" stroke="#7ed5f2"/>
+    <text x="134" y="134" fill="#f0f7ff">H0</text><text x="240" y="134" fill="#f0f7ff">K0</text><text x="346" y="134" fill="#f0f7ff">D0</text><text x="452" y="134" fill="#f0f7ff">H2</text>
+    <text x="134" y="214" fill="#f0f7ff">H1</text><text x="240" y="214" fill="#f0f7ff">K1</text><text x="346" y="214" fill="#f0f7ff">D1</text><text x="452" y="214" fill="#f0f7ff">H3</text>
+  </g>
+  <text x="24" y="270" fill="#b7d0e5" font-family="system-ui, sans-serif" font-size="16">箭头表示先后依赖；是否重叠须查看实际时间线。</text>
+</svg>

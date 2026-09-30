@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="560" height="390" viewBox="0 0 560 390" role="img" aria-labelledby="title desc">
+  <title id="title">均值滤波的输出块与输入外圈</title>
+  <desc id="desc">一个十六乘十六的输出块位于十八乘十八的输入区域中心。输入区域四周多出一像素的外圈，整个线程块先加载三百二十四个输入位置，再同步并计算输出。</desc>
+  <rect x="1" y="1" width="558" height="388" rx="18" fill="#11233b" stroke="#456783" stroke-width="2"/>
+  <text x="26" y="43" fill="#f0f7ff" font-family="system-ui, sans-serif" font-size="24" font-weight="700">输出块与输入外圈</text>
+  <text x="26" y="74" fill="#b7d0e5" font-family="system-ui, sans-serif" font-size="17">3×3 滤波需要在输出块四周多读取一圈输入</text>
+  <rect x="25" y="99" width="252" height="252" rx="8" fill="#24516d" stroke="#7ed5f2" stroke-width="2"/>
+  <rect x="39" y="113" width="224" height="224" rx="5" fill="#1b344f" stroke="#b7d0e5" stroke-width="2"/>
+  <g fill="#f0f7ff" font-family="system-ui, sans-serif" text-anchor="middle">
+    <text x="151" y="213" font-size="32" font-weight="700">16×16</text>
+    <text x="151" y="244" font-size="21">输出位置</text>
+  </g>
+  <g font-family="system-ui, sans-serif">
+    <text x="301" y="139" fill="#7ed5f2" font-size="22" font-weight="700">18×18 输入区</text>
+    <text x="301" y="172" fill="#d9edfb" font-size="18">外圈宽 1 像素</text>
+    <text x="301" y="232" fill="#d9edfb" font-size="18">256 条线程共同加载</text>
+    <text x="301" y="262" fill="#d9edfb" font-size="18">324 个输入位置</text>
+    <text x="301" y="319" fill="#d9edfb" font-size="18">同步后计算输出</text>
+  </g>
+  <text x="26" y="374" fill="#b7d0e5" font-family="system-ui, sans-serif" font-size="16">越出整张图像的输入位置填 0；相邻线程块各自加载外圈。</text>
+</svg>

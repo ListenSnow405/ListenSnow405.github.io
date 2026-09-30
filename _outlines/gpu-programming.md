@@ -1,6 +1,6 @@
 # GPU 编程系列学习大纲
 
-状态：规划稿；[导读已写入文章目录](../_posts/2026-09-27-gpu-computing-roadmap.md)，其余专题待写。
+状态：规划稿；[导读](../_posts/2026-09-27-gpu-computing-roadmap.md)及[第一章](../_posts/2026-09-27-gpu-development-first-kernel.md)、[第二章](../_posts/2026-09-28-gpu-thread-organization-and-data-mapping.md)、[第三章](../_posts/2026-09-28-gpu-device-memory-and-data-transfer.md)、[第四章](../_posts/2026-09-28-gpu-memory-access-and-shared-memory.md)、[第五章](../_posts/2026-09-28-gpu-synchronization-atomics-and-reduction.md)、[第六章](../_posts/2026-09-28-gpu-numerical-precision-and-correctness.md)、[第七章](../_posts/2026-09-28-gpu-performance-measurement-and-bottleneck-analysis.md)、[第八章](../_posts/2026-09-28-gpu-tiled-matrix-multiplication.md)、[第九章](../_posts/2026-09-28-gpu-asynchronous-execution-and-batch-pipeline.md)、[第十章](../_posts/2026-09-28-gpu-compute-libraries-and-framework-integration.md)已写入文章目录，其余专题待写。
 
 ## 目标读者与内容边界
 
