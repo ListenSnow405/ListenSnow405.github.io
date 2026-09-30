@@ -1,379 +1,316 @@
 ---
 layout: post
-title: "Linux 终端入门：常用命令与实用技巧"
+title: "终端环境与文件操作"
 date: 2026-09-01 09:00:00 +0800
 categories: [学习]
-tags: [Linux, 命令行, Shell]
+tags: [终端, PowerShell, Linux, 文件操作, 终端实验系列]
+excerpt: "识别 Windows 与 Linux 的执行环境，通过同一个练习目录掌握路径、文件操作、文本检索、权限、编码与换行。"
+series: terminal-lab
+series_order: 1
 ---
 
-对于刚接触 Linux 的人来说，终端里闪烁的光标多少有些陌生。但终端并不神秘：我们只是在用文字告诉计算机“要做什么”。熟悉命令行之后，管理文件、搜索代码和查看系统状态都会变得更加直接。
+在本地整理数据、在服务器运行程序之前，首先需要回答两个问题：命令在哪台机器上执行，输入与输出文件位于哪个目录。许多错误并非命令拼写错误，而是环境和位置判断错误。
 
-这篇文章从最常见的操作出发，整理一套可以边读边练的 Linux 终端入门路线。文中的命令默认在 Bash 或相近的 Shell 中执行。
+本文是“命令行开发与实验实践”系列第一篇，不要求编程经验。Windows 路线使用 **PowerShell 7**，Linux 路线使用 **Bash 与 GNU 工具**；两组命令是替代路线，不应连续混用。练习只在个人练习目录执行，不在已有代码仓库、共享数据目录或系统目录中执行。
 
-## 1. 先认识终端、Shell 和命令
+阅读顺序：**环境与文件 → Shell 脚本 → 构建调试 → 远程任务 → 日志整理 → 性能实验**。下一篇为[Shell 执行与脚本基础]({% post_url 2026-09-30-shell-execution-and-scripting %})；完整入口见[系列导读]({{ '/series/' | relative_url }}#terminal-lab)。本文由原 Linux 终端入门文章重构，发布地址保持不变。
 
-终端是我们输入和查看文字的窗口，Shell 则负责解释输入的命令。Linux 中常见的 Shell 有 Bash、Zsh 等。
+<span id="1-先认识终端shell-和命令"></span>
 
-一条命令通常由三部分组成：
+## 1. 终端与执行环境
 
-```text
-命令 [选项] [参数]
+终端负责接受输入和显示文字，Shell 负责解释命令，工具程序负责完成具体任务。Windows Terminal 可以承载 PowerShell、cmd 和 WSL 等环境；窗口相同，不意味着语法和可用命令相同。
+
+| 环境 | 路径与执行边界 | 核对入口 |
+| --- | --- | --- |
+| Windows PowerShell | Windows 文件系统；管道主要传递对象 | `$PSVersionTable`、`Get-Location` |
+| Linux Bash | 当前 Linux 主机的文件系统；常规管道传递字节流 | `$BASH_VERSION`、`hostname`、`pwd` |
+| Git Bash | Windows 上的类 Unix 工具环境，盘符路径常见如 `/c/` | 工具路径及 Windows 程序的路径转换 |
+| WSL | Linux 子系统，Windows C 盘常见挂载点为 `/mnt/c/` | 发行版、挂载位置及程序所属环境 |
+| SSH 会话 | 命令在连接的远端主机执行 | 主机名、用户名和远端目录 |
+
+PowerShell 中的 `ls`、`cp`、`rm` 可能是 cmdlet 的别名，不接受一整套 GNU 参数。本文使用 `Get-ChildItem` 等全名。在 Linux 中，`$SHELL` 常表示登录 Shell 配置，不足以证明当前解释器一定是 Bash，应结合版本和进程判断。
+
+**Windows 本地 · PowerShell 7**：
+
+```powershell
+$PSVersionTable.PSVersion
+Get-Location
+Get-Command Get-ChildItem
+Get-Help Copy-Item -Examples
 ```
 
-例如：
+**Linux 本地或远端 · Bash**：
 
 ```bash
-ls -l /home
-```
-
-这里 `ls` 是命令，`-l` 是选项，`/home` 是要查看的目录。方括号只表示内容可以省略，实际输入时不需要写出来。
-
-遇到不熟悉的命令，可以先查看帮助：
-
-```bash
-man ls
-ls --help
-```
-
-在 `man` 页面中可以按 `/` 搜索，按 `q` 退出。
-
-> 本文示例中的 `$` 表示普通用户的命令提示符，不需要输入。以 `#` 开头的行表示注释，而不是管理员提示符。
-
-## 2. 浏览目录
-
-### 查看当前位置：`pwd`
-
-```bash
+printf '%s\n' "$BASH_VERSION"
+hostname
+whoami
 pwd
+type -a ls
+man cp
 ```
 
-它会输出当前工作目录的绝对路径，例如 `/home/snow/projects`。
+`man` 中按 `/` 搜索、按 `q` 退出。Windows 帮助未完整安装时，可查阅 Microsoft Learn。代码块不包含提示符，出现的 `#` 是注释；不要复制提示符中的用户名、机器名或 `$`。
 
-### 列出目录内容：`ls`
+<span id="2-浏览目录"></span>
+<span id="查看当前位置pwd"></span>
+<span id="列出目录内容ls"></span>
+<span id="切换目录cd"></span>
+
+## 2. 路径与目录
+
+### 工作目录与路径解析
+
+相对路径以当前工作目录为起点。`data/input.txt` 并不固定指向某一文件；切换目录后，它可能指向另一文件或不存在。绝对路径携带完整位置，但 Windows 的 `C:\...` 不能直接作为 Linux 服务器路径。
+
+`.` 表示当前目录，`..` 表示父目录。Bash 的 `~` 在适当位置展开为主目录；PowerShell 可通过 `$HOME` 得到个人主目录。含空格的路径应作为一个参数传入，使用引号保护。
+
+练习使用个人主目录下的 `terminal-lab`，初次执行前确认该目录不存在。若有同名项目，选择另一个空目录，并在后续步骤始终使用同一路径。
+
+**Windows 本地 · PowerShell 7**：
+
+```powershell
+$labRoot = Join-Path $HOME 'terminal-lab'
+if (Test-Path -LiteralPath $labRoot) { throw '练习目录已存在，请另选空目录' }
+New-Item -ItemType Directory -Path $labRoot
+Set-Location -LiteralPath $labRoot
+New-Item -ItemType Directory -Path data, logs, backup, 'notes with spaces'
+Get-Location
+Get-ChildItem -Force
+```
+
+**Linux · Bash**：
 
 ```bash
-ls
-ls -l
-ls -a
-ls -lah
+lab_root="$HOME/terminal-lab"
+if test -e "$lab_root"; then printf '练习目录已存在\n' >&2; exit 1; fi
+mkdir -- "$lab_root"
+cd -- "$lab_root"
+mkdir data logs backup 'notes with spaces'
+pwd
+ls -la
 ```
 
-- `-l`：显示权限、大小、修改时间等详细信息；
-- `-a`：显示以 `.` 开头的隐藏文件；
-- `-h`：以 KB、MB、GB 等易读单位显示文件大小。
+Bash 的 `exit` 会结束当前 Shell，因此也可把检查部分保存成脚本执行。目录建立后，所有连续步骤均在项目根目录运行。进入空格目录分别用 `Set-Location -LiteralPath 'notes with spaces'` 与 `cd -- 'notes with spaces'`，再用对应切换命令返回 `..`。
 
-短选项通常可以合并，因此 `ls -lah` 等价于 `ls -l -a -h`。
+### 输入文件与字节约定
 
-### 切换目录：`cd`
+创建三行 ASCII 文本，UTF-8 编码、无 BOM，每行以 LF 结束。特意约定字节格式，是为了使两端校验和可直接比较；它不是所有文本文件的通用要求。
+
+```powershell
+# Windows 本地 · PowerShell 7，terminal-lab 根目录
+$text = "sample_id,value`ns01,10`ns02,20`n"
+$path = Join-Path (Get-Location).Path 'data/input.txt'
+[IO.File]::WriteAllText($path, $text, [Text.UTF8Encoding]::new($false))
+Get-Content -LiteralPath $path -Encoding utf8
+```
 
 ```bash
-cd /home/snow/projects  # 进入指定目录
-cd ..                   # 返回上一级目录
-cd ~                    # 回到当前用户的主目录
-cd -                    # 回到上一次所在的目录
+# Linux · Bash，terminal-lab 根目录
+printf 'sample_id,value\ns01,10\ns02,20\n' > data/input.txt
+cat data/input.txt
 ```
 
-Linux 路径中有几个常见符号：
+两端应看到表头和两条记录，共三行。写入已有同名文件会覆盖原内容；这里的前提是新建空目录。真实实验中，应先确定文件是否已经存在。
 
-- `/`：根目录，也是绝对路径的起点；
-- `~`：当前用户的主目录；
-- `.`：当前目录；
-- `..`：上一级目录。
+<span id="3-创建复制移动和删除"></span>
+<span id="创建目录与文件"></span>
+<span id="复制文件与目录"></span>
+<span id="移动与重命名"></span>
+<span id="删除文件与目录"></span>
 
-以 `/` 开头的是绝对路径；从当前目录出发的则是相对路径。例如，`/home/snow/a.txt` 是绝对路径，`notes/a.txt` 是相对路径。
+## 3. 文件操作与影响范围
 
-## 3. 创建、复制、移动和删除
+### 副本与完整性检查
 
-### 创建目录与文件
+复制生成副本，移动改变位置，重命名改变名称。复制成功并不自动证明字节完整，应核对目标文件，再比较校验和。
+
+```powershell
+# Windows 本地 · PowerShell 7
+Copy-Item -LiteralPath 'data/input.txt' -Destination 'backup/input.txt'
+Get-FileHash -LiteralPath 'data/input.txt', 'backup/input.txt' -Algorithm SHA256
+Copy-Item -LiteralPath 'backup/input.txt' -Destination 'backup/input-renamed.txt'
+Move-Item -LiteralPath 'backup/input-renamed.txt' -Destination 'backup/archived.txt'
+Get-ChildItem -LiteralPath backup
+```
 
 ```bash
-mkdir notes
-mkdir -p projects/demo/src
-touch notes/linux.md
+# Linux · Bash
+cp -i -- data/input.txt backup/input.txt
+sha256sum data/input.txt backup/input.txt
+cp -i -- backup/input.txt backup/input-renamed.txt
+mv -i -- backup/input-renamed.txt backup/archived.txt
+ls -l backup
 ```
 
-`mkdir -p` 可以一次创建多层目录；`touch` 会创建空文件，如果文件已经存在，则只更新其时间戳。
+第一次复制后，两个哈希应相同；最后应存在 `backup/input.txt` 和 `backup/archived.txt`。`cp -i`、`mv -i` 在目标已存在时询问覆盖。目录复制与属性保留需另查 `cp -r`、`cp -a`，不能认为普通复制保留了全部访问控制信息。
 
-### 复制文件与目录
+### 删除目标与预览
+
+删除实验只处理刚生成的 `backup/archived.txt`，原始输入和备份保留。
+
+```powershell
+# Windows 本地 · PowerShell 7，仍在项目根目录
+$deleteTarget = (Resolve-Path -LiteralPath 'backup/archived.txt').Path
+Get-Item -LiteralPath $deleteTarget
+Remove-Item -LiteralPath $deleteTarget -WhatIf
+Remove-Item -LiteralPath $deleteTarget
+Test-Path -LiteralPath $deleteTarget
+```
 
 ```bash
-cp notes/linux.md notes/linux-backup.md
-cp -r projects/demo projects/demo-backup
+# Linux · Bash，仍在项目根目录
+pwd
+ls -l -- backup/archived.txt
+rm -i -- backup/archived.txt
+test ! -e backup/archived.txt && printf '已删除练习副本\n'
 ```
 
-复制目录时需要使用 `-r`，表示递归处理目录中的内容。需要保留权限和时间等属性时，可以使用 `cp -a`。
+PowerShell 最后应输出 `False`。`-WhatIf` 是支持该机制的 cmdlet 的预览，并不锁定文件系统；预览后目标仍可能变化。Bash 中 `--` 结束选项解析，可保护以连字符开头的文件名。
 
-### 移动与重命名
+递归删除还会影响全部后代文件。清理整个练习目录时，应先解析完整目标，核对它位于预期练习父目录中并列出内容，再执行明确的删除命令。空变量检查只能避免部分错误，不能证明路径正确。终端删除通常不进入回收站，覆盖也没有普遍适用的撤销功能；唯一副本不应参与清理练习。
+
+<span id="4-查看和编辑文本"></span>
+<span id="查看较短的文件"></span>
+<span id="查看开头结尾和日志"></span>
+<span id="编辑文本"></span>
+<span id="5-搜索文件与文本"></span>
+<span id="使用-find-查找文件"></span>
+<span id="使用-grep-搜索文本"></span>
+<span id="排序去重与统计"></span>
+
+## 4. 文本查看与检索
+
+### 文件长度与读取方式
+
+短文件可直接读取，长文件应分页或查看局部。Linux 的 `less data/input.txt` 可以滚动与搜索；`head -n 5`、`tail -n 5` 查看开头和结尾。日志追踪用 `tail -f logs/run.log`，按 `Ctrl+C` 停止查看；停止查看不等于停止写日志的程序。
+
+```powershell
+# Windows 本地 · PowerShell 7
+Get-Content -LiteralPath 'data/input.txt' -Encoding utf8 -TotalCount 5
+Get-Content -LiteralPath 'data/input.txt' -Encoding utf8 -Tail 5
+# 仅在日志存在且正在增长时使用：
+# Get-Content -LiteralPath 'logs/run.log' -Encoding utf8 -Wait
+```
+
+编辑可使用已有编辑器。Linux 的 `nano` 通常更容易入门；Vim 中 `i` 进入插入模式，`Esc` 返回普通模式，`:wq` 保存退出，`:q!` 放弃当前未保存修改。不要为了查看内容误进入编辑并覆盖文件。
+
+### 名称查找与内容查找
+
+按名称找文件回答文件在哪里，按内容找文本回答哪一行含有目标。
+
+```powershell
+# Windows 本地 · PowerShell 7
+Get-ChildItem -LiteralPath data -File -Recurse -Filter '*.txt'
+Select-String -LiteralPath 'data/input.txt' -Pattern 's02,20' -SimpleMatch
+```
 
 ```bash
-mv notes/linux.md notes/terminal.md
-mv notes/terminal.md projects/demo/
+# Linux · Bash
+find data -type f -name '*.txt'
+grep -nF -- 's02,20' data/input.txt
 ```
 
-`mv` 既可以移动文件，也可以给文件或目录重命名。
+匹配应位于第 3 行。`find` 的模式加引号，避免 Shell 提前展开；`-F`、`-SimpleMatch` 表示字面匹配。
 
-### 删除文件与目录
+安装 ripgrep 后，两端均可用 `rg -n -F 's02,20' data` 与 `rg --files data`。`rg` 默认跳过隐藏文件和被忽略文件，结果为空也可能是范围问题；必要时针对性使用 `--hidden` 或 `--no-ignore`。它不是系统必然自带的工具，“找不到 rg”不能证明文件不存在。
 
-```bash
-rm notes/linux-backup.md
-rmdir notes
-rm -r projects/demo-backup
-```
+<span id="7-权限与用户"></span>
 
-`rmdir` 只能删除空目录，`rm -r` 会递归删除整个目录。
+## 5. 用户、权限与访问
 
-> `rm` 删除的内容通常不会进入回收站。执行 `rm -r` 前，先用 `pwd` 和 `ls` 确认当前位置与目标；初学时可以使用 `rm -i`，让命令在删除前逐项询问。
-
-如果文件名以 `-` 开头，可以用 `--` 表示选项已经结束：
-
-```bash
-rm -- -example.txt
-```
-
-## 4. 查看和编辑文本
-
-### 查看较短的文件
-
-```bash
-cat README.md
-```
-
-`cat` 会一次输出全部内容，适合短文件。面对较长的文件，使用 `less` 更方便：
-
-```bash
-less README.md
-```
-
-在 `less` 中可以滚动浏览，按 `/` 搜索，按 `q` 退出。
-
-### 查看开头、结尾和日志
-
-```bash
-head -n 10 app.log
-tail -n 20 app.log
-tail -f app.log
-```
-
-`tail -f` 会持续等待并显示新增内容，常用于观察正在更新的日志；按 `Ctrl+C` 可以结束。
-
-### 编辑文本
-
-不少 Linux 环境提供 `nano` 或 `vim`：
-
-```bash
-nano notes.md
-vim notes.md
-```
-
-`nano` 对初学者更直观。第一次使用 Vim 时，只需要先记住：按 `i` 进入编辑模式，按 `Esc` 回到普通模式，输入 `:wq` 保存退出，输入 `:q!` 放弃修改。
-
-## 5. 搜索文件与文本
-
-### 使用 `find` 查找文件
-
-```bash
-find . -type f -name "*.cpp"
-find . -type d -name "build"
-```
-
-第一个 `.` 表示从当前目录开始查找，`-type f` 只匹配文件，`-type d` 只匹配目录。给通配模式加引号，可以避免它提前被 Shell 展开。
-
-### 使用 `grep` 搜索文本
-
-```bash
-grep "main" hello.cpp
-grep -Rni "TODO" src/
-```
-
-- `-R`：递归搜索子目录；
-- `-n`：显示行号；
-- `-i`：忽略大小写。
-
-如果安装了 ripgrep，`rg` 通常更快，也会自动尊重 Git 的忽略规则：
-
-```bash
-rg "TODO" src
-rg --files
-```
-
-### 排序、去重与统计
-
-```bash
-sort names.txt
-sort names.txt | uniq
-wc -l names.txt
-```
-
-`sort` 负责排序，`uniq` 合并相邻的重复行，`wc -l` 统计行数。因此在去重前通常要先排序。
-
-## 6. 管道与重定向
-
-管道 `|` 会把前一个命令的输出交给后一个命令：
-
-```bash
-ps aux | grep "python"
-cat access.log | sort | uniq
-```
-
-很多命令也可以直接接收文件名，因此第二条还可以简化为 `sort access.log | uniq`。
-
-重定向可以把输出写入文件：
-
-```bash
-echo "Linux notes" > notes.txt
-echo "another line" >> notes.txt
-```
-
-- `>`：覆盖目标文件；
-- `>>`：追加到文件末尾；
-- `<`：从文件读取标准输入；
-- `2>`：重定向错误信息。
-
-如果想同时在终端查看并保存结果，可以使用 `tee`：
-
-```bash
-ls -lah | tee files.txt
-```
-
-## 7. 权限与用户
-
-`ls -l` 输出开头的 `r`、`w`、`x` 分别表示读、写、执行权限。例如，可以让脚本对当前用户可执行：
-
-```bash
-chmod u+x run.sh
-./run.sh
-```
-
-也可以使用数字形式，例如 `chmod 755 run.sh`，但对初学者来说，`u+x`、`g-w` 等符号形式更容易看出修改了什么。
-
-查看当前用户及所属用户组：
+Linux 的 `r`、`w`、`x` 对文件分别表示读取、写入和执行；对目录则关系到列出、增删目录项和路径遍历。删除文件还受父目录权限、粘滞位和 ACL 等影响，不由文件自身写权限单独决定。
 
 ```bash
 whoami
 id
+ls -ld . data
+ls -l data/input.txt
 ```
 
-修改所有者通常需要管理员权限：
+普通文本不需要执行权限。对于可信且可读的 Bash 脚本，`bash scripts/run.sh` 由解释器读取文件；`./scripts/run.sh` 还需要执行权限、合适的 shebang 和挂载条件。必要时仅对该脚本使用 `chmod u+x scripts/run.sh`，不要用 `chmod -R 777` 清除权限边界。
 
-```bash
-sudo chown user:group file.txt
+Windows 用 `whoami` 与 `Get-Acl -LiteralPath 'data/input.txt'` 核对账户和访问控制。`.ps1` 执行还涉及执行策略，与文件 ACL 不同。拒绝访问时先确认目标路径、所有者、权限与组织策略，不把管理员模式作为第一步。
+
+## 6. 编码与换行
+
+编码决定字节如何解释为字符，换行决定行尾字节，终端显示又受终端与程序输出设置影响。三者应分开检查。两个文件看起来一样，仍可能因 BOM 或 LF/CRLF 不同而哈希不同。
+
+PowerShell 7 文本输出通常采用 UTF-8 无 BOM；Windows PowerShell 5.1 的 `Out-File`、`>` 常产生 UTF-16LE，`-Encoding UTF8` 通常带 BOM。本文的显式 .NET 写入避免默认编码差异。外部程序输出编码仍需单独核对，改变控制台代码页不等于转换已有文件。
+
+查看字节可用 `Format-Hex -LiteralPath 'data/input.txt'`；Linux 用 `od -An -tx1 data/input.txt`。本例行尾应是 `0a`，不含 `0d 0a`；UTF-8 BOM 是 `ef bb bf`。`file data/input.txt` 提供检测线索，推断编码不是严格证明。
+
+下面是独立的脚本换行实验，需已安装 Python 3。先创建 `scripts/`，保存为 `scripts/fix_newlines.py`；Windows 用 `python`、Linux 用 `python3` 从项目根目录执行。它只产生练习文件，不改真实源码。
+
+```python
+from pathlib import Path
+source = Path("logs/crlf-demo.sh")
+source.write_bytes(b"#!/usr/bin/env bash\r\nprintf 'hello\\n'\r\n")
+# 保留原件，明确移除 CRLF 中的 CR；这里已知输入仅为 ASCII。
+target = Path("logs/lf-demo.sh")
+target.write_bytes(source.read_bytes().replace(b"\r\n", b"\n"))
+print(source.read_bytes())
+print(target.read_bytes())
 ```
 
-`sudo` 会以更高权限执行命令。使用它之前应确认命令的来源、目标和影响，不要把 `sudo` 当作解决所有权限问题的通用方法。
+Linux 运行 `bash logs/lf-demo.sh` 应输出 `hello`。CRLF 原件可能出现 `$'\r'`、解释器路径含 `\r` 等错误，症状取决于调用方式。未知编码文件应先按正确编码解码，再写出目标编码，不能用删字节的方法修复所有乱码。
 
-## 8. 进程与系统信息
+## 7. 常见问题
 
-### 查看和结束进程
+| 症状 | 检查与判断依据 | 处理 |
+| --- | --- | --- |
+| 找不到输入 | 当前目录、完整路径和文件名 | 用绝对路径确认，再修正相对路径 |
+| 空格路径被拆开 | 是否作为单个参数传入 | 完整路径加引号，文件 cmdlet 优先用 `-LiteralPath` |
+| PowerShell 的 `ls -lah` 报错 | `Get-Command ls` 是否为别名 | 改用原生参数 |
+| 哈希不同但内容相似 | BOM、行尾、编码和末尾换行 | 区分字节一致与文本等价 |
+| 权限不足 | 路径、账户、目录权限和执行方式 | 针对具体限制处理 |
+| 中文显示错误 | 文件字节、解码与输出编码 | 保留原件，再修复对应环节 |
 
-```bash
-ps aux
-ps aux | less
-top
-```
+<span id="12-常用命令速查"></span>
 
-找到进程号 PID 后，可以请求进程正常结束：
+## 8. 命令速查
 
-```bash
-kill 12345
-```
+| 目标 | Windows PowerShell | Linux Bash / 工具 |
+| --- | --- | --- |
+| 定位 | `Get-Location`、`Set-Location` | `pwd`、`cd` |
+| 列出 | `Get-ChildItem -Force` | `ls -la` |
+| 创建目录 | `New-Item -ItemType Directory` | `mkdir` |
+| 文件操作 | `Copy-Item`、`Move-Item`、`Remove-Item` | `cp`、`mv`、`rm` |
+| 查看 | `Get-Content` | `cat`、`less`、`head`、`tail` |
+| 检索 | `Select-String -SimpleMatch` | `grep -nF`、`rg -nF` |
+| 字节校验 | `Get-FileHash -Algorithm SHA256` | `sha256sum` |
+| 帮助 | `Get-Help`、`Get-Command` | `man`、`type`、`--help` |
 
-只有普通结束信号无效时，才考虑 `kill -9 12345`。强制结束会让程序失去清理资源和保存数据的机会。
+两列对应目标，不承诺参数、权限保留或递归行为完全相同。
 
-### 查看磁盘、内存和系统信息
+<span id="11-一个小练习"></span>
 
-```bash
-df -h
-du -sh .
-free -h
-uname -a
-```
+## 9. 实践练习
 
-- `df -h`：查看各文件系统的可用空间；
-- `du -sh .`：统计当前目录占用的空间；
-- `free -h`：查看内存使用情况；
-- `uname -a`：查看内核与系统信息。
+1. 建立目录并写出三行输入。验收：当前位置为练习根目录，原件与副本 SHA-256 相同。
+2. 检索 `s02,20`。验收：来源为 `data/input.txt`、行号为 3；搜索副本时明确改变范围。
+3. 新建 CRLF 副本。验收：解释为何它与 LF 原件哈希不同，但解码后可文本等价。
+4. 删除指定副本。验收：执行前能指出完整目标，执行后原件与 `backup/input.txt` 仍存在。
 
-## 9. 网络与软件安装
+Windows 文件操作在 PowerShell 7 中实测；Linux 原生命令和权限实验未在 Linux 主机执行。跨平台流程不以 Windows 成功代替 Linux 验证。
 
-以下命令可以帮助检查网络或获取远程内容：
+<span id="6-管道与重定向"></span>
+<span id="8-进程与系统信息"></span>
+<span id="查看和结束进程"></span>
+<span id="查看磁盘内存和系统信息"></span>
+<span id="9-网络与软件安装"></span>
+<span id="10-提高效率的小技巧"></span>
 
-```bash
-ping -c 4 example.com
-curl -I https://example.com
-ssh user@example.com
-```
+## 10. 旧章节入口
 
-不同 Linux 发行版使用不同的软件包管理器。Debian、Ubuntu 常用 `apt`：
+旧文管道、条件执行迁入[第二篇]({% post_url 2026-09-30-shell-execution-and-scripting %})，进程、资源和 SSH 迁入[第四篇]({% post_url 2026-09-30-remote-development-and-task-management %})，排序与统计迁入[第五篇]({% post_url 2026-09-30-log-analysis-and-result-processing %})。旧章节链接保留为定位入口，完整流程以对应专题为准。
 
-```bash
-sudo apt update
-sudo apt install git
-```
+## 11. 参考资料
 
-Fedora 常用 `dnf`，Arch Linux 常用 `pacman`。安装前应先确认自己的发行版，不要直接照搬不匹配的命令。
+- [Windows Terminal 常见问题](https://learn.microsoft.com/en-us/windows/terminal/faq)。
+- [PowerShell 字符编码](https://learn.microsoft.com/en-us/powershell/module/microsoft.powershell.core/about/about_character_encoding)。
+- [GNU Coreutils 手册](https://www.gnu.org/software/coreutils/manual/coreutils.html)。
+- [ripgrep 使用指南](https://github.com/BurntSushi/ripgrep/blob/master/GUIDE.md)。
 
-## 10. 提高效率的小技巧
-
-终端中有一些值得形成习惯的操作：
-
-- 按 `Tab` 自动补全命令、文件名和目录名；
-- 按 `↑`、`↓` 浏览历史命令；
-- 按 `Ctrl+R` 搜索历史命令；
-- 按 `Ctrl+C` 中止当前程序；
-- 按 `Ctrl+L` 清理屏幕；
-- 使用 `history` 查看命令历史；
-- 使用引号保护包含空格的路径，例如 `cd "My Projects"`。
-
-命令还可以根据执行结果进行组合：
-
-```bash
-mkdir demo && cd demo
-test -f config.txt || touch config.txt
-```
-
-`&&` 只在前一条命令成功时继续，`||` 只在前一条命令失败时继续。
-
-Shell 会展开 `*` 等通配符。正式执行批量移动或删除前，可以先用 `printf '%s\n' *.log` 查看将被匹配的文件。
-
-## 11. 一个小练习
-
-尝试完成下面的任务：
-
-```bash
-mkdir -p terminal-practice/docs
-cd terminal-practice
-touch docs/day1.txt docs/day2.txt
-echo "learn pwd and ls" > docs/day1.txt
-echo "learn grep and find" > docs/day2.txt
-cp -r docs docs-backup
-find . -type f -name "*.txt"
-grep -Rni "learn" .
-du -sh .
-```
-
-练习结束后，先返回上一级目录并确认目标，再删除整个练习目录：
-
-```bash
-cd ..
-pwd
-ls
-rm -ri terminal-practice
-```
-
-## 12. 常用命令速查
-
-| 场景 | 命令 |
-| --- | --- |
-| 查看位置与目录 | `pwd`、`ls`、`cd` |
-| 创建文件和目录 | `touch`、`mkdir` |
-| 复制、移动、删除 | `cp`、`mv`、`rm` |
-| 查看文本 | `cat`、`less`、`head`、`tail` |
-| 搜索 | `find`、`grep`、`rg` |
-| 文本处理 | `sort`、`uniq`、`wc` |
-| 权限 | `chmod`、`chown`、`sudo` |
-| 进程与资源 | `ps`、`top`、`kill`、`df`、`du`、`free` |
-| 网络 | `ping`、`curl`、`ssh` |
-
-不必一次记住所有选项。先理解“当前目录”和“输入、输出”这两个核心概念，再在真实任务中反复使用，命令会自然地变得熟悉。
-
-掌握文件与文本操作之后，下一步就是在终端中编译、构建和调试代码。可以继续阅读[《Linux 命令行开发：编译、构建与调试》]({% post_url 2026-09-01-linux-command-line-development %})。
+下一篇：[Shell 执行与脚本基础]({% post_url 2026-09-30-shell-execution-and-scripting %})。

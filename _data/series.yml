@@ -10,3 +10,7 @@
   title: GPU 编程
   description: 从计算模型与线程映射出发，逐步学习 CUDA C++、正确性验证、性能分析和跨平台路线。
   prerequisites: 能阅读 C++ 变量、循环和数组；无需 GPU 编程经验。导读无需 GPU，CUDA 实操需要受支持的 NVIDIA GPU。
+- id: terminal-lab
+  title: 命令行开发与实验实践
+  description: 从 Windows 与 Linux 文件操作出发，逐步完成脚本执行、构建调试、远程任务、日志整理与可追溯的性能实验。
+  prerequisites: 基础篇无需 Shell 经验；构建篇需能阅读基本 C++，远程篇需有权使用的 Linux 账户。CPU 实验不要求 GPU。

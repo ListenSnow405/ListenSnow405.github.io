@@ -24,11 +24,11 @@ sidebar: true
         <h2 id="series-title-{{ series.id }}">{{ series.title }}</h2>
         <p>{{ series.description }}</p>
         <p class="series-prerequisites"><strong>阅读前提</strong> {{ series.prerequisites }}</p>
-        {% if introduction %}<a class="series-start" href="{{ introduction.url | relative_url }}">从导读开始 <span aria-hidden="true">→</span></a>{% endif %}
+        {% if introduction %}<a class="series-start" href="{{ introduction.url | relative_url }}">{% if introduction.series_order == 0 %}从导读开始{% else %}从第一篇开始{% endif %} <span aria-hidden="true">→</span></a>{% endif %}
       </header>
       <ol class="series-chapters">
         {% for chapter in chapters %}
-          <li><a href="{{ chapter.url | relative_url }}"><span class="chapter-kind">{% if forloop.first %}导读{% elsif chapter.series_role == 'reference' %}速查{% else %}{{ forloop.index | minus: 1 | prepend: '0' }}{% endif %}</span><span>{{ chapter.title | escape }}</span><span class="chapter-arrow" aria-hidden="true">↗</span></a></li>
+          <li><a href="{{ chapter.url | relative_url }}"><span class="chapter-kind">{% if chapter.series_order == 0 %}导读{% elsif chapter.series_role == 'reference' %}速查{% else %}{% if chapter.series_order < 10 %}0{% endif %}{{ chapter.series_order }}{% endif %}</span><span>{{ chapter.title | escape }}</span><span class="chapter-arrow" aria-hidden="true">↗</span></a></li>
         {% endfor %}
       </ol>
     </section>
