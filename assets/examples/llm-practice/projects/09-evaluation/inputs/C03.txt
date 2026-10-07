@@ -1,0 +1,8 @@
+[D9] 教学模拟评估需求 C03，同版本冲突，开发样例
+requested_record=BT-FILES；field=max_input_files；value_type=integer；unit=files。
+只使用下面成功读取的资料，按 contract.json 输出。
+[S2] BatchTrace 0.9 教学模拟资料
+L4：一次任务最多接收 8 个输入日志文件，每个文件不超过 10 MB。
+[S5] BatchTrace 0.9 教学模拟快速卡片
+L2：一次任务最多接收 4 个输入日志文件，每个文件不超过 10 MB。
+L3：本卡片未说明是否更正或取代 S2，也未列出不同适用条件。

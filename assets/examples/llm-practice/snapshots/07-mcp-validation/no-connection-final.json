@@ -1,0 +1,22 @@
+{
+  "status": "failed",
+  "request_origin": "fixed_script_not_model",
+  "exception_type": "ExceptionGroup",
+  "exception": "unhandled errors in a TaskGroup (1 sub-exception)",
+  "error_details": {
+    "type": "ExceptionGroup",
+    "message": "unhandled errors in a TaskGroup (1 sub-exception)",
+    "causes": [
+      {
+        "type": "ExceptionGroup",
+        "message": "unhandled errors in a TaskGroup (1 sub-exception)",
+        "causes": [
+          {
+            "type": "McpError",
+            "message": "Connection closed"
+          }
+        ]
+      }
+    ]
+  }
+}

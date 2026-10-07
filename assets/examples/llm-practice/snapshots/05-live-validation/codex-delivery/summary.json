@@ -1,0 +1,42 @@
+{
+  "prompt_sha256": "289efbb27aace1bbd62df76688f67db416804b9352c7ac7dc05768ffc62d25f2",
+  "input_sha256": "76c4c7e978b94ee17f402fff18227eeee434d27677454008991ae8fd16da6315",
+  "effort": "low",
+  "repeats": 1,
+  "runs": [
+    {
+      "model_requested": "gpt-6-sol",
+      "exit_code": 0,
+      "elapsed_seconds": 31.214,
+      "bundle_pass": true,
+      "error": null,
+      "directory": "model-1",
+      "fenced_blocks": 2,
+      "tool_items": [],
+      "usage": {
+        "input_tokens": 16083,
+        "cached_input_tokens": 12032,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 1403,
+        "reasoning_output_tokens": 14
+      }
+    },
+    {
+      "model_requested": "gpt-6-luna",
+      "exit_code": 0,
+      "elapsed_seconds": 30.948,
+      "bundle_pass": true,
+      "error": null,
+      "directory": "model-2",
+      "fenced_blocks": 2,
+      "tool_items": [],
+      "usage": {
+        "input_tokens": 15904,
+        "cached_input_tokens": 13056,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 1384,
+        "reasoning_output_tokens": 0
+      }
+    }
+  ]
+}

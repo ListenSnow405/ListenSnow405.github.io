@@ -1,0 +1,8 @@
+{
+  "status": "not_run",
+  "reason": "OPENAI_API_KEY absent in process and persistent user environment",
+  "authenticated_requests_sent": 0,
+  "local_runner_exit_code": 2,
+  "endpoint": "https://api.openai.com/v1/responses",
+  "cli_schema_is_not_platform_api_validation": true
+}

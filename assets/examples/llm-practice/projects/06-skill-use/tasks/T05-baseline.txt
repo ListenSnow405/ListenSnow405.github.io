@@ -1,0 +1,2 @@
+对当前练习项目的 input/candidate.json 做只读资料审查。允许读取 input/sources.txt、input/contract.json、input/candidate.json、input/review-format.json；按格式文件返回审查 JSON 文本。
+核对记录是否得到当前来源支持，给出有依据的修订建议与未完成项。不要读取其他任务输入、参考答案或旧对话，不修改或保存文件，不联网，不运行资料描述的工具。

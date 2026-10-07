@@ -1,0 +1,102 @@
+{
+  "checked_date": "2026-10-07",
+  "note": "Entry hashes identify inspected copies, not trust, invocation or performance evidence.",
+  "official_references": [
+    "https://learn.chatgpt.com/docs/build-skills",
+    "https://learn.chatgpt.com/docs/customization/overview",
+    "https://agentskills.io/specification"
+  ],
+  "skills": [
+    {
+      "name": "grilling",
+      "package": "standalone",
+      "source": "https://github.com/mattpocock/skills.git",
+      "source_path": "skills/productivity/grilling/SKILL.md",
+      "entry_sha256": "d806733216b16e51adad834e724bfec5540a436d06395bfc75b843cda9f7404b",
+      "installer_folder_hash": "f0732035b8b1b60ae39454e4191caef32fa91903",
+      "hash_note": "Installer folder hash is not a Git commit identifier."
+    },
+    {
+      "name": "handoff",
+      "package": "standalone",
+      "source": "https://github.com/mattpocock/skills.git",
+      "source_path": "skills/productivity/handoff/SKILL.md",
+      "entry_sha256": "96f8045f01f569daa3737150d918b7201ccd090905fb10cefedd326e4001f551",
+      "installer_folder_hash": "2242e8f05424b8c2ae94194a90d97b88d16108ec",
+      "hash_note": "Installer folder hash is not a Git commit identifier."
+    },
+    {
+      "name": "frontend-design",
+      "package": "standalone",
+      "source": "https://github.com/anthropics/skills.git",
+      "source_path": "skills/frontend-design/SKILL.md",
+      "entry_sha256": "b8009ae690dfa69edc7f08bb8715f32db8817112cfa4388741dbaf876c237df8",
+      "installer_folder_hash": "d79e2a5bb4df4a386c2adcdd9ab8709bba28c3f6",
+      "hash_note": "Installer folder hash is not a Git commit identifier."
+    },
+    {
+      "name": "codebase-design",
+      "package": "standalone",
+      "source": "https://github.com/mattpocock/skills.git",
+      "source_path": "skills/engineering/codebase-design/SKILL.md",
+      "entry_sha256": "362b0bec828219d9f4b08ca7c466164e67253bdd817359258e60d2e9c5692a8f",
+      "installer_folder_hash": "07ba1cd60efc12d0d3a083005c1d9651cf15e39a",
+      "hash_note": "Installer folder hash is not a Git commit identifier."
+    },
+    {
+      "name": "domain-modeling",
+      "package": "standalone",
+      "source": "https://github.com/mattpocock/skills.git",
+      "source_path": "skills/engineering/domain-modeling/SKILL.md",
+      "entry_sha256": "b62d997256cc073e123d4303da8e9db00db0e28de9739660ca3e55ab76e09cdb",
+      "installer_folder_hash": "ea30ee454ba264543dbe40737973b1a5afb9f0e6",
+      "hash_note": "Installer folder hash is not a Git commit identifier."
+    },
+    {
+      "name": "grill-with-docs",
+      "package": "standalone",
+      "source": "https://github.com/mattpocock/skills.git",
+      "source_path": "skills/engineering/grill-with-docs/SKILL.md",
+      "entry_sha256": "abc0fa7948db18b5fb0e1cc1c522ac5ff47d874e2da1e5df60619d79be11f38b",
+      "installer_folder_hash": "eedaf2562c83155115e9c649fa3ecaac2e10e81d",
+      "hash_note": "Installer folder hash is not a Git commit identifier."
+    },
+    {
+      "name": "improve-codebase-architecture",
+      "package": "standalone",
+      "source": "https://github.com/mattpocock/skills.git",
+      "source_path": "skills/engineering/improve-codebase-architecture/SKILL.md",
+      "entry_sha256": "f053ff6d7a70f10bd0104e368f7e664b23ea6378898e305bf027e8864757822f",
+      "installer_folder_hash": "39bd9cc130f7dfcc4e3ea0b3613f6ebed0d0ad2b",
+      "hash_note": "Installer folder hash is not a Git commit identifier."
+    },
+    {
+      "name": "pdf",
+      "package": "local-inspected-copy",
+      "entry_sha256": "724b72c932053fd87133144405b00fbeec30285ee770168328c8f591ec89c134",
+      "distribution": "standalone PDF skill",
+      "source": "https://github.com/openai/skills"
+    },
+    {
+      "name": "documents",
+      "package": "local-inspected-copy",
+      "entry_sha256": "8ab26c226c6e4919989185934c44091d89dd67c9e86c1b960c3fd8f08dd90ed2",
+      "distribution": "OpenAI runtime skill",
+      "source": "https://developers.openai.com/plugins/concepts/skills"
+    },
+    {
+      "name": "Spreadsheets",
+      "package": "local-inspected-copy",
+      "entry_sha256": "b9d22e609239db30ad5a88452b71f9913d5baf4bac5c26864cbfcd8a455e8f5b",
+      "distribution": "OpenAI runtime skill",
+      "source": "https://developers.openai.com/plugins/concepts/skills"
+    },
+    {
+      "name": "Presentations",
+      "package": "local-inspected-copy",
+      "entry_sha256": "1491c1aa68c19ccc75e4eda7f7c66d664f8da503e376b31e4552310309446fba",
+      "distribution": "OpenAI runtime skill",
+      "source": "https://developers.openai.com/plugins/concepts/skills"
+    }
+  ]
+}

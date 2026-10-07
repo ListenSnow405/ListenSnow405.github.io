@@ -1,0 +1,6 @@
+使用 domain-modeling 核对课程资料管理项目的业务术语。
+读取 docs/brief.md、data/materials.csv、src/catalog.py、src/app.js 和现有 GLOSSARY.md。
+重点核对资料、课程、分类、标签及未知更新日期的含义和关系。
+允许维护 GLOSSARY.md；发现业务决定值得记录时，先说明真实取舍再提出 ADR 建议。
+术语表只记录业务概念，不把函数名、CSS 选择器或实现步骤写进定义。
+输出术语表改动，并列出代码与既定需求不一致的位置；不修改程序或输入数据。

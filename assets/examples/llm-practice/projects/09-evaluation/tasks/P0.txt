@@ -1,0 +1,2 @@
+根据本次资料整理 requested_record，返回 contract.json 要求的 JSON，准确保留来源。
+只处理本次输入，不调用网络或写入外部应用。

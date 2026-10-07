@@ -1,0 +1,92 @@
+{
+  "C01": {
+    "case_id": "C01",
+    "outcome": "completed",
+    "reason": null,
+    "records": [
+      {
+        "record_id": "LB-FILES",
+        "value": 2,
+        "unit": "files",
+        "state": "known",
+        "source_refs": [
+          "S1:L4"
+        ]
+      }
+    ]
+  },
+  "C02": {
+    "case_id": "C02",
+    "outcome": "completed",
+    "reason": null,
+    "records": [
+      {
+        "record_id": "LB-LICENSE",
+        "value": null,
+        "unit": "none",
+        "state": "missing",
+        "source_refs": [
+          "S1:L8"
+        ]
+      }
+    ]
+  },
+  "C03": {
+    "case_id": "C03",
+    "outcome": "completed",
+    "reason": null,
+    "records": [
+      {
+        "record_id": "BT-FILES",
+        "value": null,
+        "unit": "files",
+        "state": "conflict",
+        "source_refs": [
+          "S2:L4",
+          "S5:L2",
+          "S5:L3"
+        ]
+      }
+    ]
+  },
+  "C04": {
+    "case_id": "C04",
+    "outcome": "completed",
+    "reason": null,
+    "records": [
+      {
+        "record_id": "RUN-03",
+        "value": 0,
+        "unit": "ms",
+        "state": "known",
+        "source_refs": [
+          "E5:L3",
+          "P5:P1:L1",
+          "P5:P1:L2"
+        ]
+      }
+    ]
+  },
+  "C05": {
+    "case_id": "C05",
+    "outcome": "completed",
+    "reason": null,
+    "records": [
+      {
+        "record_id": "BT-FILES",
+        "value": 8,
+        "unit": "files",
+        "state": "known",
+        "source_refs": [
+          "S2:L4"
+        ]
+      }
+    ]
+  },
+  "C06": {
+    "case_id": "C06",
+    "outcome": "blocked",
+    "reason": "source_read_failed",
+    "records": []
+  }
+}

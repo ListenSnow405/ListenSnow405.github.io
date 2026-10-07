@@ -1,0 +1,27 @@
+{
+  "model_requested": "gpt-6-luna",
+  "mode": "plain",
+  "repeat": 1,
+  "started_utc": "2026-10-05T02:09:18.512875+00:00",
+  "elapsed_seconds": 32.965,
+  "exit_code": 0,
+  "tool_items": [],
+  "usage": {
+    "input_tokens": 16762,
+    "cached_input_tokens": 11008,
+    "cache_write_input_tokens": 0,
+    "output_tokens": 1251,
+    "reasoning_output_tokens": 0
+  },
+  "grade": {
+    "json_parse": true,
+    "contract_pass": true,
+    "contract_error": null,
+    "fact_matches": 12,
+    "reference_coverage": 12,
+    "total_records": 12,
+    "record_errors": []
+  },
+  "directory": "model-2-plain-01",
+  "backend_snapshot": "not exposed by CLI events"
+}

@@ -1,0 +1,10 @@
+{
+  "format_version": "1.0",
+  "top_level_keys": ["status", "findings", "pending", "boundary"],
+  "status_values": ["reviewed", "partial", "not_applicable"],
+  "finding_keys": ["record_id", "expected_value", "expected_state", "source_refs", "reason"],
+  "finding_rule": "每个确定错误按 record_id 合并为一条，顺序遵循 contract；expected_value 是该记录应有的 JSON 值，expected_state 为 known、missing 或 conflict；source_refs 是支持修订的真实标签数组；reason 是非空解释。",
+  "pending_rule": "字符串数组，列出缺少的材料、受影响标识及不能完成的核验；没有待确认项时为空数组。",
+  "boundary_rule": "非空字符串，说明实际读取范围、只完成教学资料审查、未验证真实产品、未修改输入、未保存文件。",
+  "serialization": "只返回一个 JSON 对象，不加代码围栏或额外解释。"
+}

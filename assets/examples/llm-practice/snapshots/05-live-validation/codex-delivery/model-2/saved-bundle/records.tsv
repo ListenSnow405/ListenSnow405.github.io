@@ -1,0 +1,13 @@
+record_id	tool	version	field	value	unit	state	source_refs	note
+LB-FILES	LogBrief	1.2	max_input_files	2	files	known	S1:L4	一次任务最多接收 2 个输入日志文件。
+LB-PROTECT	LogBrief	1.2	input_unchanged	true	none	known	S1:L7	原文明确说明工具不修改输入日志。
+LB-LICENSE	LogBrief	1.2	license		none	missing	S1:L8	说明未提供许可证信息。
+BT-FILES	BatchTrace	0.9	max_input_files		files	conflict	S2:L4;S5:L2;S5:L3	S2 记载最多 8 个文件，S5 记载最多 4 个；S5 未说明是否取代 S2，也未给出适用条件，冲突未解决。
+BT-PROTECT	BatchTrace	0.9	input_unchanged	true	none	known	S2:L7	原文明确说明工具不修改输入日志。
+BT-LICENSE	BatchTrace	0.9	license	MIT	none	known	S2:L8	原文明确记载许可证为 MIT。
+RS-FILES	RunSheet	2.0	max_input_files	20	files	known	S3:L4	一次任务最多接收 20 个输入日志文件。
+RS-PROTECT	RunSheet	2.0	input_unchanged		none	missing	S3:L7	说明未提供是否修改输入日志的信息。
+RS-LICENSE	RunSheet	2.0	license		none	missing	S3:L8	说明未提供许可证信息。
+RUN-01	BatchTrace	0.9	elapsed_ms	1250	ms	known	E5:L1;P5:P1:L1	sim-01 的 duration 为 1.25 s；按 P5 的秒转毫秒规则乘以 1000，得 1250 ms。
+RUN-02	BatchTrace	0.9	elapsed_ms		ms	missing	E5:L2;P5:P1:L1;P5:P1:L2	sim-02 的 duration 为破折号，表示未记录；P5 规定 duration 单位为 s、输出单位为 ms，此处无数值可换算。
+RUN-03	BatchTrace	0.9	elapsed_ms	0	ms	known	E5:L3;P5:P1:L1;P5:P1:L2	sim-03 的 duration 是已记录的 0 s；按 P5 的秒转毫秒规则乘以 1000，得 0 ms。

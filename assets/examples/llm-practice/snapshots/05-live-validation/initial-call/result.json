@@ -1,0 +1,10 @@
+{
+  "json_parse": true,
+  "general_schema_pass": true,
+  "contract_pass": false,
+  "contract_error": "LB-FILES: 来源定位不存在",
+  "fact_matches": 12,
+  "reference_coverage": 0,
+  "total_records": 12,
+  "note": "原始输出使用 S1 L4 等空格定位；未修改响应。"
+}

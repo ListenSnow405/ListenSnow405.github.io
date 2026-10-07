@@ -1,0 +1,83 @@
+{
+  "type": "object",
+  "properties": {
+    "schema_version": {
+      "type": "string",
+      "enum": [
+        "1.0"
+      ]
+    },
+    "demand_id": {
+      "type": "string",
+      "enum": [
+        "D5-v1"
+      ]
+    },
+    "records": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "record_id": {
+            "type": "string"
+          },
+          "tool": {
+            "type": "string"
+          },
+          "version": {
+            "type": "string"
+          },
+          "field": {
+            "type": "string"
+          },
+          "value": {
+            "type": [
+              "integer",
+              "boolean",
+              "string",
+              "null"
+            ]
+          },
+          "unit": {
+            "type": "string"
+          },
+          "state": {
+            "type": "string",
+            "enum": [
+              "known",
+              "missing",
+              "conflict"
+            ]
+          },
+          "source_refs": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "note": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "record_id",
+          "tool",
+          "version",
+          "field",
+          "value",
+          "unit",
+          "state",
+          "source_refs",
+          "note"
+        ],
+        "additionalProperties": false
+      }
+    }
+  },
+  "required": [
+    "schema_version",
+    "demand_id",
+    "records"
+  ],
+  "additionalProperties": false
+}

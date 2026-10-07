@@ -1,0 +1,8 @@
+[D9] 教学模拟评估需求 C04，已知零值，保留样例
+requested_record=RUN-03；field=elapsed_ms；value_type=integer；unit=ms。
+只使用下面成功读取的资料，按 contract.json 输出。
+[P5] 教学模拟报告文字摘录
+P1:L1：E5 的 duration 单位为秒（s）；输出 elapsed_ms 时乘以 1000。
+P1:L2：破折号“—”表示未记录；数字 0 表示已记录的零值，不能与缺失互换。
+[E5] BatchTrace 0.9 教学模拟实验记录
+L3：run_id=sim-03；duration=0。

@@ -1,0 +1,404 @@
+{
+  "system": "win32",
+  "python": "3.11.9",
+  "project_version": "08-workflow/1.0",
+  "workspace": "C:\\Users\\17334\\AppData\\Local\\Temp\\llm-08-validation-_jr20223\\08-agent-workflow",
+  "fixture": "expected/05-output/records.json; independent program fixture, not model output",
+  "commands": [
+    {
+      "script": "workflow.py",
+      "args": [
+        "start",
+        "demo-01",
+        "--fault",
+        "S3:once"
+      ],
+      "exit_code": 1,
+      "stdout": "{\n  \"run_id\": \"demo-01\",\n  \"status\": \"failed\",\n  \"stage\": \"read\",\n  \"reason\": \"教学注入：来源读取接口超时；未写入该来源缓存\"\n}\n",
+      "stderr": ""
+    },
+    {
+      "script": "workflow.py",
+      "args": [
+        "resume",
+        "demo-01"
+      ],
+      "exit_code": 0,
+      "stdout": "{\n  \"run_id\": \"demo-01\",\n  \"status\": \"waiting_input\",\n  \"stage\": \"extract\",\n  \"reason\": \"等待读者保存模型候选\"\n}\n",
+      "stderr": ""
+    },
+    {
+      "script": "workflow.py",
+      "args": [
+        "status",
+        "demo-01"
+      ],
+      "exit_code": 0,
+      "stdout": "{\n  \"run_id\": \"demo-01\",\n  \"status\": \"waiting_input\",\n  \"stage\": \"extract\",\n  \"reason\": \"等待读者保存模型候选\"\n}\n",
+      "stderr": ""
+    },
+    {
+      "script": "workflow.py",
+      "args": [
+        "resume",
+        "demo-01",
+        "--candidate",
+        "inbox/candidate-v1.json"
+      ],
+      "exit_code": 0,
+      "stdout": "{\n  \"run_id\": \"demo-01\",\n  \"status\": \"waiting_review\",\n  \"stage\": \"review\",\n  \"reason\": \"结构通过；等待人工核对证据含义\",\n  \"review_digest\": \"a77fe8026d8506e7486adbebcbdfdf0ef4b524b46f38aafe7a9fd5e080f0e7d2\"\n}\n",
+      "stderr": ""
+    },
+    {
+      "script": "workflow.py",
+      "args": [
+        "approve",
+        "demo-01",
+        "--digest",
+        "wrong"
+      ],
+      "exit_code": 1,
+      "stdout": "STOP: 没有当前待审稿，或确认摘要不匹配\n",
+      "stderr": ""
+    },
+    {
+      "script": "workflow.py",
+      "args": [
+        "approve",
+        "demo-01",
+        "--digest",
+        "a77fe8026d8506e7486adbebcbdfdf0ef4b524b46f38aafe7a9fd5e080f0e7d2"
+      ],
+      "exit_code": 0,
+      "stdout": "{\n  \"run_id\": \"demo-01\",\n  \"status\": \"completed\",\n  \"stage\": \"done\",\n  \"reason\": null,\n  \"review_digest\": \"a77fe8026d8506e7486adbebcbdfdf0ef4b524b46f38aafe7a9fd5e080f0e7d2\"\n}\n",
+      "stderr": ""
+    },
+    {
+      "script": "validate_output.py",
+      "args": [
+        "runs/demo-01/output"
+      ],
+      "exit_code": 0,
+      "stdout": "PASS: 12 records; structure, reference labels and file consistency.\nManual review required: source meaning, unit conversion and factual support.\n",
+      "stderr": ""
+    },
+    {
+      "script": "workflow.py",
+      "args": [
+        "resume",
+        "demo-01"
+      ],
+      "exit_code": 0,
+      "stdout": "{\n  \"run_id\": \"demo-01\",\n  \"status\": \"completed\",\n  \"stage\": \"done\",\n  \"reason\": null,\n  \"review_digest\": \"a77fe8026d8506e7486adbebcbdfdf0ef4b524b46f38aafe7a9fd5e080f0e7d2\"\n}\n",
+      "stderr": ""
+    },
+    {
+      "script": "workflow.py",
+      "args": [
+        "approve",
+        "demo-01",
+        "--digest",
+        "a77fe8026d8506e7486adbebcbdfdf0ef4b524b46f38aafe7a9fd5e080f0e7d2"
+      ],
+      "exit_code": 0,
+      "stdout": "{\n  \"run_id\": \"demo-01\",\n  \"status\": \"completed\",\n  \"stage\": \"done\",\n  \"reason\": null,\n  \"review_digest\": \"a77fe8026d8506e7486adbebcbdfdf0ef4b524b46f38aafe7a9fd5e080f0e7d2\"\n}\n",
+      "stderr": ""
+    },
+    {
+      "script": "workflow.py",
+      "args": [
+        "start",
+        "demo-01"
+      ],
+      "exit_code": 1,
+      "stdout": "STOP: [WinError 183] 当文件已存在时，无法创建该文件。: 'C:\\\\Users\\\\17334\\\\AppData\\\\Local\\\\Temp\\\\llm-08-validation-_jr20223\\\\08-agent-workflow\\\\runs\\\\demo-01'\n",
+      "stderr": ""
+    },
+    {
+      "script": "workflow.py",
+      "args": [
+        "start",
+        "retry-01",
+        "--fault",
+        "S3:once",
+        "--read-attempts",
+        "2"
+      ],
+      "exit_code": 0,
+      "stdout": "{\n  \"run_id\": \"retry-01\",\n  \"status\": \"waiting_input\",\n  \"stage\": \"extract\",\n  \"reason\": \"等待读者保存模型候选\"\n}\n",
+      "stderr": ""
+    },
+    {
+      "script": "workflow.py",
+      "args": [
+        "start",
+        "stop-01",
+        "--fault",
+        "S3:always",
+        "--read-attempts",
+        "3"
+      ],
+      "exit_code": 1,
+      "stdout": "{\n  \"run_id\": \"stop-01\",\n  \"status\": \"blocked\",\n  \"stage\": \"read\",\n  \"reason\": \"教学注入：来源读取接口超时；未写入该来源缓存\"\n}\n",
+      "stderr": ""
+    },
+    {
+      "script": "workflow.py",
+      "args": [
+        "resume",
+        "stop-01"
+      ],
+      "exit_code": 1,
+      "stdout": "{\n  \"run_id\": \"stop-01\",\n  \"status\": \"blocked\",\n  \"stage\": \"read\",\n  \"reason\": \"S3 累计读取达到 3 次\"\n}\n",
+      "stderr": ""
+    },
+    {
+      "script": "workflow.py",
+      "args": [
+        "start",
+        "bad-01"
+      ],
+      "exit_code": 0,
+      "stdout": "{\n  \"run_id\": \"bad-01\",\n  \"status\": \"waiting_input\",\n  \"stage\": \"extract\",\n  \"reason\": \"等待读者保存模型候选\"\n}\n",
+      "stderr": ""
+    },
+    {
+      "script": "workflow.py",
+      "args": [
+        "resume",
+        "bad-01",
+        "--candidate",
+        "inbox/candidate-v1.json"
+      ],
+      "exit_code": 1,
+      "stdout": "{\n  \"run_id\": \"bad-01\",\n  \"status\": \"blocked\",\n  \"stage\": \"extract\",\n  \"reason\": \"记录数量必须为 12\"\n}\n",
+      "stderr": ""
+    },
+    {
+      "script": "workflow.py",
+      "args": [
+        "resume",
+        "bad-01",
+        "--candidate",
+        "inbox/candidate-v2.json"
+      ],
+      "exit_code": 0,
+      "stdout": "{\n  \"run_id\": \"bad-01\",\n  \"status\": \"waiting_review\",\n  \"stage\": \"review\",\n  \"reason\": \"结构通过；等待人工核对证据含义\",\n  \"review_digest\": \"a77fe8026d8506e7486adbebcbdfdf0ef4b524b46f38aafe7a9fd5e080f0e7d2\"\n}\n",
+      "stderr": ""
+    },
+    {
+      "script": "workflow.py",
+      "args": [
+        "start",
+        "semantic-01"
+      ],
+      "exit_code": 0,
+      "stdout": "{\n  \"run_id\": \"semantic-01\",\n  \"status\": \"waiting_input\",\n  \"stage\": \"extract\",\n  \"reason\": \"等待读者保存模型候选\"\n}\n",
+      "stderr": ""
+    },
+    {
+      "script": "workflow.py",
+      "args": [
+        "resume",
+        "semantic-01",
+        "--candidate",
+        "inbox/candidate-v1.json"
+      ],
+      "exit_code": 0,
+      "stdout": "{\n  \"run_id\": \"semantic-01\",\n  \"status\": \"waiting_review\",\n  \"stage\": \"review\",\n  \"reason\": \"结构通过；等待人工核对证据含义\",\n  \"review_digest\": \"62086d5a780f843eefdecc239c9b9e66d2e691650fdbcfb988c9d7462b694c6f\"\n}\n",
+      "stderr": ""
+    },
+    {
+      "script": "workflow.py",
+      "args": [
+        "approve",
+        "bad-01",
+        "--digest",
+        "a77fe8026d8506e7486adbebcbdfdf0ef4b524b46f38aafe7a9fd5e080f0e7d2"
+      ],
+      "exit_code": 1,
+      "stdout": "STOP: 已登记产物变化：preview/report.md；停止恢复，不自动覆盖\n",
+      "stderr": ""
+    },
+    {
+      "script": "workflow.py",
+      "args": [
+        "resume",
+        "bad-01"
+      ],
+      "exit_code": 1,
+      "stdout": "STOP: [Errno 17] File exists: 'C:\\\\Users\\\\17334\\\\AppData\\\\Local\\\\Temp\\\\llm-08-validation-_jr20223\\\\08-agent-workflow\\\\runs\\\\bad-01\\\\.lock'\n",
+      "stderr": ""
+    },
+    {
+      "script": "workflow.py",
+      "args": [
+        "resume",
+        "demo-01"
+      ],
+      "exit_code": 1,
+      "stdout": "STOP: 输入、契约或执行代码变化；保留旧运行，使用新的 run_id\n",
+      "stderr": ""
+    },
+    {
+      "script": "workflow.py",
+      "args": [
+        "resume",
+        "demo-01",
+        "--candidate",
+        "../../expected/answer.json"
+      ],
+      "exit_code": 0,
+      "stdout": "{\n  \"run_id\": \"demo-01\",\n  \"status\": \"completed\",\n  \"stage\": \"done\",\n  \"reason\": null,\n  \"review_digest\": \"a77fe8026d8506e7486adbebcbdfdf0ef4b524b46f38aafe7a9fd5e080f0e7d2\"\n}\n",
+      "stderr": ""
+    },
+    {
+      "script": "workflow.py",
+      "args": [
+        "start",
+        "scope-01"
+      ],
+      "exit_code": 0,
+      "stdout": "{\n  \"run_id\": \"scope-01\",\n  \"status\": \"waiting_input\",\n  \"stage\": \"extract\",\n  \"reason\": \"等待读者保存模型候选\"\n}\n",
+      "stderr": ""
+    },
+    {
+      "script": "workflow.py",
+      "args": [
+        "resume",
+        "scope-01",
+        "--candidate",
+        "../../expected/answer.json"
+      ],
+      "exit_code": 1,
+      "stdout": "STOP: 候选必须位于本次运行的 inbox/；不从参考答案目录读取\n",
+      "stderr": ""
+    },
+    {
+      "script": "workflow.py",
+      "args": [
+        "start",
+        "partial-01"
+      ],
+      "exit_code": 0,
+      "stdout": "{\n  \"run_id\": \"partial-01\",\n  \"status\": \"waiting_input\",\n  \"stage\": \"extract\",\n  \"reason\": \"等待读者保存模型候选\"\n}\n",
+      "stderr": ""
+    },
+    {
+      "script": "workflow.py",
+      "args": [
+        "resume",
+        "partial-01",
+        "--candidate",
+        "inbox/candidate-v1.json"
+      ],
+      "exit_code": 0,
+      "stdout": "{\n  \"run_id\": \"partial-01\",\n  \"status\": \"waiting_review\",\n  \"stage\": \"review\",\n  \"reason\": \"结构通过；等待人工核对证据含义\",\n  \"review_digest\": \"a77fe8026d8506e7486adbebcbdfdf0ef4b524b46f38aafe7a9fd5e080f0e7d2\"\n}\n",
+      "stderr": ""
+    },
+    {
+      "script": "workflow.py",
+      "args": [
+        "resume",
+        "partial-01",
+        "--candidate",
+        "inbox/candidate-v1.json"
+      ],
+      "exit_code": 0,
+      "stdout": "{\n  \"run_id\": \"partial-01\",\n  \"status\": \"waiting_review\",\n  \"stage\": \"review\",\n  \"reason\": \"结构通过；等待人工核对证据含义\",\n  \"review_digest\": \"a77fe8026d8506e7486adbebcbdfdf0ef4b524b46f38aafe7a9fd5e080f0e7d2\"\n}\n",
+      "stderr": ""
+    },
+    {
+      "script": "workflow.py",
+      "args": [
+        "resume",
+        "partial-01",
+        "--candidate",
+        "inbox/candidate-v1.json"
+      ],
+      "exit_code": 1,
+      "stdout": "STOP: 已有文件内容不匹配，拒绝覆盖：preview/report.md\n",
+      "stderr": ""
+    }
+  ],
+  "checks": [
+    {
+      "name": "injected read failure stops downstream",
+      "passed": true
+    },
+    {
+      "name": "resume reuses S1/S2 bytes and timestamps",
+      "passed": true
+    },
+    {
+      "name": "six sources complete with cumulative counts",
+      "passed": true
+    },
+    {
+      "name": "structural check stops at human review",
+      "passed": true
+    },
+    {
+      "name": "wrong approval digest cannot create output",
+      "passed": true
+    },
+    {
+      "name": "delivered fixture keeps 12 records, conflict, missing and zero",
+      "passed": true
+    },
+    {
+      "name": "repeated commands preserve all run files and timestamps",
+      "passed": true
+    },
+    {
+      "name": "finite automatic retry within one invocation",
+      "passed": true
+    },
+    {
+      "name": "cumulative cap survives restart with no fourth call",
+      "passed": true
+    },
+    {
+      "name": "incomplete candidate blocks preview and delivery",
+      "passed": true
+    },
+    {
+      "name": "new candidate version recovers structural rejection",
+      "passed": true
+    },
+    {
+      "name": "semantic fault is not falsely claimed as machine verification",
+      "passed": true
+    },
+    {
+      "name": "changed preview blocks stale approval without overwriting",
+      "passed": true
+    },
+    {
+      "name": "exclusive lock remains on conflicting invocation",
+      "passed": true
+    },
+    {
+      "name": "input revision mismatch stops without changing prior run",
+      "passed": true
+    },
+    {
+      "name": "candidate path cannot escape current inbox",
+      "passed": true
+    },
+    {
+      "name": "unregistered identical artifacts can be adopted after interruption",
+      "passed": true
+    },
+    {
+      "name": "unregistered partial artifact is preserved and blocks overwrite",
+      "passed": true
+    },
+    {
+      "name": "fixed project files remain unchanged",
+      "passed": true
+    }
+  ],
+  "model_calls": 0,
+  "status": "passed"
+}

@@ -1,0 +1,4 @@
+run_id	duration_s	elapsed_ms	state	review
+sim-01	1.25	1250	known	合并 OCR 的小数空格；原页显示 1.25。
+sim-02	—		missing	原页补回漏识别的破折号；sim—02 校正为 sim-02，不把空 OCR 值直接判为缺失。
+sim-03	0	0	known	原页确认零值及行位置；sim—03 校正为 sim-03，己记录校正为已记录。

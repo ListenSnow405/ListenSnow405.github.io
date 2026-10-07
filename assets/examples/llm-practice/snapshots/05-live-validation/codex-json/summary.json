@@ -1,0 +1,227 @@
+{
+  "transport": "Codex CLI / existing login",
+  "platform_api_tested": false,
+  "prompt_sha256": "786fe7c00cdfe85eabe70e47c4f47c8e332b20e5dfea82a012560170f6fe0ad1",
+  "schema_sha256": "ccd9d4a6c9be7a8a0e624c244db25c10a9346afdb8c37a256d98b13f65ea2704",
+  "effort": "low",
+  "repeats": 2,
+  "cli_version": "codex-cli 0.160.0",
+  "runs": [
+    {
+      "model_requested": "gpt-6-sol",
+      "mode": "plain",
+      "repeat": 1,
+      "started_utc": "2026-10-05T02:08:43.148367+00:00",
+      "elapsed_seconds": 35.355,
+      "exit_code": 0,
+      "tool_items": [],
+      "usage": {
+        "input_tokens": 16941,
+        "cached_input_tokens": 12032,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 1270,
+        "reasoning_output_tokens": 33
+      },
+      "grade": {
+        "json_parse": true,
+        "contract_pass": true,
+        "contract_error": null,
+        "fact_matches": 12,
+        "reference_coverage": 12,
+        "total_records": 12,
+        "record_errors": []
+      },
+      "directory": "model-1-plain-01",
+      "backend_snapshot": "not exposed by CLI events"
+    },
+    {
+      "model_requested": "gpt-6-luna",
+      "mode": "plain",
+      "repeat": 1,
+      "started_utc": "2026-10-05T02:09:18.512875+00:00",
+      "elapsed_seconds": 32.965,
+      "exit_code": 0,
+      "tool_items": [],
+      "usage": {
+        "input_tokens": 16762,
+        "cached_input_tokens": 11008,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 1251,
+        "reasoning_output_tokens": 0
+      },
+      "grade": {
+        "json_parse": true,
+        "contract_pass": true,
+        "contract_error": null,
+        "fact_matches": 12,
+        "reference_coverage": 12,
+        "total_records": 12,
+        "record_errors": []
+      },
+      "directory": "model-2-plain-01",
+      "backend_snapshot": "not exposed by CLI events"
+    },
+    {
+      "model_requested": "gpt-6-sol",
+      "mode": "schema",
+      "repeat": 1,
+      "started_utc": "2026-10-05T02:09:51.484694+00:00",
+      "elapsed_seconds": 22.385,
+      "exit_code": 0,
+      "tool_items": [],
+      "usage": {
+        "input_tokens": 17087,
+        "cached_input_tokens": 0,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 931,
+        "reasoning_output_tokens": 58
+      },
+      "grade": {
+        "json_parse": true,
+        "contract_pass": true,
+        "contract_error": null,
+        "fact_matches": 12,
+        "reference_coverage": 12,
+        "total_records": 12,
+        "record_errors": []
+      },
+      "directory": "model-1-schema-01",
+      "backend_snapshot": "not exposed by CLI events"
+    },
+    {
+      "model_requested": "gpt-6-luna",
+      "mode": "schema",
+      "repeat": 1,
+      "started_utc": "2026-10-05T02:10:13.880338+00:00",
+      "elapsed_seconds": 22.507,
+      "exit_code": 0,
+      "tool_items": [],
+      "usage": {
+        "input_tokens": 16908,
+        "cached_input_tokens": 0,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 829,
+        "reasoning_output_tokens": 0
+      },
+      "grade": {
+        "json_parse": true,
+        "contract_pass": true,
+        "contract_error": null,
+        "fact_matches": 12,
+        "reference_coverage": 12,
+        "total_records": 12,
+        "record_errors": []
+      },
+      "directory": "model-2-schema-01",
+      "backend_snapshot": "not exposed by CLI events"
+    },
+    {
+      "model_requested": "gpt-6-sol",
+      "mode": "plain",
+      "repeat": 2,
+      "started_utc": "2026-10-05T02:10:36.392775+00:00",
+      "elapsed_seconds": 34.007,
+      "exit_code": 0,
+      "tool_items": [],
+      "usage": {
+        "input_tokens": 16941,
+        "cached_input_tokens": 12032,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 1267,
+        "reasoning_output_tokens": 49
+      },
+      "grade": {
+        "json_parse": true,
+        "contract_pass": true,
+        "contract_error": null,
+        "fact_matches": 12,
+        "reference_coverage": 12,
+        "total_records": 12,
+        "record_errors": []
+      },
+      "directory": "model-1-plain-02",
+      "backend_snapshot": "not exposed by CLI events"
+    },
+    {
+      "model_requested": "gpt-6-luna",
+      "mode": "plain",
+      "repeat": 2,
+      "started_utc": "2026-10-05T02:11:10.406430+00:00",
+      "elapsed_seconds": 20.725,
+      "exit_code": 0,
+      "tool_items": [],
+      "usage": {
+        "input_tokens": 16762,
+        "cached_input_tokens": 11008,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 825,
+        "reasoning_output_tokens": 0
+      },
+      "grade": {
+        "json_parse": true,
+        "contract_pass": true,
+        "contract_error": null,
+        "fact_matches": 12,
+        "reference_coverage": 12,
+        "total_records": 12,
+        "record_errors": []
+      },
+      "directory": "model-2-plain-02",
+      "backend_snapshot": "not exposed by CLI events"
+    },
+    {
+      "model_requested": "gpt-6-sol",
+      "mode": "schema",
+      "repeat": 2,
+      "started_utc": "2026-10-05T02:11:31.141761+00:00",
+      "elapsed_seconds": 24.989,
+      "exit_code": 0,
+      "tool_items": [],
+      "usage": {
+        "input_tokens": 17087,
+        "cached_input_tokens": 0,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 933,
+        "reasoning_output_tokens": 51
+      },
+      "grade": {
+        "json_parse": true,
+        "contract_pass": true,
+        "contract_error": null,
+        "fact_matches": 12,
+        "reference_coverage": 12,
+        "total_records": 12,
+        "record_errors": []
+      },
+      "directory": "model-1-schema-02",
+      "backend_snapshot": "not exposed by CLI events"
+    },
+    {
+      "model_requested": "gpt-6-luna",
+      "mode": "schema",
+      "repeat": 2,
+      "started_utc": "2026-10-05T02:11:56.138018+00:00",
+      "elapsed_seconds": 21.664,
+      "exit_code": 0,
+      "tool_items": [],
+      "usage": {
+        "input_tokens": 16908,
+        "cached_input_tokens": 0,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 847,
+        "reasoning_output_tokens": 0
+      },
+      "grade": {
+        "json_parse": true,
+        "contract_pass": true,
+        "contract_error": null,
+        "fact_matches": 12,
+        "reference_coverage": 12,
+        "total_records": 12,
+        "record_errors": []
+      },
+      "directory": "model-2-schema-02",
+      "backend_snapshot": "not exposed by CLI events"
+    }
+  ]
+}

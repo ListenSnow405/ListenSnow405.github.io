@@ -1,0 +1,35 @@
+{
+  "date": "2026-10-05",
+  "chapter": 7,
+  "request_origin": "fixed_script_not_model",
+  "model": null,
+  "protocol": "2025-11-25",
+  "project_files": {
+    "probe_client.py": "62d376a95ab85c63bf76a4dbfe4db64e1dcf89005b385addeb3ba30288e65cb7",
+    "README.md": "2945a62f37113402803a8bbc46af17a576e157096cf01993d0f342b8a28155a1",
+    "requirements.txt": "6c5b337949c4fee3bf05430105977f560094f952fff61353131575146e373cbe",
+    "run-record.md": "a4b156b48e022e38205d8199081e92756956213d8fd73322fec1e37fe2e8921b",
+    "SHA256SUMS.txt": "6b20039a23186853adc5041054267334c70ad34349936e0b943a78271cd14554",
+    "source_server.py": "34166597e8e5a491e8bb2d51e8e1f0efd806ffa01174be21161a030cfdd1c113",
+    "input/contract.json": "ebd3748f2c3c60e32a96f3e9d8956994c892e06cad0ce6a1adab353602401e38",
+    "input/sources.txt": "339c12dfddebcbc11204074f0a2068e005ba2b40f2e318e36ccea177ec9367cd",
+    "tasks/07-01-discover.txt": "a9251b5ac66671f3f67292aeb5ceebefcebc8dc79b08146c578f64ae6d37340f",
+    "tasks/07-02-collect.txt": "2b335990b61efe54df88ffa9d74dc8b6867c3b91d173f5225e55b36152bcdd88",
+    "tasks/07-03-failures.txt": "7e92aa27bc83ee7781964e06f72a02908490d0ab5987603d4faf5198e5ba166a"
+  },
+  "records": {
+    "dependencies.txt": "f06af8fdd6541daf272eb0cd060bf5bc8590251eca4d9dd33a4beb8ebf3df1c3",
+    "discovery-final.json": "c4d41f06e2d4a6735d35f40bac39c054c5369ab5d9012f77602a518fdde88f8c",
+    "discovery-final.stderr.txt": "92208180352a8656d11cc2c9a28019d716c44ecc72956bc14fc46aa399dc42d6",
+    "initial-restricted.json": "5068c71fc26fa8814848f5cb823923816b2f625e16050f06177558d291a682b9",
+    "no-connection-final.json": "8765bc78d05f4243676a8ff1a1167850732290d7b5e6d1955ec5e56066e32d62",
+    "no-connection-final.stderr.txt": "071fc94f0294aa796a86000428df17f89080857ccf5f5e73e7d50612550d10ba",
+    "no-overwrite.stderr.txt": "e1c2d212df4f82e2fdda9d73845b1ef1ecdcd11e9d31ebc045488c2da5bc48ff",
+    "probe-final.json": "23c994f3ce544dad615d96975cfe12e0be0d5a8349a6f7a7b9f770e398f05d8f",
+    "probe-final.stderr.txt": "5cd116de7082247788f405cfa210f5e39964e8c0f03a80e4a32db87756d16735",
+    "protection.json": "6a5b16a01d5ce310375843f69560e7b4e9b012572af1e540cbe3df97aa5fe0fd",
+    "README.md": "44db1c4f53470cffcfe6b46701074326226b2173f73f2f9089471ce12cd1015a"
+  },
+  "zip_sha256": "f520a01347c89e15dd3e570e87725deac17b814ed775b8109207e4ba242657a1",
+  "native_host_model_tested": false
+}

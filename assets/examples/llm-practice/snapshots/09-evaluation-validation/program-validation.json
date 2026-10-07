@@ -1,0 +1,97 @@
+{
+  "date": "2026-10-05",
+  "os": "Windows",
+  "python": "3.11.9",
+  "scope": "actual isolated program validation on human authored fixtures; no model or API calls",
+  "checks": [
+    {
+      "name": "36 task decisions",
+      "passed": true
+    },
+    {
+      "name": "first/final pass counts",
+      "passed": true
+    },
+    {
+      "name": "calls and correct stops",
+      "passed": true
+    },
+    {
+      "name": "teaching token totals",
+      "passed": true
+    },
+    {
+      "name": "human review remains pending",
+      "passed": true
+    },
+    {
+      "name": "exclusive cache read/write formula",
+      "passed": true
+    },
+    {
+      "name": "invalid cache accounting",
+      "passed": true
+    },
+    {
+      "name": "boolean does not equal integer",
+      "passed": true
+    },
+    {
+      "name": "duplicate JSON keys rejected",
+      "passed": true
+    },
+    {
+      "name": "duplicate record rejected",
+      "passed": true
+    },
+    {
+      "name": "both conflict sources required",
+      "passed": true
+    },
+    {
+      "name": "unknown tokens propagate",
+      "passed": true
+    },
+    {
+      "name": "unknown tool cost preserves token estimate",
+      "passed": true
+    },
+    {
+      "name": "zero correct tasks has no unit cost",
+      "passed": true
+    },
+    {
+      "name": "missing trial rejected",
+      "passed": true
+    },
+    {
+      "name": "duplicate trial rejected",
+      "passed": true
+    },
+    {
+      "name": "read failure cannot call model",
+      "passed": true
+    },
+    {
+      "name": "W0 call limit checked",
+      "passed": true
+    },
+    {
+      "name": "time limit checked",
+      "passed": true
+    },
+    {
+      "name": "actual CLI completed",
+      "passed": true
+    },
+    {
+      "name": "existing output protected",
+      "passed": true
+    },
+    {
+      "name": "logs and reference unchanged",
+      "passed": true
+    }
+  ],
+  "passed": 22
+}

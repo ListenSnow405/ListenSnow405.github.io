@@ -1,0 +1,27 @@
+{
+  "model_requested": "gpt-6-sol",
+  "mode": "schema",
+  "repeat": 1,
+  "started_utc": "2026-10-05T02:09:51.484694+00:00",
+  "elapsed_seconds": 22.385,
+  "exit_code": 0,
+  "tool_items": [],
+  "usage": {
+    "input_tokens": 17087,
+    "cached_input_tokens": 0,
+    "cache_write_input_tokens": 0,
+    "output_tokens": 931,
+    "reasoning_output_tokens": 58
+  },
+  "grade": {
+    "json_parse": true,
+    "contract_pass": true,
+    "contract_error": null,
+    "fact_matches": 12,
+    "reference_coverage": 12,
+    "total_records": 12,
+    "record_errors": []
+  },
+  "directory": "model-1-schema-01",
+  "backend_snapshot": "not exposed by CLI events"
+}

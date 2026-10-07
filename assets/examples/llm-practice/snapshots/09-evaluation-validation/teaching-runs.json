@@ -1,0 +1,715 @@
+{
+  "evidence_type": "human_authored_fixture",
+  "model": "none",
+  "settings": "not applicable",
+  "usage_basis": "invented_for_arithmetic",
+  "time_basis": "invented_for_arithmetic",
+  "trials": [
+    {
+      "variant": "P0-W0",
+      "case_id": "C01",
+      "repeat": 1,
+      "wall_seconds": 12,
+      "attempts": [
+        {
+          "stage": "model",
+          "status": "completed",
+          "raw_output": "{\"case_id\": \"C01\", \"outcome\": \"completed\", \"reason\": null, \"records\": [{\"record_id\": \"LB-FILES\", \"value\": 2, \"unit\": \"files\", \"state\": \"known\", \"source_refs\": [\"S1:L4\"]}]}",
+          "feedback": null,
+          "input_tokens": 1500,
+          "cached_input_tokens": 200,
+          "cache_write_input_tokens": 100,
+          "output_tokens": 190,
+          "tool_cost": 0
+        }
+      ]
+    },
+    {
+      "variant": "P0-W0",
+      "case_id": "C01",
+      "repeat": 2,
+      "wall_seconds": 13,
+      "attempts": [
+        {
+          "stage": "model",
+          "status": "completed",
+          "raw_output": "{\"case_id\": \"C01\", \"outcome\": \"completed\", \"reason\": null, \"records\": [{\"record_id\": \"LB-FILES\", \"value\": 2, \"unit\": \"files\", \"state\": \"known\", \"source_refs\": [\"S1:L4\"]}]}",
+          "feedback": null,
+          "input_tokens": 1500,
+          "cached_input_tokens": 200,
+          "cache_write_input_tokens": 100,
+          "output_tokens": 190,
+          "tool_cost": 0
+        }
+      ]
+    },
+    {
+      "variant": "P0-W0",
+      "case_id": "C02",
+      "repeat": 1,
+      "wall_seconds": 13,
+      "attempts": [
+        {
+          "stage": "model",
+          "status": "completed",
+          "raw_output": "{\"case_id\": \"C02\", \"outcome\": \"completed\", \"reason\": null, \"records\": [{\"record_id\": \"LB-LICENSE\", \"value\": \"MIT\", \"unit\": \"none\", \"state\": \"known\", \"source_refs\": [\"S1:L8\"]}]}",
+          "feedback": null,
+          "input_tokens": 1500,
+          "cached_input_tokens": 200,
+          "cache_write_input_tokens": 100,
+          "output_tokens": 200,
+          "tool_cost": 0
+        }
+      ]
+    },
+    {
+      "variant": "P0-W0",
+      "case_id": "C02",
+      "repeat": 2,
+      "wall_seconds": 14,
+      "attempts": [
+        {
+          "stage": "model",
+          "status": "completed",
+          "raw_output": "{\"case_id\": \"C02\", \"outcome\": \"completed\", \"reason\": null, \"records\": [{\"record_id\": \"LB-LICENSE\", \"value\": \"MIT\", \"unit\": \"none\", \"state\": \"known\", \"source_refs\": [\"S1:L8\"]}]}",
+          "feedback": null,
+          "input_tokens": 1500,
+          "cached_input_tokens": 200,
+          "cache_write_input_tokens": 100,
+          "output_tokens": 200,
+          "tool_cost": 0
+        }
+      ]
+    },
+    {
+      "variant": "P0-W0",
+      "case_id": "C03",
+      "repeat": 1,
+      "wall_seconds": 14,
+      "attempts": [
+        {
+          "stage": "model",
+          "status": "completed",
+          "raw_output": "{\"case_id\": \"C03\", \"outcome\": \"completed\", \"reason\": null, \"records\": [{\"record_id\": \"BT-FILES\", \"value\": 4, \"unit\": \"files\", \"state\": \"known\", \"source_refs\": [\"S5:L2\"]}]}",
+          "feedback": null,
+          "input_tokens": 1500,
+          "cached_input_tokens": 200,
+          "cache_write_input_tokens": 100,
+          "output_tokens": 210,
+          "tool_cost": 0
+        }
+      ]
+    },
+    {
+      "variant": "P0-W0",
+      "case_id": "C03",
+      "repeat": 2,
+      "wall_seconds": 15,
+      "attempts": [
+        {
+          "stage": "model",
+          "status": "completed",
+          "raw_output": "{\"case_id\": \"C03\", \"outcome\": \"completed\", \"reason\": null, \"records\": [{\"record_id\": \"BT-FILES\", \"value\": 4, \"unit\": \"files\", \"state\": \"known\", \"source_refs\": [\"S5:L2\"]}]}",
+          "feedback": null,
+          "input_tokens": 1500,
+          "cached_input_tokens": 200,
+          "cache_write_input_tokens": 100,
+          "output_tokens": 210,
+          "tool_cost": 0
+        }
+      ]
+    },
+    {
+      "variant": "P0-W0",
+      "case_id": "C04",
+      "repeat": 1,
+      "wall_seconds": 15,
+      "attempts": [
+        {
+          "stage": "model",
+          "status": "completed",
+          "raw_output": "{\"case_id\": \"C04\", \"outcome\": \"completed\", \"reason\": null, \"records\": [{\"record_id\": \"RUN-03\", \"value\": null, \"unit\": \"ms\", \"state\": \"missing\", \"source_refs\": [\"E5:L3\", \"P5:P1:L1\", \"P5:P1:L2\"]}]}",
+          "feedback": null,
+          "input_tokens": 1500,
+          "cached_input_tokens": 200,
+          "cache_write_input_tokens": 100,
+          "output_tokens": 220,
+          "tool_cost": 0
+        }
+      ]
+    },
+    {
+      "variant": "P0-W0",
+      "case_id": "C04",
+      "repeat": 2,
+      "wall_seconds": 16,
+      "attempts": [
+        {
+          "stage": "model",
+          "status": "completed",
+          "raw_output": "{\"case_id\": \"C04\", \"outcome\": \"completed\", \"reason\": null, \"records\": [{\"record_id\": \"RUN-03\", \"value\": 0, \"unit\": \"ms\", \"state\": \"known\", \"source_refs\": [\"E5:L3\", \"P5:P1:L1\", \"P5:P1:L2\"]}]}",
+          "feedback": null,
+          "input_tokens": 1500,
+          "cached_input_tokens": 200,
+          "cache_write_input_tokens": 100,
+          "output_tokens": 220,
+          "tool_cost": 0
+        }
+      ]
+    },
+    {
+      "variant": "P0-W0",
+      "case_id": "C05",
+      "repeat": 1,
+      "wall_seconds": 16,
+      "attempts": [
+        {
+          "stage": "model",
+          "status": "completed",
+          "raw_output": "{\"case_id\": \"C05\", \"outcome\": \"completed\", \"reason\": null, \"records\": [{\"record_id\": \"BT-FILES\", \"value\": 100, \"unit\": \"files\", \"state\": \"known\", \"source_refs\": [\"S6:L3\"]}]}",
+          "feedback": null,
+          "input_tokens": 1500,
+          "cached_input_tokens": 200,
+          "cache_write_input_tokens": 100,
+          "output_tokens": 230,
+          "tool_cost": 0
+        }
+      ]
+    },
+    {
+      "variant": "P0-W0",
+      "case_id": "C05",
+      "repeat": 2,
+      "wall_seconds": 17,
+      "attempts": [
+        {
+          "stage": "model",
+          "status": "completed",
+          "raw_output": "{\"case_id\": \"C05\", \"outcome\": \"completed\", \"reason\": null, \"records\": [{\"record_id\": \"BT-FILES\", \"value\": 8, \"unit\": \"files\", \"state\": \"known\", \"source_refs\": [\"S2:L4\"]}]}",
+          "feedback": null,
+          "input_tokens": 1500,
+          "cached_input_tokens": 200,
+          "cache_write_input_tokens": 100,
+          "output_tokens": 230,
+          "tool_cost": 0
+        }
+      ]
+    },
+    {
+      "variant": "P0-W0",
+      "case_id": "C06",
+      "repeat": 1,
+      "wall_seconds": 1,
+      "attempts": [
+        {
+          "stage": "read",
+          "status": "failed",
+          "raw_output": "{\"case_id\": \"C06\", \"outcome\": \"blocked\", \"reason\": \"source_read_failed\", \"records\": []}",
+          "feedback": null,
+          "input_tokens": 0,
+          "cached_input_tokens": 0,
+          "cache_write_input_tokens": 0,
+          "output_tokens": 0,
+          "tool_cost": 0
+        }
+      ]
+    },
+    {
+      "variant": "P0-W0",
+      "case_id": "C06",
+      "repeat": 2,
+      "wall_seconds": 1,
+      "attempts": [
+        {
+          "stage": "read",
+          "status": "failed",
+          "raw_output": "{\"case_id\": \"C06\", \"outcome\": \"blocked\", \"reason\": \"source_read_failed\", \"records\": []}",
+          "feedback": null,
+          "input_tokens": 0,
+          "cached_input_tokens": 0,
+          "cache_write_input_tokens": 0,
+          "output_tokens": 0,
+          "tool_cost": 0
+        }
+      ]
+    },
+    {
+      "variant": "P1-W0",
+      "case_id": "C01",
+      "repeat": 1,
+      "wall_seconds": 12,
+      "attempts": [
+        {
+          "stage": "model",
+          "status": "completed",
+          "raw_output": "{\"case_id\": \"C01\", \"outcome\": \"completed\", \"reason\": null, \"records\": [{\"record_id\": \"LB-FILES\", \"value\": 2, \"unit\": \"files\", \"state\": \"known\", \"source_refs\": [\"S1:L4\"]}]}",
+          "feedback": null,
+          "input_tokens": 1900,
+          "cached_input_tokens": 200,
+          "cache_write_input_tokens": 100,
+          "output_tokens": 190,
+          "tool_cost": 0
+        }
+      ]
+    },
+    {
+      "variant": "P1-W0",
+      "case_id": "C01",
+      "repeat": 2,
+      "wall_seconds": 13,
+      "attempts": [
+        {
+          "stage": "model",
+          "status": "completed",
+          "raw_output": "{\"case_id\": \"C01\", \"outcome\": \"completed\", \"reason\": null, \"records\": [{\"record_id\": \"LB-FILES\", \"value\": 2, \"unit\": \"files\", \"state\": \"known\", \"source_refs\": [\"S1:L4\"]}]}",
+          "feedback": null,
+          "input_tokens": 1900,
+          "cached_input_tokens": 200,
+          "cache_write_input_tokens": 100,
+          "output_tokens": 190,
+          "tool_cost": 0
+        }
+      ]
+    },
+    {
+      "variant": "P1-W0",
+      "case_id": "C02",
+      "repeat": 1,
+      "wall_seconds": 13,
+      "attempts": [
+        {
+          "stage": "model",
+          "status": "completed",
+          "raw_output": "{\"case_id\": \"C02\", \"outcome\": \"completed\", \"reason\": null, \"records\": [{\"record_id\": \"LB-LICENSE\", \"value\": null, \"unit\": \"none\", \"state\": \"missing\", \"source_refs\": [\"S1:L8\"]}]}",
+          "feedback": null,
+          "input_tokens": 1900,
+          "cached_input_tokens": 200,
+          "cache_write_input_tokens": 100,
+          "output_tokens": 200,
+          "tool_cost": 0
+        }
+      ]
+    },
+    {
+      "variant": "P1-W0",
+      "case_id": "C02",
+      "repeat": 2,
+      "wall_seconds": 14,
+      "attempts": [
+        {
+          "stage": "model",
+          "status": "completed",
+          "raw_output": "{\"case_id\": \"C02\", \"outcome\": \"completed\", \"reason\": null, \"records\": [{\"record_id\": \"LB-LICENSE\", \"value\": null, \"unit\": \"none\", \"state\": \"missing\", \"source_refs\": [\"S1:L8\"]}]}",
+          "feedback": null,
+          "input_tokens": 1900,
+          "cached_input_tokens": 200,
+          "cache_write_input_tokens": 100,
+          "output_tokens": 200,
+          "tool_cost": 0
+        }
+      ]
+    },
+    {
+      "variant": "P1-W0",
+      "case_id": "C03",
+      "repeat": 1,
+      "wall_seconds": 14,
+      "attempts": [
+        {
+          "stage": "model",
+          "status": "completed",
+          "raw_output": "{\"case_id\": \"C03\", \"outcome\": \"completed\", \"reason\": null, \"records\": [{\"record_id\": \"BT-FILES\", \"value\": null, \"unit\": \"files\", \"state\": \"conflict\", \"source_refs\": [\"S2:L4\", \"S5:L2\", \"S5:L3\"]}]}",
+          "feedback": null,
+          "input_tokens": 1900,
+          "cached_input_tokens": 200,
+          "cache_write_input_tokens": 100,
+          "output_tokens": 210,
+          "tool_cost": 0
+        }
+      ]
+    },
+    {
+      "variant": "P1-W0",
+      "case_id": "C03",
+      "repeat": 2,
+      "wall_seconds": 15,
+      "attempts": [
+        {
+          "stage": "model",
+          "status": "completed",
+          "raw_output": "{\"case_id\": \"C03\", \"outcome\": \"completed\", \"reason\": null, \"records\": [{\"record_id\": \"BT-FILES\", \"value\": null, \"unit\": \"files\", \"state\": \"conflict\", \"source_refs\": [\"S2:L4\", \"S5:L2\", \"S5:L3\"]}]}",
+          "feedback": null,
+          "input_tokens": 1900,
+          "cached_input_tokens": 200,
+          "cache_write_input_tokens": 100,
+          "output_tokens": 210,
+          "tool_cost": 0
+        }
+      ]
+    },
+    {
+      "variant": "P1-W0",
+      "case_id": "C04",
+      "repeat": 1,
+      "wall_seconds": 15,
+      "attempts": [
+        {
+          "stage": "model",
+          "status": "completed",
+          "raw_output": "{\"case_id\": \"C04\", \"outcome\": \"completed\", \"reason\": null, \"records\": [{\"record_id\": \"RUN-03\", \"value\": 0, \"unit\": \"ms\", \"state\": \"known\", \"source_refs\": [\"E5:L3\", \"P5:P1:L1\", \"P5:P1:L2\"]}]}",
+          "feedback": null,
+          "input_tokens": 1900,
+          "cached_input_tokens": 200,
+          "cache_write_input_tokens": 100,
+          "output_tokens": 220,
+          "tool_cost": 0
+        }
+      ]
+    },
+    {
+      "variant": "P1-W0",
+      "case_id": "C04",
+      "repeat": 2,
+      "wall_seconds": 16,
+      "attempts": [
+        {
+          "stage": "model",
+          "status": "completed",
+          "raw_output": "{\"case_id\": \"C04\", \"outcome\": \"completed\", \"reason\": null, \"records\": [{\"record_id\": \"RUN-03\", \"value\": 0, \"unit\": \"ms\", \"state\": \"known\", \"source_refs\": [\"E5:L3\", \"P5:P1:L1\", \"P5:P1:L2\"]}],}",
+          "feedback": null,
+          "input_tokens": 1900,
+          "cached_input_tokens": 200,
+          "cache_write_input_tokens": 100,
+          "output_tokens": 220,
+          "tool_cost": 0
+        }
+      ]
+    },
+    {
+      "variant": "P1-W0",
+      "case_id": "C05",
+      "repeat": 1,
+      "wall_seconds": 16,
+      "attempts": [
+        {
+          "stage": "model",
+          "status": "completed",
+          "raw_output": "{\"case_id\": \"C05\", \"outcome\": \"completed\", \"reason\": null, \"records\": [{\"record_id\": \"BT-FILES\", \"value\": 8, \"unit\": \"files\", \"state\": \"known\", \"source_refs\": [\"S2:L99\"]}]}",
+          "feedback": null,
+          "input_tokens": 1900,
+          "cached_input_tokens": 200,
+          "cache_write_input_tokens": 100,
+          "output_tokens": 230,
+          "tool_cost": 0
+        }
+      ]
+    },
+    {
+      "variant": "P1-W0",
+      "case_id": "C05",
+      "repeat": 2,
+      "wall_seconds": 17,
+      "attempts": [
+        {
+          "stage": "model",
+          "status": "completed",
+          "raw_output": "{\"case_id\": \"C05\", \"outcome\": \"completed\", \"reason\": null, \"records\": [{\"record_id\": \"BT-FILES\", \"value\": 8, \"unit\": \"files\", \"state\": \"known\", \"source_refs\": [\"S2:L4\"]}]}",
+          "feedback": null,
+          "input_tokens": 1900,
+          "cached_input_tokens": 200,
+          "cache_write_input_tokens": 100,
+          "output_tokens": 230,
+          "tool_cost": 0
+        }
+      ]
+    },
+    {
+      "variant": "P1-W0",
+      "case_id": "C06",
+      "repeat": 1,
+      "wall_seconds": 1,
+      "attempts": [
+        {
+          "stage": "read",
+          "status": "failed",
+          "raw_output": "{\"case_id\": \"C06\", \"outcome\": \"blocked\", \"reason\": \"source_read_failed\", \"records\": []}",
+          "feedback": null,
+          "input_tokens": 0,
+          "cached_input_tokens": 0,
+          "cache_write_input_tokens": 0,
+          "output_tokens": 0,
+          "tool_cost": 0
+        }
+      ]
+    },
+    {
+      "variant": "P1-W0",
+      "case_id": "C06",
+      "repeat": 2,
+      "wall_seconds": 1,
+      "attempts": [
+        {
+          "stage": "read",
+          "status": "failed",
+          "raw_output": "{\"case_id\": \"C06\", \"outcome\": \"blocked\", \"reason\": \"source_read_failed\", \"records\": []}",
+          "feedback": null,
+          "input_tokens": 0,
+          "cached_input_tokens": 0,
+          "cache_write_input_tokens": 0,
+          "output_tokens": 0,
+          "tool_cost": 0
+        }
+      ]
+    },
+    {
+      "variant": "P1-W1",
+      "case_id": "C01",
+      "repeat": 1,
+      "wall_seconds": 12,
+      "attempts": [
+        {
+          "stage": "model",
+          "status": "completed",
+          "raw_output": "{\"case_id\": \"C01\", \"outcome\": \"completed\", \"reason\": null, \"records\": [{\"record_id\": \"LB-FILES\", \"value\": 2, \"unit\": \"files\", \"state\": \"known\", \"source_refs\": [\"S1:L4\"]}]}",
+          "feedback": null,
+          "input_tokens": 1900,
+          "cached_input_tokens": 200,
+          "cache_write_input_tokens": 100,
+          "output_tokens": 190,
+          "tool_cost": 0
+        }
+      ]
+    },
+    {
+      "variant": "P1-W1",
+      "case_id": "C01",
+      "repeat": 2,
+      "wall_seconds": 13,
+      "attempts": [
+        {
+          "stage": "model",
+          "status": "completed",
+          "raw_output": "{\"case_id\": \"C01\", \"outcome\": \"completed\", \"reason\": null, \"records\": [{\"record_id\": \"LB-FILES\", \"value\": 2, \"unit\": \"files\", \"state\": \"known\", \"source_refs\": [\"S1:L4\"]}]}",
+          "feedback": null,
+          "input_tokens": 1900,
+          "cached_input_tokens": 200,
+          "cache_write_input_tokens": 100,
+          "output_tokens": 190,
+          "tool_cost": 0
+        }
+      ]
+    },
+    {
+      "variant": "P1-W1",
+      "case_id": "C02",
+      "repeat": 1,
+      "wall_seconds": 13,
+      "attempts": [
+        {
+          "stage": "model",
+          "status": "completed",
+          "raw_output": "{\"case_id\": \"C02\", \"outcome\": \"completed\", \"reason\": null, \"records\": [{\"record_id\": \"LB-LICENSE\", \"value\": null, \"unit\": \"none\", \"state\": \"missing\", \"source_refs\": [\"S1:L8\"]}]}",
+          "feedback": null,
+          "input_tokens": 1900,
+          "cached_input_tokens": 200,
+          "cache_write_input_tokens": 100,
+          "output_tokens": 200,
+          "tool_cost": 0
+        }
+      ]
+    },
+    {
+      "variant": "P1-W1",
+      "case_id": "C02",
+      "repeat": 2,
+      "wall_seconds": 14,
+      "attempts": [
+        {
+          "stage": "model",
+          "status": "completed",
+          "raw_output": "{\"case_id\": \"C02\", \"outcome\": \"completed\", \"reason\": null, \"records\": [{\"record_id\": \"LB-LICENSE\", \"value\": null, \"unit\": \"none\", \"state\": \"missing\", \"source_refs\": [\"S1:L8\"]}]}",
+          "feedback": null,
+          "input_tokens": 1900,
+          "cached_input_tokens": 200,
+          "cache_write_input_tokens": 100,
+          "output_tokens": 200,
+          "tool_cost": 0
+        }
+      ]
+    },
+    {
+      "variant": "P1-W1",
+      "case_id": "C03",
+      "repeat": 1,
+      "wall_seconds": 14,
+      "attempts": [
+        {
+          "stage": "model",
+          "status": "completed",
+          "raw_output": "{\"case_id\": \"C03\", \"outcome\": \"completed\", \"reason\": null, \"records\": [{\"record_id\": \"BT-FILES\", \"value\": null, \"unit\": \"files\", \"state\": \"conflict\", \"source_refs\": [\"S2:L4\", \"S5:L2\", \"S5:L3\"]}]}",
+          "feedback": null,
+          "input_tokens": 1900,
+          "cached_input_tokens": 200,
+          "cache_write_input_tokens": 100,
+          "output_tokens": 210,
+          "tool_cost": 0
+        }
+      ]
+    },
+    {
+      "variant": "P1-W1",
+      "case_id": "C03",
+      "repeat": 2,
+      "wall_seconds": 15,
+      "attempts": [
+        {
+          "stage": "model",
+          "status": "completed",
+          "raw_output": "{\"case_id\": \"C03\", \"outcome\": \"completed\", \"reason\": null, \"records\": [{\"record_id\": \"BT-FILES\", \"value\": null, \"unit\": \"files\", \"state\": \"conflict\", \"source_refs\": [\"S2:L4\", \"S5:L2\", \"S5:L3\"]}]}",
+          "feedback": null,
+          "input_tokens": 1900,
+          "cached_input_tokens": 200,
+          "cache_write_input_tokens": 100,
+          "output_tokens": 210,
+          "tool_cost": 0
+        }
+      ]
+    },
+    {
+      "variant": "P1-W1",
+      "case_id": "C04",
+      "repeat": 1,
+      "wall_seconds": 15,
+      "attempts": [
+        {
+          "stage": "model",
+          "status": "completed",
+          "raw_output": "{\"case_id\": \"C04\", \"outcome\": \"completed\", \"reason\": null, \"records\": [{\"record_id\": \"RUN-03\", \"value\": 0, \"unit\": \"ms\", \"state\": \"known\", \"source_refs\": [\"E5:L3\", \"P5:P1:L1\", \"P5:P1:L2\"]}]}",
+          "feedback": null,
+          "input_tokens": 1900,
+          "cached_input_tokens": 200,
+          "cache_write_input_tokens": 100,
+          "output_tokens": 220,
+          "tool_cost": 0
+        }
+      ]
+    },
+    {
+      "variant": "P1-W1",
+      "case_id": "C04",
+      "repeat": 2,
+      "wall_seconds": 24,
+      "attempts": [
+        {
+          "stage": "model",
+          "status": "completed",
+          "raw_output": "{\"case_id\": \"C04\", \"outcome\": \"completed\", \"reason\": null, \"records\": [{\"record_id\": \"RUN-03\", \"value\": 0, \"unit\": \"ms\", \"state\": \"known\", \"source_refs\": [\"E5:L3\", \"P5:P1:L1\", \"P5:P1:L2\"]}],}",
+          "feedback": null,
+          "input_tokens": 1900,
+          "cached_input_tokens": 200,
+          "cache_write_input_tokens": 100,
+          "output_tokens": 220,
+          "tool_cost": 0
+        },
+        {
+          "stage": "model",
+          "status": "completed",
+          "raw_output": "{\"case_id\": \"C04\", \"outcome\": \"completed\", \"reason\": null, \"records\": [{\"record_id\": \"RUN-03\", \"value\": 0, \"unit\": \"ms\", \"state\": \"known\", \"source_refs\": [\"E5:L3\", \"P5:P1:L1\", \"P5:P1:L2\"]}]}",
+          "feedback": "JSON 解析失败",
+          "input_tokens": 900,
+          "cached_input_tokens": 400,
+          "cache_write_input_tokens": 0,
+          "output_tokens": 160,
+          "tool_cost": 0
+        }
+      ]
+    },
+    {
+      "variant": "P1-W1",
+      "case_id": "C05",
+      "repeat": 1,
+      "wall_seconds": 24,
+      "attempts": [
+        {
+          "stage": "model",
+          "status": "completed",
+          "raw_output": "{\"case_id\": \"C05\", \"outcome\": \"completed\", \"reason\": null, \"records\": [{\"record_id\": \"BT-FILES\", \"value\": 8, \"unit\": \"files\", \"state\": \"known\", \"source_refs\": [\"S2:L99\"]}]}",
+          "feedback": null,
+          "input_tokens": 1900,
+          "cached_input_tokens": 200,
+          "cache_write_input_tokens": 100,
+          "output_tokens": 230,
+          "tool_cost": 0
+        },
+        {
+          "stage": "model",
+          "status": "completed",
+          "raw_output": "{\"case_id\": \"C05\", \"outcome\": \"completed\", \"reason\": null, \"records\": [{\"record_id\": \"BT-FILES\", \"value\": 8, \"unit\": \"files\", \"state\": \"known\", \"source_refs\": [\"S2:L4\"]}]}",
+          "feedback": "来源定位 S2:L99 不存在",
+          "input_tokens": 900,
+          "cached_input_tokens": 400,
+          "cache_write_input_tokens": 0,
+          "output_tokens": 160,
+          "tool_cost": 0
+        }
+      ]
+    },
+    {
+      "variant": "P1-W1",
+      "case_id": "C05",
+      "repeat": 2,
+      "wall_seconds": 17,
+      "attempts": [
+        {
+          "stage": "model",
+          "status": "completed",
+          "raw_output": "{\"case_id\": \"C05\", \"outcome\": \"completed\", \"reason\": null, \"records\": [{\"record_id\": \"BT-FILES\", \"value\": 8, \"unit\": \"files\", \"state\": \"known\", \"source_refs\": [\"S2:L4\"]}]}",
+          "feedback": null,
+          "input_tokens": 1900,
+          "cached_input_tokens": 200,
+          "cache_write_input_tokens": 100,
+          "output_tokens": 230,
+          "tool_cost": 0
+        }
+      ]
+    },
+    {
+      "variant": "P1-W1",
+      "case_id": "C06",
+      "repeat": 1,
+      "wall_seconds": 1,
+      "attempts": [
+        {
+          "stage": "read",
+          "status": "failed",
+          "raw_output": "{\"case_id\": \"C06\", \"outcome\": \"blocked\", \"reason\": \"source_read_failed\", \"records\": []}",
+          "feedback": null,
+          "input_tokens": 0,
+          "cached_input_tokens": 0,
+          "cache_write_input_tokens": 0,
+          "output_tokens": 0,
+          "tool_cost": 0
+        }
+      ]
+    },
+    {
+      "variant": "P1-W1",
+      "case_id": "C06",
+      "repeat": 2,
+      "wall_seconds": 1,
+      "attempts": [
+        {
+          "stage": "read",
+          "status": "failed",
+          "raw_output": "{\"case_id\": \"C06\", \"outcome\": \"blocked\", \"reason\": \"source_read_failed\", \"records\": []}",
+          "feedback": null,
+          "input_tokens": 0,
+          "cached_input_tokens": 0,
+          "cache_write_input_tokens": 0,
+          "output_tokens": 0,
+          "tool_cost": 0
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,10 @@
+Traceback (most recent call last):
+  File "J:\Blog\_site\ch07-renumber\lab\07-mcp-readonly/probe_client.py", line 126, in <module>
+    main()
+  File "J:\Blog\_site\ch07-renumber\lab\07-mcp-readonly/probe_client.py", line 104, in main
+    with args.output.open("x", encoding="utf-8", newline="\n") as out:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\17334\AppData\Local\Programs\Python\Python311\Lib\pathlib.py", line 1044, in open
+    return io.open(self, mode, buffering, encoding, errors, newline)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+FileExistsError: [Errno 17] File exists: 'J:\\Blog\\_site\\ch07-renumber\\lab\\07-mcp-readonly\\runs\\probe-final.json'

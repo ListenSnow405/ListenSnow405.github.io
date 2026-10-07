@@ -1,0 +1,300 @@
+{
+  "date": "2026-10-05",
+  "system": "Windows",
+  "python": "3.11.9",
+  "transport": "Codex CLI / ChatGPT login",
+  "cli_version": "codex-cli 0.160.0",
+  "aliases_requested": [
+    "gpt-6-sol",
+    "gpt-6-luna"
+  ],
+  "backend_snapshot": "not exposed by CLI events",
+  "model_json_calls": 8,
+  "model_delivery_calls": 2,
+  "initial_call": {
+    "json_parse": true,
+    "general_schema_pass": true,
+    "contract_pass": false,
+    "contract_error": "LB-FILES: 来源定位不存在",
+    "fact_matches": 12,
+    "reference_coverage": 0,
+    "total_records": 12,
+    "note": "原始输出使用 S1 L4 等空格定位；未修改响应。"
+  },
+  "platform_api": {
+    "status": "not_run",
+    "reason": "OPENAI_API_KEY absent in process and persistent user environment",
+    "authenticated_requests_sent": 0,
+    "local_runner_exit_code": 2,
+    "endpoint": "https://api.openai.com/v1/responses",
+    "cli_schema_is_not_platform_api_validation": true
+  },
+  "pdf_fixture": "actual generated teaching PDFs; not P5 original or real benchmark",
+  "manual_ocr_review": true,
+  "files": [
+    {
+      "path": "codex-delivery/model-1/events.jsonl",
+      "sha256": "1fdbba1143af0d985f64b1f6004066eb2fef97492b99041b038fa78a9aac33ca"
+    },
+    {
+      "path": "codex-delivery/model-1/raw-output.txt",
+      "sha256": "b67d8b5a1ad1957139860801f4f192f3a62dd84f226963a2a15f7c442249aee4"
+    },
+    {
+      "path": "codex-delivery/model-1/saved-bundle/records.json",
+      "sha256": "76c4c7e978b94ee17f402fff18227eeee434d27677454008991ae8fd16da6315"
+    },
+    {
+      "path": "codex-delivery/model-1/saved-bundle/records.tsv",
+      "sha256": "3079ea4fea9f443bc60d1ceb9ec7c2ab6dac762e7474f5b6928f9429a4b22386"
+    },
+    {
+      "path": "codex-delivery/model-1/saved-bundle/report.md",
+      "sha256": "9fd6fbcb6e3b3860c11b6e2a623ab23eabe5ffaf8f75430d98c061d33bba81dd"
+    },
+    {
+      "path": "codex-delivery/model-1/stderr.txt",
+      "sha256": "e9d3bd97fef6531813932be3864f1ed40c76ded4778412c09d12057e6de2ce95"
+    },
+    {
+      "path": "codex-delivery/model-2/events.jsonl",
+      "sha256": "83e4d136e8bdf54b4de1ab4df57aef791bedeec798a76afe72a664fe997aa45c"
+    },
+    {
+      "path": "codex-delivery/model-2/raw-output.txt",
+      "sha256": "91be435b4e4c36948b293acc8f74dbfd457001c45b7860c94240734f07ea59f1"
+    },
+    {
+      "path": "codex-delivery/model-2/saved-bundle/records.json",
+      "sha256": "76c4c7e978b94ee17f402fff18227eeee434d27677454008991ae8fd16da6315"
+    },
+    {
+      "path": "codex-delivery/model-2/saved-bundle/records.tsv",
+      "sha256": "3079ea4fea9f443bc60d1ceb9ec7c2ab6dac762e7474f5b6928f9429a4b22386"
+    },
+    {
+      "path": "codex-delivery/model-2/saved-bundle/report.md",
+      "sha256": "9fd6fbcb6e3b3860c11b6e2a623ab23eabe5ffaf8f75430d98c061d33bba81dd"
+    },
+    {
+      "path": "codex-delivery/model-2/stderr.txt",
+      "sha256": "f3523fc8db49cd2e82351cae7b623ffc7726ef0d280f3541b7603d8e222f5f67"
+    },
+    {
+      "path": "codex-delivery/prompt.txt",
+      "sha256": "289efbb27aace1bbd62df76688f67db416804b9352c7ac7dc05768ffc62d25f2"
+    },
+    {
+      "path": "codex-delivery/summary.json",
+      "sha256": "5e35386591e28de3a9fd79c1aa24a6a0ada3df44423b78fe680b82dce8d86dab"
+    },
+    {
+      "path": "codex-json/model-1-plain-01/events.jsonl",
+      "sha256": "5787946ade8c09a29b0536a5f69bbcd28ccf3684c6530181a88c20f56ee0aaf6"
+    },
+    {
+      "path": "codex-json/model-1-plain-01/records.json",
+      "sha256": "76c4c7e978b94ee17f402fff18227eeee434d27677454008991ae8fd16da6315"
+    },
+    {
+      "path": "codex-json/model-1-plain-01/result.json",
+      "sha256": "68625c3ececda8dfaa0fc327d778b46b5bdc686858fabda8e1242a8e8db9958e"
+    },
+    {
+      "path": "codex-json/model-1-plain-01/stderr.txt",
+      "sha256": "ee2817b4f025f6cd5cd4392d73abaf5c5f94c7370845462af06026f16ccf8931"
+    },
+    {
+      "path": "codex-json/model-1-plain-02/events.jsonl",
+      "sha256": "da8f8821c52ebde09446c06d222d501817a0276145c75d7f69c8055493def43d"
+    },
+    {
+      "path": "codex-json/model-1-plain-02/records.json",
+      "sha256": "fde9df558d003c5c640f0ff678ba5de80e9197d5c16444471191839bf3dfad44"
+    },
+    {
+      "path": "codex-json/model-1-plain-02/result.json",
+      "sha256": "248964762c854042b2d35ce626e0777cc5e1cd7a475b47f1c5ec52bb1dd6e7d4"
+    },
+    {
+      "path": "codex-json/model-1-plain-02/stderr.txt",
+      "sha256": "2dfa8228f4a2b3b73b0272040b3b5d2f3ed6070ed19cd8122a08129b99466d37"
+    },
+    {
+      "path": "codex-json/model-1-schema-01/events.jsonl",
+      "sha256": "ab7bbcd3f859e77ed833a0879dac9e4a17f4f547ca42c595231f5ac4dc74cbe8"
+    },
+    {
+      "path": "codex-json/model-1-schema-01/records.json",
+      "sha256": "c66a91ddad6a336e59c803ed581121a66bbab4428e64956101a5bb19a6101f3b"
+    },
+    {
+      "path": "codex-json/model-1-schema-01/result.json",
+      "sha256": "d096afd9945ae77de8c4b515d2e55e95f836d15492f7a299c4a5125311c623fb"
+    },
+    {
+      "path": "codex-json/model-1-schema-01/stderr.txt",
+      "sha256": "e61a12109aa2fa74a1634151cb51a1b9f73b42369c3a1bd76ddccf46d84662c5"
+    },
+    {
+      "path": "codex-json/model-1-schema-02/events.jsonl",
+      "sha256": "bd79f304f5614815372ee99e7354e3beb49ac5692f5621866e58b60587f0c561"
+    },
+    {
+      "path": "codex-json/model-1-schema-02/records.json",
+      "sha256": "97c47e988a8dd6e729233857f632418b445f7b92890310bb0ccf7d931e1980d0"
+    },
+    {
+      "path": "codex-json/model-1-schema-02/result.json",
+      "sha256": "ae4f28cbc309055b34daa0435705a371f6473bc64111ec47d218783cb5d1174d"
+    },
+    {
+      "path": "codex-json/model-1-schema-02/stderr.txt",
+      "sha256": "41f78ae896e585e252fd2c26003764a56b0d79c7612635f469a8f581b7ab7698"
+    },
+    {
+      "path": "codex-json/model-2-plain-01/events.jsonl",
+      "sha256": "a0459126c5b29b84b6035ac0ae6ca6e3c4c43c0d8d367639379e34af1256a323"
+    },
+    {
+      "path": "codex-json/model-2-plain-01/records.json",
+      "sha256": "04d5bafe601bdb3be9e4b2127e4e41d071726c9a92b702ab1a3dc69dd7297937"
+    },
+    {
+      "path": "codex-json/model-2-plain-01/result.json",
+      "sha256": "a0f4d391c3b014a183bb2fe671af7f82ddb61cc7a6ddc1af9da30c5c2db80164"
+    },
+    {
+      "path": "codex-json/model-2-plain-01/stderr.txt",
+      "sha256": "c68c4cffd796776330686ba7aad900bfc011d5926c07f967b8fd0c123fa3d971"
+    },
+    {
+      "path": "codex-json/model-2-plain-02/events.jsonl",
+      "sha256": "262e41f9d005a40040d9b8a390d3401e2922800b346e75408a859359422bd291"
+    },
+    {
+      "path": "codex-json/model-2-plain-02/records.json",
+      "sha256": "3952c23358f177447767ad79403d5cd36261f605b8478b51a4d213073cf324e8"
+    },
+    {
+      "path": "codex-json/model-2-plain-02/result.json",
+      "sha256": "93390161eded9b2c025936e64be15e26015bf32b1aeb4faeb2c56573da774482"
+    },
+    {
+      "path": "codex-json/model-2-plain-02/stderr.txt",
+      "sha256": "f0e83ecb984f67d8d78a7fea4899f2125a9afb3393df2bcdd0632bdcc40f42eb"
+    },
+    {
+      "path": "codex-json/model-2-schema-01/events.jsonl",
+      "sha256": "a61f008b4601d3546fcf331ecdcddb1b6ef0fe7b0263e2bfc6dfaef1184a2ce0"
+    },
+    {
+      "path": "codex-json/model-2-schema-01/records.json",
+      "sha256": "4061b323e16106acd69e2ebaedacc19922e7c1c6d7b8fb6e4ca0094aca8b7b8b"
+    },
+    {
+      "path": "codex-json/model-2-schema-01/result.json",
+      "sha256": "3b5a4505763a53d86ef65249c0a941d82a27d9564c6911b5d15982924a5fd34f"
+    },
+    {
+      "path": "codex-json/model-2-schema-01/stderr.txt",
+      "sha256": "29e0008554e9d49dc32b58c65ba13765342ae68c2e2aebc3e760b2b52dae9b43"
+    },
+    {
+      "path": "codex-json/model-2-schema-02/events.jsonl",
+      "sha256": "388a8cad1056fab6fd9ed352ff5032f5455a6a8f1d19eeb243643a6c410304ff"
+    },
+    {
+      "path": "codex-json/model-2-schema-02/records.json",
+      "sha256": "6b30094c47aa398c46f978c40919cf9bbd961715cea9f509cda9646e2fd8905e"
+    },
+    {
+      "path": "codex-json/model-2-schema-02/result.json",
+      "sha256": "4fb4b2f442c21a34095ead057eb9c09e8fcdc5a14a15661ae70d58d348cdd74a"
+    },
+    {
+      "path": "codex-json/model-2-schema-02/stderr.txt",
+      "sha256": "ebd8fc463cae3aaa873818e4668870eb1af1af863cd1183cb4b40450d5e660f7"
+    },
+    {
+      "path": "codex-json/prompt.txt",
+      "sha256": "786fe7c00cdfe85eabe70e47c4f47c8e332b20e5dfea82a012560170f6fe0ad1"
+    },
+    {
+      "path": "codex-json/records.schema.json",
+      "sha256": "ccd9d4a6c9be7a8a0e624c244db25c10a9346afdb8c37a256d98b13f65ea2704"
+    },
+    {
+      "path": "codex-json/summary.json",
+      "sha256": "01661f61c642640b51da34881366eb838b90fe0b5d213b568fa5a482df3de305"
+    },
+    {
+      "path": "initial-call/luna-plain-01.events.jsonl",
+      "sha256": "948a92c6428f04638a913b43ca5db4f82bc45f80deb72a68e6bc537695d1027a"
+    },
+    {
+      "path": "initial-call/luna-plain-01.json",
+      "sha256": "32464d33e517c460fc2f5852f0ffe9147df28e9ab0c4fe014471143c2fbbf07b"
+    },
+    {
+      "path": "initial-call/luna-plain-01.stderr.txt",
+      "sha256": "6e4d0327c0a478cb23c864c0272166de1c14d0cad664e939dcaca97bd87bf804"
+    },
+    {
+      "path": "initial-call/prompt-initial.txt",
+      "sha256": "4034cfb6c8d4172c097d42e2b351b6c9c9873aa6eeeb0105d1f327aa753807e7"
+    },
+    {
+      "path": "initial-call/result.json",
+      "sha256": "b55a3ae3e46ad6b03c0da9e1ba19c89472fd543e40feb6af2870d7c87052bd25"
+    },
+    {
+      "path": "pdf/digital-report-extracted.txt",
+      "sha256": "c2ad83678b4285129e8310610cd3ad8901214f64a8337dbfe001865a6f6ab2ca"
+    },
+    {
+      "path": "pdf/digital-report-render.png",
+      "sha256": "9c1a3e3a3ac5897125502c60e3a4350c3a01792b5d531465b20566994a04f865"
+    },
+    {
+      "path": "pdf/digital-report.pdf",
+      "sha256": "0060dc827bd36093b5f8d65eb575a8bf786e0a5ae271ce8e76adac822df36c24"
+    },
+    {
+      "path": "pdf/pdf-result.json",
+      "sha256": "e311c1cb5e5c1e2010911a29f4f30682d6cbd47bf4c918e21be381f18b5b4f75"
+    },
+    {
+      "path": "pdf/raster-ocr-raw.txt",
+      "sha256": "0596d8d55511ce894a069fae4a5449d580afe1aec66e219b575bf1ccd0c2c745"
+    },
+    {
+      "path": "pdf/raster-ocr.json",
+      "sha256": "5c01a409973f764c1edca0bc98c4e40a3f6463b12ec229c077390d2243a2072c"
+    },
+    {
+      "path": "pdf/raster-report-extracted.txt",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "pdf/raster-report-render.png",
+      "sha256": "bee4e2947197dda37681e7a76d02077e7c3812c7b03356f7393bee673ea0d63b"
+    },
+    {
+      "path": "pdf/raster-report.pdf",
+      "sha256": "ecb28b6b7f72f2cef613e1f0b2d00a9a9e26d9d3d7794720d65a735a52484d9a"
+    },
+    {
+      "path": "pdf/reviewed-rows.json",
+      "sha256": "a5178d5408f005f496b224fa16f296912b95cd59429e005cdb7a9fbaffcd618f"
+    },
+    {
+      "path": "pdf/reviewed-rows.tsv",
+      "sha256": "ebd2ed09627bd800def6e31bd5ddf51b185d3600d48dcb253414c054f58d6d82"
+    },
+    {
+      "path": "platform-api-status.json",
+      "sha256": "0fc8de5c670a27c0a5c0fa737f1963cdeb9d8d4005abdc51abf6050def0d5459"
+    }
+  ]
+}

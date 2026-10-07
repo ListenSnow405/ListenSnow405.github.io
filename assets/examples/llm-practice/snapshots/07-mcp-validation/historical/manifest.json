@@ -1,0 +1,34 @@
+{
+  "date": "2026-10-05",
+  "request_origin": "fixed_script_not_model",
+  "model": null,
+  "protocol": "2025-11-25",
+  "project_files": {
+    "probe_client.py": "b72b0aa7fb31311157723758cb526b6f3686175f042f7ace161e152b6cda5beb",
+    "README.md": "e881862318b54f5e9c0d546801d4964b4c264e760f61ca0ac7a261fa9b01cf0a",
+    "requirements.txt": "6c5b337949c4fee3bf05430105977f560094f952fff61353131575146e373cbe",
+    "run-record.md": "f0528805288c076a81cb9895b7b334296bf05c256984799f91d069867c943dc0",
+    "SHA256SUMS.txt": "5890ed34430ca22093b8b7caf26a13f9f2bc0c1cff85d187cb226715167f82d8",
+    "source_server.py": "34166597e8e5a491e8bb2d51e8e1f0efd806ffa01174be21161a030cfdd1c113",
+    "input/contract.json": "ebd3748f2c3c60e32a96f3e9d8956994c892e06cad0ce6a1adab353602401e38",
+    "input/sources.txt": "e7a5c7aafb0c9ec8eec267280a2803824d7157fbe6d035af5638aebedd29e4e2",
+    "tasks/08-01-discover.txt": "fef6e3dffb4c11b882d4b6d4830c45fa179754294332cc2aa6b8c34221ffcf85",
+    "tasks/08-02-collect.txt": "fee7d005ee52ad80d797b018b9759a4588a3765617fe644015f065e0b4b0a99c",
+    "tasks/08-03-failures.txt": "854a02235dc11ea7a6d7997649af42383cc841cb515cfd400a0882763edb5f75"
+  },
+  "records": {
+    "dependencies.txt": "f06af8fdd6541daf272eb0cd060bf5bc8590251eca4d9dd33a4beb8ebf3df1c3",
+    "discovery-final.json": "ec28537b1987a647262fc0dbc0c927127bd2710d799cbb80acf924b669e811a8",
+    "discovery-final.stderr.txt": "92208180352a8656d11cc2c9a28019d716c44ecc72956bc14fc46aa399dc42d6",
+    "initial-restricted.json": "5068c71fc26fa8814848f5cb823923816b2f625e16050f06177558d291a682b9",
+    "no-connection-final.json": "8765bc78d05f4243676a8ff1a1167850732290d7b5e6d1955ec5e56066e32d62",
+    "no-connection-final.stderr.txt": "87fe9ef4721e2caa43a45288e411fb6d3fccb8e66a514fdcb950ba9e113f4f92",
+    "no-overwrite.stderr.txt": "c51554ab06baa0a9289d397e2a79373dee224bd7cd6cd60cce8c1b72dc8c4a6d",
+    "probe-final.json": "ea2db753d5ac5f4596f2068ce04b9bf5857fa5b69b4116842f1c9eaaf375fa45",
+    "probe-final.stderr.txt": "5cd116de7082247788f405cfa210f5e39964e8c0f03a80e4a32db87756d16735",
+    "protection.json": "6a5b16a01d5ce310375843f69560e7b4e9b012572af1e540cbe3df97aa5fe0fd",
+    "README.md": "93098d806a03cdf704424f8caafde404876cbd817d176a92ca0a2c2610220b6b"
+  },
+  "zip_sha256": "7c70a77b8f507ce6bc914491c2236354b33ea96c932b9de8a679a43f7cf71326",
+  "native_host_model_tested": false
+}

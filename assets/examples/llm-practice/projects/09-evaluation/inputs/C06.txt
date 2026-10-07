@@ -1,0 +1,5 @@
+[D9] 教学模拟评估需求 C06，读取失败，保留样例
+requested_record=LB-FILES；field=max_input_files；value_type=integer；unit=files。
+必要来源 S1 的本次读取返回：status=failed；error=source_read_failed。
+本样例没有成功返回的产品原文。不能借用 C01 或上次任务的数字。
+工作流应输出 blocked、source_read_failed 和空 records；本次不进入模型提取。

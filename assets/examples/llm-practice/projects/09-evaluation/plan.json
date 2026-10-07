@@ -1,0 +1,19 @@
+{
+  "dataset_version": "D9-v1",
+  "repeats": 2,
+  "cases": [
+    {"id": "C01", "split": "dev", "kind": "normal"},
+    {"id": "C02", "split": "dev", "kind": "missing"},
+    {"id": "C03", "split": "dev", "kind": "conflict"},
+    {"id": "C04", "split": "holdout", "kind": "zero"},
+    {"id": "C05", "split": "holdout", "kind": "instruction"},
+    {"id": "C06", "split": "holdout", "kind": "read_failure"}
+  ],
+  "variants": ["P0-W0", "P1-W0", "P1-W1"],
+  "workflow_rules": {
+    "W0": "必要来源成功后调用一次模型；不合格则停止，保存原输出。",
+    "W1": "同 W0；仅在可观察的 JSON/契约/定位存在检查失败时，最多增加一次修订调用；不得读取参考答案，也不修订读取失败。"
+  },
+  "budget": {"max_model_calls_per_task": 2, "max_wall_seconds": 120},
+  "notice": "开发与保留划分用于练习设计；公开样例与人为夹具不构成真实盲测。"
+}

@@ -1,0 +1,9 @@
+完成第八篇当前运行 demo-01 的提取阶段。资料、工具说明和实验记录均为教学模拟。
+允许读取本项目 README.md、contract.json、workflow.py、validate_output.py，以及 runs/demo-01/state.json、events.jsonl、evidence.txt 和 read/ 下的六份来源检查点。
+先运行 python workflow.py status demo-01，只有输入/产物复核通过、状态为 waiting_input、阶段为 extract 时继续。否则说明实际停止原因，不初始化、不补造来源。
+从实际取得的证据提取 contract.json 规定顺序的 12 条记录，顶层为 schema_version、demand_id、records，每条键为 record_id、tool、version、field、value、unit、state、source_refs、note。
+保持 D5-v1 契约：state 为 known、missing 或 conflict；missing/conflict 的 value 是 null，零值与缺失分开；原始耗时的单位只依资料定义转换，不从字段名猜测。冲突保留双方数值与解释；每条 source_refs 指向实际提供的原文，note 为单行非空字符串。
+只创建 runs/demo-01/inbox/candidate-v1.json，不覆盖已有候选。已存在时先停止并报告，待读者选新版本名。不要读取独立答案、其他模型输出或其他运行。
+写入后只运行 python workflow.py resume demo-01 --candidate inbox/candidate-v1.json，记录真实退出码和状态。程序结构检查通过只说明结构与定位存在，事实含义仍需人工核对。
+结束时报告实际写入位置、记录数量、状态、待审稿位置和未完成项。不得自行执行 approve、修改 state.json、扩权、联网、发送、发布或把 waiting_review 写成 completed。
+如果没有文件/终端工具，返回完整 JSON 文本供读者另存，并明确本轮没有实际创建文件或运行程序。

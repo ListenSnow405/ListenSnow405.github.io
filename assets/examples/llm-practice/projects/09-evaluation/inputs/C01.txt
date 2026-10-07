@@ -1,0 +1,5 @@
+[D9] 教学模拟评估需求 C01，正常信息，开发样例
+requested_record=LB-FILES；field=max_input_files；value_type=integer；unit=files。
+只使用下面成功读取的资料，按 contract.json 输出。
+[S1] LogBrief 1.2 教学模拟资料
+L4：一次任务最多接收 2 个输入日志文件，每个文件不超过 5 MB。

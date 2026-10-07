@@ -14,3 +14,7 @@
   title: 命令行开发与实验实践
   description: 从 Windows 与 Linux 文件操作出发，逐步完成脚本执行、构建调试、远程任务、日志整理与可追溯的性能实验。
   prerequisites: 基础篇无需 Shell 经验；构建篇需能阅读基本 C++，远程篇需有权使用的 Linux 账户。CPU 实验不要求 GPU。
+- id: llm-practice
+  title: 大模型应用方法与实践
+  description: 从任务表达与资料核验出发，逐步掌握多轮协作、上下文组织、Skill 复用、工具连接、可检查的工作流与结果评估。
+  prerequisites: 使用过基本文本对话功能；导读与基础篇无需编程或 API 经验，Skill 与工具篇按需引入环境和权限要求。

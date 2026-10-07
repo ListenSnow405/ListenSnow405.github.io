@@ -1,0 +1,16 @@
+{
+  "demand_id": "D9-v1",
+  "top_keys": ["case_id", "outcome", "reason", "records"],
+  "record_keys": ["record_id", "value", "unit", "state", "source_refs"],
+  "outcomes": ["completed", "blocked"],
+  "states": ["known", "missing", "conflict"],
+  "rules": [
+    "只输出一个 JSON 对象，不输出 Markdown 围栏或附加说明。",
+    "completed 的 reason 为 null；blocked 的 reason 为 source_read_failed，records 为空。",
+    "每个 requested_record 恰好一条，value 保留 integer、boolean、string 或 null 的实际类型。",
+    "missing 和 conflict 的 value 为 null；已记录的数字 0 是 known。",
+    "source_refs 为不重复的字符串数组；缺失引用说明未提供信息的行，冲突引用双方。",
+    "耗时转换同时引用数值行和单位行；没有成功读取必要来源时停止，不从记忆补结果。",
+    "这是 D9 的缩小评估契约，不替代第五至八篇的九字段、十二条记录契约。"
+  ]
+}

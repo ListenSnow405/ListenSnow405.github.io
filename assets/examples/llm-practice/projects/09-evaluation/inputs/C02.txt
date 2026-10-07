@@ -1,0 +1,5 @@
+[D9] 教学模拟评估需求 C02，信息缺失，开发样例
+requested_record=LB-LICENSE；field=license；value_type=string；unit=none。
+只使用下面成功读取的资料，按 contract.json 输出。
+[S1] LogBrief 1.2 教学模拟资料
+L8：该工具不提供图形界面；本说明未提供许可证和安装命令。

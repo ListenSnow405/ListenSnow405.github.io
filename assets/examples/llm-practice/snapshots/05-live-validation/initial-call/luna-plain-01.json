@@ -1,0 +1,138 @@
+{
+  "schema_version": "1.0",
+  "demand_id": "D5-v1",
+  "records": [
+    {
+      "record_id": "LB-FILES",
+      "tool": "LogBrief",
+      "version": "1.2",
+      "field": "max_input_files",
+      "value": 2,
+      "unit": "files",
+      "state": "known",
+      "source_refs": ["S1 L4"],
+      "note": "S1 L4 说明一次任务最多接收 2 个输入日志文件。"
+    },
+    {
+      "record_id": "LB-PROTECT",
+      "tool": "LogBrief",
+      "version": "1.2",
+      "field": "input_unchanged",
+      "value": true,
+      "unit": "none",
+      "state": "known",
+      "source_refs": ["S1 L7"],
+      "note": "S1 L7 说明工具不修改输入日志。"
+    },
+    {
+      "record_id": "LB-LICENSE",
+      "tool": "LogBrief",
+      "version": "1.2",
+      "field": "license",
+      "value": null,
+      "unit": "none",
+      "state": "missing",
+      "source_refs": ["S1 L8"],
+      "note": "S1 L8 未提供许可证信息。"
+    },
+    {
+      "record_id": "BT-FILES",
+      "tool": "BatchTrace",
+      "version": "0.9",
+      "field": "max_input_files",
+      "value": null,
+      "unit": "files",
+      "state": "conflict",
+      "source_refs": ["S2 L4", "S5 L2", "S5 L3"],
+      "note": "S2 L4 给出上限 8，S5 L2 给出上限 4；S5 L3 未说明是否更正或取代 S2，也未列出适用条件，无法判定应采用哪一值。"
+    },
+    {
+      "record_id": "BT-PROTECT",
+      "tool": "BatchTrace",
+      "version": "0.9",
+      "field": "input_unchanged",
+      "value": true,
+      "unit": "none",
+      "state": "known",
+      "source_refs": ["S2 L7"],
+      "note": "S2 L7 说明工具不修改输入日志。"
+    },
+    {
+      "record_id": "BT-LICENSE",
+      "tool": "BatchTrace",
+      "version": "0.9",
+      "field": "license",
+      "value": "MIT",
+      "unit": "none",
+      "state": "known",
+      "source_refs": ["S2 L8"],
+      "note": "S2 L8 明确说明许可证为 MIT。"
+    },
+    {
+      "record_id": "RS-FILES",
+      "tool": "RunSheet",
+      "version": "2.0",
+      "field": "max_input_files",
+      "value": 20,
+      "unit": "files",
+      "state": "known",
+      "source_refs": ["S3 L4"],
+      "note": "S3 L4 说明一次任务最多接收 20 个输入日志文件。"
+    },
+    {
+      "record_id": "RS-PROTECT",
+      "tool": "RunSheet",
+      "version": "2.0",
+      "field": "input_unchanged",
+      "value": null,
+      "unit": "none",
+      "state": "missing",
+      "source_refs": ["S3 L7"],
+      "note": "S3 L7 未提供工具是否修改输入日志的信息。"
+    },
+    {
+      "record_id": "RS-LICENSE",
+      "tool": "RunSheet",
+      "version": "2.0",
+      "field": "license",
+      "value": null,
+      "unit": "none",
+      "state": "missing",
+      "source_refs": ["S3 L8"],
+      "note": "S3 L8 未提供许可证信息。"
+    },
+    {
+      "record_id": "RUN-01",
+      "tool": "BatchTrace",
+      "version": "0.9",
+      "field": "elapsed_ms",
+      "value": 1250,
+      "unit": "ms",
+      "state": "known",
+      "source_refs": ["E5 L1", "P5 P1:L1"],
+      "note": "E5 L1 给出 duration=1.25，P5 P1:L1 指定秒转毫秒乘以 1000，因此为 1250 ms。"
+    },
+    {
+      "record_id": "RUN-02",
+      "tool": "BatchTrace",
+      "version": "0.9",
+      "field": "elapsed_ms",
+      "value": null,
+      "unit": "ms",
+      "state": "missing",
+      "source_refs": ["E5 L2", "P5 P1:L2"],
+      "note": "E5 L2 的破折号表示未记录，P5 P1:L2 说明其为缺失值，不换算为数值。"
+    },
+    {
+      "record_id": "RUN-03",
+      "tool": "BatchTrace",
+      "version": "0.9",
+      "field": "elapsed_ms",
+      "value": 0,
+      "unit": "ms",
+      "state": "known",
+      "source_refs": ["E5 L3", "P5 P1:L1", "P5 P1:L2"],
+      "note": "E5 L3 给出已记录的 duration=0 秒；P5 P1:L1 指定乘以 1000，P5 P1:L2 说明零值不是缺失，因此为 0 ms。"
+    }
+  ]
+}

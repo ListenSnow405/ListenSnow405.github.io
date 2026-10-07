@@ -1,0 +1,175 @@
+以下主 JSON 已由我对照 D5-v1 固定来源逐条核验；本轮确认它为后续交付依据。
+<checked_json>
+{
+  "schema_version": "1.0",
+  "demand_id": "D5-v1",
+  "records": [
+    {
+      "record_id": "LB-FILES",
+      "tool": "LogBrief",
+      "version": "1.2",
+      "field": "max_input_files",
+      "value": 2,
+      "unit": "files",
+      "state": "known",
+      "source_refs": ["S1:L4"],
+      "note": "一次任务最多接收 2 个输入日志文件。"
+    },
+    {
+      "record_id": "LB-PROTECT",
+      "tool": "LogBrief",
+      "version": "1.2",
+      "field": "input_unchanged",
+      "value": true,
+      "unit": "none",
+      "state": "known",
+      "source_refs": ["S1:L7"],
+      "note": "原文明确说明工具不修改输入日志。"
+    },
+    {
+      "record_id": "LB-LICENSE",
+      "tool": "LogBrief",
+      "version": "1.2",
+      "field": "license",
+      "value": null,
+      "unit": "none",
+      "state": "missing",
+      "source_refs": ["S1:L8"],
+      "note": "说明未提供许可证信息。"
+    },
+    {
+      "record_id": "BT-FILES",
+      "tool": "BatchTrace",
+      "version": "0.9",
+      "field": "max_input_files",
+      "value": null,
+      "unit": "files",
+      "state": "conflict",
+      "source_refs": ["S2:L4", "S5:L2", "S5:L3"],
+      "note": "S2 记载最多 8 个文件，S5 记载最多 4 个；S5 未说明是否取代 S2，也未给出适用条件，冲突未解决。"
+    },
+    {
+      "record_id": "BT-PROTECT",
+      "tool": "BatchTrace",
+      "version": "0.9",
+      "field": "input_unchanged",
+      "value": true,
+      "unit": "none",
+      "state": "known",
+      "source_refs": ["S2:L7"],
+      "note": "原文明确说明工具不修改输入日志。"
+    },
+    {
+      "record_id": "BT-LICENSE",
+      "tool": "BatchTrace",
+      "version": "0.9",
+      "field": "license",
+      "value": "MIT",
+      "unit": "none",
+      "state": "known",
+      "source_refs": ["S2:L8"],
+      "note": "原文明确记载许可证为 MIT。"
+    },
+    {
+      "record_id": "RS-FILES",
+      "tool": "RunSheet",
+      "version": "2.0",
+      "field": "max_input_files",
+      "value": 20,
+      "unit": "files",
+      "state": "known",
+      "source_refs": ["S3:L4"],
+      "note": "一次任务最多接收 20 个输入日志文件。"
+    },
+    {
+      "record_id": "RS-PROTECT",
+      "tool": "RunSheet",
+      "version": "2.0",
+      "field": "input_unchanged",
+      "value": null,
+      "unit": "none",
+      "state": "missing",
+      "source_refs": ["S3:L7"],
+      "note": "说明未提供是否修改输入日志的信息。"
+    },
+    {
+      "record_id": "RS-LICENSE",
+      "tool": "RunSheet",
+      "version": "2.0",
+      "field": "license",
+      "value": null,
+      "unit": "none",
+      "state": "missing",
+      "source_refs": ["S3:L8"],
+      "note": "说明未提供许可证信息。"
+    },
+    {
+      "record_id": "RUN-01",
+      "tool": "BatchTrace",
+      "version": "0.9",
+      "field": "elapsed_ms",
+      "value": 1250,
+      "unit": "ms",
+      "state": "known",
+      "source_refs": ["E5:L1", "P5:P1:L1"],
+      "note": "sim-01 的 duration 为 1.25 s；按 P5 的秒转毫秒规则乘以 1000，得 1250 ms。"
+    },
+    {
+      "record_id": "RUN-02",
+      "tool": "BatchTrace",
+      "version": "0.9",
+      "field": "elapsed_ms",
+      "value": null,
+      "unit": "ms",
+      "state": "missing",
+      "source_refs": ["E5:L2", "P5:P1:L1", "P5:P1:L2"],
+      "note": "sim-02 的 duration 为破折号，表示未记录；P5 规定 duration 单位为 s、输出单位为 ms，此处无数值可换算。"
+    },
+    {
+      "record_id": "RUN-03",
+      "tool": "BatchTrace",
+      "version": "0.9",
+      "field": "elapsed_ms",
+      "value": 0,
+      "unit": "ms",
+      "state": "known",
+      "source_refs": ["E5:L3", "P5:P1:L1", "P5:P1:L2"],
+      "note": "sim-03 的 duration 是已记录的 0 s；按 P5 的秒转毫秒规则乘以 1000，得 0 ms。"
+    }
+  ]
+}
+</checked_json>
+
+本提示词用于同一对话的后续步骤；前提是我已明确确认上一轮完整主 JSON 的值、状态、单位和定位。若没有这份经核验的主记录，请说明缺口并等待，不能从记忆补造。
+
+仅用已核验主 JSON 转写 records.tsv 与 report.md，不重新检索、推断或更改记录。输出两个分别标注文件名的代码块；代码块里的内容将由我手动另存为 UTF-8 无 BOM 文件，不能声称你已创建文件。
+
+TSV：表头依次为 record_id、tool、version、field、value、unit、state、source_refs、note。真正以 TAB 分隔，不能用空格。12 行按原 JSON 顺序；value 的 null 为空单元格，布尔为小写 true/false，整数为十进制规范形式；source_refs 以分号连接。字段按 csv 的 TAB 方言加引号和转义，note 为单行。不填“null”“未知”或“0”代替空值。
+
+Markdown 固定模板如下：保留空行、标题、列顺序和固定说明文字。两个表中的行分别使用主 JSON 的前九条与后三条记录；工具与版本以一个空格连接；字段为原字段名；非 null 的 value 按 TSV 值文本显示，单位不为 none 时追加一个空格与单位；null 显示“未确定”；来源以分号连接。表格单元格先将 &、<、> 转为 HTML 实体，再转义反斜线与管道符。记录说明按 12 条顺序，用“标识：note”写单行列表，note 使用相同转义。不包含以下尖括号占位说明本身。
+
+# 文件整理报告
+
+需求版本：D5-v1
+
+范围：三种虚构工具的九条属性及三条教学模拟实验记录；不作性能排名。
+
+## 工具属性
+
+| 标识 | 工具与版本 | 字段 | 值与单位 | 状态 | 来源 |
+| --- | --- | --- | --- | --- | --- |
+<九条工具属性行>
+
+## 模拟实验记录
+
+| 标识 | 工具与版本 | 字段 | 值与单位 | 状态 | 来源 |
+| --- | --- | --- | --- | --- | --- |
+<三条模拟实验行>
+
+## 记录说明
+
+<十二条标识与 note 列表>
+
+检查边界：来源标签存在与文件一致性不代表事实已核验；须回到原文检查含义与单位。
+
+结束提示：以上只是文本交付，实际保存、运行检查和事实核验由我执行。请把这句提示放在代码块外。

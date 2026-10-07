@@ -1,0 +1,25 @@
+{
+  "system": "Windows",
+  "python": "3.11.9",
+  "versions": {
+    "pypdf": "6.9.0",
+    "reportlab": "4.4.10",
+    "PyMuPDF": "1.27.2.2"
+  },
+  "render_dpi": 150,
+  "ocr_input": "raster-report-render.png",
+  "pdfs": [
+    {
+      "file": "digital-report.pdf",
+      "pages": 1,
+      "text_chars": 260,
+      "sha256": "0060dc827bd36093b5f8d65eb575a8bf786e0a5ae271ce8e76adac822df36c24"
+    },
+    {
+      "file": "raster-report.pdf",
+      "pages": 1,
+      "text_chars": 0,
+      "sha256": "ecb28b6b7f72f2cef613e1f0b2d00a9a9e26d9d3d7794720d65a735a52484d9a"
+    }
+  ]
+}

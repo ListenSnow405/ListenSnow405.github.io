@@ -1,0 +1,7 @@
+使用 grill-with-docs 继续课程资料管理项目的需求讨论。
+读取 docs/brief.md、data/materials.csv 和现有术语或决策文档；缺少的文件如实记录。
+沿用已经确认的单课程、单分类、多标签、组合筛选和空日期规则。
+请核对所需的 grilling、domain-modeling 是否可用；缺少时先说明影响。
+允许在当前 project 中维护 GLOSSARY.md 和 docs/adr/，不修改数据和程序。
+术语确认后记录业务含义；只有影响长期维护且存在真实取舍的决定才建立 ADR。
+输出本轮确认项、修改的文档路径和仍未解决的问题。

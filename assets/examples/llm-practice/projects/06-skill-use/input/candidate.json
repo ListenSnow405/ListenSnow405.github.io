@@ -1,0 +1,166 @@
+{
+  "schema_version": "1.0",
+  "demand_id": "D5-v1",
+  "records": [
+    {
+      "record_id": "LB-FILES",
+      "tool": "LogBrief",
+      "version": "1.2",
+      "field": "max_input_files",
+      "value": 2,
+      "unit": "files",
+      "state": "known",
+      "source_refs": [
+        "S1:L4"
+      ],
+      "note": "一次任务最多 2 个文件。"
+    },
+    {
+      "record_id": "LB-PROTECT",
+      "tool": "LogBrief",
+      "version": "1.2",
+      "field": "input_unchanged",
+      "value": true,
+      "unit": "none",
+      "state": "known",
+      "source_refs": [
+        "S1:L7"
+      ],
+      "note": "原文明确不修改输入日志。"
+    },
+    {
+      "record_id": "LB-LICENSE",
+      "tool": "LogBrief",
+      "version": "1.2",
+      "field": "license",
+      "value": null,
+      "unit": "none",
+      "state": "missing",
+      "source_refs": [
+        "S1:L8"
+      ],
+      "note": "该行明确未提供许可证；保持未知。"
+    },
+    {
+      "record_id": "BT-FILES",
+      "tool": "BatchTrace",
+      "version": "0.9",
+      "field": "max_input_files",
+      "value": 8,
+      "unit": "files",
+      "state": "known",
+      "source_refs": [
+        "S2:L4"
+      ],
+      "note": "采用 S2 的 8 个文件上限。"
+    },
+    {
+      "record_id": "BT-PROTECT",
+      "tool": "BatchTrace",
+      "version": "0.9",
+      "field": "input_unchanged",
+      "value": true,
+      "unit": "none",
+      "state": "known",
+      "source_refs": [
+        "S2:L7"
+      ],
+      "note": "原文明确不修改输入日志。"
+    },
+    {
+      "record_id": "BT-LICENSE",
+      "tool": "BatchTrace",
+      "version": "0.9",
+      "field": "license",
+      "value": "MIT",
+      "unit": "none",
+      "state": "known",
+      "source_refs": [
+        "S2:L8"
+      ],
+      "note": "原文明确许可证为 MIT。"
+    },
+    {
+      "record_id": "RS-FILES",
+      "tool": "RunSheet",
+      "version": "2.0",
+      "field": "max_input_files",
+      "value": 20,
+      "unit": "files",
+      "state": "known",
+      "source_refs": [
+        "S3:L4"
+      ],
+      "note": "一次任务最多 20 个文件。"
+    },
+    {
+      "record_id": "RS-PROTECT",
+      "tool": "RunSheet",
+      "version": "2.0",
+      "field": "input_unchanged",
+      "value": null,
+      "unit": "none",
+      "state": "missing",
+      "source_refs": [
+        "S3:L7"
+      ],
+      "note": "该行明确未提供是否修改输入日志的信息。"
+    },
+    {
+      "record_id": "RS-LICENSE",
+      "tool": "RunSheet",
+      "version": "2.0",
+      "field": "license",
+      "value": "MIT",
+      "unit": "none",
+      "state": "known",
+      "source_refs": [
+        "S3:L8"
+      ],
+      "note": "许可证为 MIT。"
+    },
+    {
+      "record_id": "RUN-01",
+      "tool": "BatchTrace",
+      "version": "0.9",
+      "field": "elapsed_ms",
+      "value": 1250,
+      "unit": "ms",
+      "state": "known",
+      "source_refs": [
+        "E5:L1",
+        "P5:P1:L1"
+      ],
+      "note": "教学模拟记录 sim-01：1.25 s × 1000 = 1250 ms。"
+    },
+    {
+      "record_id": "RUN-02",
+      "tool": "BatchTrace",
+      "version": "0.9",
+      "field": "elapsed_ms",
+      "value": 0,
+      "unit": "ms",
+      "state": "known",
+      "source_refs": [
+        "E5:L2",
+        "P5:P1:L2"
+      ],
+      "note": "sim-02 的耗时记录为 0 ms。"
+    },
+    {
+      "record_id": "RUN-03",
+      "tool": "BatchTrace",
+      "version": "0.9",
+      "field": "elapsed_ms",
+      "value": 0,
+      "unit": "ms",
+      "state": "known",
+      "source_refs": [
+        "E5:L3",
+        "P5:P1:L1",
+        "P5:P1:L2"
+      ],
+      "note": "教学模拟记录 sim-03：0 s 转为 0 ms，是已记录的零值。"
+    }
+  ]
+}

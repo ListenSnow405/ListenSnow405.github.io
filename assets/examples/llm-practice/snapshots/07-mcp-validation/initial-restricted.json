@@ -1,0 +1,6 @@
+{
+  "status": "failed",
+  "request_origin": "fixed_script_not_model",
+  "exception_type": "PermissionError",
+  "exception": "[WinError 5] 拒绝访问。"
+}

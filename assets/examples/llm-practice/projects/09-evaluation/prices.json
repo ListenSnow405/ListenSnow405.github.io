@@ -1,0 +1,7 @@
+{
+  "currency": "DEMO",
+  "basis": "teaching_simulation",
+  "checked_date": "2026-10-05",
+  "source": "人为教学单价，不对应任何产品或真实账单",
+  "per_million": {"input": 2, "cached_input": 0.5, "cache_write_input": 2.5, "output": 8}
+}

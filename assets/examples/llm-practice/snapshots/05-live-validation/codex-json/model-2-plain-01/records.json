@@ -1,0 +1,138 @@
+{
+  "schema_version": "1.0",
+  "demand_id": "D5-v1",
+  "records": [
+    {
+      "record_id": "LB-FILES",
+      "tool": "LogBrief",
+      "version": "1.2",
+      "field": "max_input_files",
+      "value": 2,
+      "unit": "files",
+      "state": "known",
+      "source_refs": ["S1:L4"],
+      "note": "S1 说明每次任务最多接收 2 个输入日志文件。"
+    },
+    {
+      "record_id": "LB-PROTECT",
+      "tool": "LogBrief",
+      "version": "1.2",
+      "field": "input_unchanged",
+      "value": true,
+      "unit": "none",
+      "state": "known",
+      "source_refs": ["S1:L7"],
+      "note": "S1 说明工具不修改输入日志。"
+    },
+    {
+      "record_id": "LB-LICENSE",
+      "tool": "LogBrief",
+      "version": "1.2",
+      "field": "license",
+      "value": null,
+      "unit": "none",
+      "state": "missing",
+      "source_refs": ["S1:L8"],
+      "note": "S1 未提供许可证信息，故许可证未知。"
+    },
+    {
+      "record_id": "BT-FILES",
+      "tool": "BatchTrace",
+      "version": "0.9",
+      "field": "max_input_files",
+      "value": null,
+      "unit": "files",
+      "state": "conflict",
+      "source_refs": ["S2:L4", "S5:L2", "S5:L3"],
+      "note": "S2 记载上限为 8，S5 记载上限为 4；S5 未说明是否更正或取代 S2，也未给出适用条件，无法判定。"
+    },
+    {
+      "record_id": "BT-PROTECT",
+      "tool": "BatchTrace",
+      "version": "0.9",
+      "field": "input_unchanged",
+      "value": true,
+      "unit": "none",
+      "state": "known",
+      "source_refs": ["S2:L7"],
+      "note": "S2 说明工具不修改输入日志。"
+    },
+    {
+      "record_id": "BT-LICENSE",
+      "tool": "BatchTrace",
+      "version": "0.9",
+      "field": "license",
+      "value": "MIT",
+      "unit": "none",
+      "state": "known",
+      "source_refs": ["S2:L8"],
+      "note": "S2 明确记载许可证为 MIT。"
+    },
+    {
+      "record_id": "RS-FILES",
+      "tool": "RunSheet",
+      "version": "2.0",
+      "field": "max_input_files",
+      "value": 20,
+      "unit": "files",
+      "state": "known",
+      "source_refs": ["S3:L4"],
+      "note": "S3 说明每次任务最多接收 20 个输入日志文件。"
+    },
+    {
+      "record_id": "RS-PROTECT",
+      "tool": "RunSheet",
+      "version": "2.0",
+      "field": "input_unchanged",
+      "value": null,
+      "unit": "none",
+      "state": "missing",
+      "source_refs": ["S3:L7"],
+      "note": "S3 未提供工具是否修改输入日志的信息。"
+    },
+    {
+      "record_id": "RS-LICENSE",
+      "tool": "RunSheet",
+      "version": "2.0",
+      "field": "license",
+      "value": null,
+      "unit": "none",
+      "state": "missing",
+      "source_refs": ["S3:L8"],
+      "note": "S3 未提供许可证信息，故许可证未知。"
+    },
+    {
+      "record_id": "RUN-01",
+      "tool": "BatchTrace",
+      "version": "0.9",
+      "field": "elapsed_ms",
+      "value": 1250,
+      "unit": "ms",
+      "state": "known",
+      "source_refs": ["E5:L1", "P5:P1:L1"],
+      "note": "E5 记录 duration=1.25；P5 说明单位为秒且乘以 1000 转为毫秒，结果为 1250 ms。"
+    },
+    {
+      "record_id": "RUN-02",
+      "tool": "BatchTrace",
+      "version": "0.9",
+      "field": "elapsed_ms",
+      "value": null,
+      "unit": "ms",
+      "state": "missing",
+      "source_refs": ["E5:L2", "P5:P1:L2"],
+      "note": "E5 的 duration 为破折号；P5 说明破折号表示未记录，故耗时缺失。"
+    },
+    {
+      "record_id": "RUN-03",
+      "tool": "BatchTrace",
+      "version": "0.9",
+      "field": "elapsed_ms",
+      "value": 0,
+      "unit": "ms",
+      "state": "known",
+      "source_refs": ["E5:L3", "P5:P1:L1", "P5:P1:L2"],
+      "note": "E5 记录 duration=0；P5 说明单位为秒并乘以 1000，且数字 0 表示已记录的零值，结果为 0 ms。"
+    }
+  ]
+}

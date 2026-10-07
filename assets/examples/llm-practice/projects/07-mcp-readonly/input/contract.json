@@ -1,0 +1,120 @@
+{
+  "schema_version": "1.0",
+  "demand_id": "D5-v1",
+  "encoding": "UTF-8 without BOM",
+  "columns": [
+    "record_id",
+    "tool",
+    "version",
+    "field",
+    "value",
+    "unit",
+    "state",
+    "source_refs",
+    "note"
+  ],
+  "records": [
+    {
+      "record_id": "LB-FILES",
+      "tool": "LogBrief",
+      "version": "1.2",
+      "field": "max_input_files",
+      "unit": "files",
+      "value_type": "integer",
+      "minimum": 1
+    },
+    {
+      "record_id": "LB-PROTECT",
+      "tool": "LogBrief",
+      "version": "1.2",
+      "field": "input_unchanged",
+      "unit": "none",
+      "value_type": "boolean"
+    },
+    {
+      "record_id": "LB-LICENSE",
+      "tool": "LogBrief",
+      "version": "1.2",
+      "field": "license",
+      "unit": "none",
+      "value_type": "string"
+    },
+    {
+      "record_id": "BT-FILES",
+      "tool": "BatchTrace",
+      "version": "0.9",
+      "field": "max_input_files",
+      "unit": "files",
+      "value_type": "integer",
+      "minimum": 1
+    },
+    {
+      "record_id": "BT-PROTECT",
+      "tool": "BatchTrace",
+      "version": "0.9",
+      "field": "input_unchanged",
+      "unit": "none",
+      "value_type": "boolean"
+    },
+    {
+      "record_id": "BT-LICENSE",
+      "tool": "BatchTrace",
+      "version": "0.9",
+      "field": "license",
+      "unit": "none",
+      "value_type": "string"
+    },
+    {
+      "record_id": "RS-FILES",
+      "tool": "RunSheet",
+      "version": "2.0",
+      "field": "max_input_files",
+      "unit": "files",
+      "value_type": "integer",
+      "minimum": 1
+    },
+    {
+      "record_id": "RS-PROTECT",
+      "tool": "RunSheet",
+      "version": "2.0",
+      "field": "input_unchanged",
+      "unit": "none",
+      "value_type": "boolean"
+    },
+    {
+      "record_id": "RS-LICENSE",
+      "tool": "RunSheet",
+      "version": "2.0",
+      "field": "license",
+      "unit": "none",
+      "value_type": "string"
+    },
+    {
+      "record_id": "RUN-01",
+      "tool": "BatchTrace",
+      "version": "0.9",
+      "field": "elapsed_ms",
+      "unit": "ms",
+      "value_type": "integer",
+      "minimum": 0
+    },
+    {
+      "record_id": "RUN-02",
+      "tool": "BatchTrace",
+      "version": "0.9",
+      "field": "elapsed_ms",
+      "unit": "ms",
+      "value_type": "integer",
+      "minimum": 0
+    },
+    {
+      "record_id": "RUN-03",
+      "tool": "BatchTrace",
+      "version": "0.9",
+      "field": "elapsed_ms",
+      "unit": "ms",
+      "value_type": "integer",
+      "minimum": 0
+    }
+  ]
+}

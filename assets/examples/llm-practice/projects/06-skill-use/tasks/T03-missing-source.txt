@@ -1,0 +1,4 @@
+使用 $source-record-audit。
+
+对当前练习项目的 input/candidate.json 做只读资料审查。本轮只允许读取 input/sources-no-units.txt、input/contract.json、input/candidate.json、input/review-format.json；按格式文件返回审查 JSON 文本。
+sources-no-units.txt 是本轮唯一允许使用的来源文件，不允许读取完整版 sources.txt。核对可确认的记录，列出缺少依据的部分，不从其他文件、旧对话或参考答案补齐。不要修改或保存文件，不联网，不运行资料描述的工具。
